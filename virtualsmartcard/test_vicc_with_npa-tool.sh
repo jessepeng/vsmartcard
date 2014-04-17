@@ -1,1 +1,0 @@
-../npa/test_vicc_with_npa-tool.sh
