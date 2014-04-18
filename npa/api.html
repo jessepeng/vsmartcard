@@ -1,0 +1,612 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Programming with the nPA Library &mdash; Virtual Smart Card Architecture 2014-04-18 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/breathe.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2014-04-18',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/chip.ico"/>
+    <link rel="top" title="Virtual Smart Card Architecture 2014-04-18 documentation" href="../index.html" />
+    <link rel="prev" title="utils Module" href="../virtualsmartcard/api/virtualsmartcard.utils.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../virtualsmartcard/api/virtualsmartcard.utils.html" title="utils Module"
+             accesskey="P">previous</a></li>
+        <li><a href="../index.html">Virtual Smart Card Architecture 2014-04-18 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="programming-with-the-npa-library">
+<span id="npa-api"></span><h1>Programming with the nPA Library<a class="headerlink" href="#programming-with-the-npa-library" title="Permalink to this headline">¶</a></h1>
+<p>The nPA library includes a generic implementation for Secure Messaging (SM),
+which might also be used in conjunction with other cards. It is implemented to
+be close to ISO 7816 focusing only on encoding rather than implementing
+everything that is needed to get a secure channel. All cryptographic work is
+done by call back functions, which should be appropriatly set for the specific
+card.</p>
+<p>Using the German identity card (neuer Personalausweis, nPA) requires user
+authentication via entry of the PIN. Transmitting the PIN in plaintext is
+risky, since it would be transmitted over the air and could be snooped. That&#8217;s
+why the PACE keyagreement is used to verify the PIN and establish an SM channel
+to the nPA. <a class="reference external" href="../_static/doxygen-npa/group__npa.html#gaadfcaf886bcf7bfeaaa79d5fd9547819">perform_pace()</a> does exactly that and if everything went fine,
+it initializes the card for use of the SM channel. Now <cite>sc_transmit_apdu</cite> or
+any other OpenSC command can be used to securely transmit arbitrary APDUs to
+the card. Next in the Extended Access Control (EAC) are the Terminal
+Authentication (<a class="reference external" href="../_static/doxygen-npa/group__npa.html#ga152ddd07cb17a0a6b6236cb070cb2660">perform_terminal_authentication()</a>) and Chip Authentication
+(<a class="reference external" href="../_static/doxygen-npa/group__npa.html#ga67a77a220072ff1b8d968ede9e390c5b">perform_chip_authentication()</a>). When the EAC was successfull, the card
+will be initialized for the new SM channel. Again, libopensc can directly be
+used to read identity attributes, for example.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Please consider the following overview to the API as incomplete. The
+<a class="reference external" href="../_static/doxygen-npa/modules.html">Doxygen documentation</a> should be
+used as programmer&#8217;s reference.</p>
+</div>
+<div class="section" id="interface-to-german-identity-card-neuer-personalausweis-npa">
+<h2>Interface to German identity card (neuer Personalausweis, nPA)<a class="headerlink" href="#interface-to-german-identity-card-neuer-personalausweis-npa" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="../_static/doxygen-npa/group__npa.html">Doxygen documentation of the nPA module</a>.</p>
+</div>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt id=""><span id="project0group__npa_1gaadfcaf886bcf7bfeaaa79d5fd9547819"></span><div class="line-block">
+<div class="line">int <strong>perform_pace</strong>(sc_card_t * card, struct establish_pace_channel_input pace_input, struct establish_pace_channel_output * pace_output, enum eac_tr_version tr_version)</div>
+</div>
+</dt>
+<dd><p class="first">Establish secure messaging using PACE. </p>
+<p class="last"><p>Modifies <em>card</em> to use the ISO SM driver and initializes the data structures to use the established SM channel.</p>
+<p>Prints certificate description and card holder authorization template if given in a human readable form to stdout. If no secret is given, the user is asked for it. Only <em>pace_input.pin_id</em> is mandatory, the other members of <em>pace_input</em> can be set to <tt class="docutils literal"><span class="pre">0</span></tt> or <tt class="docutils literal"><span class="pre">NULL</span></tt> respectively.</p>
+<p>The buffers in <em>pace_output</em> are allocated using <tt class="docutils literal"><span class="pre">realloc()</span></tt> and should be set to NULL, if empty. If an EF.CardAccess is already present, this file is reused and not fetched from the card.</p>
+<p><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="breatheparameterlist first">
+<li><tt class="first docutils literal"><span class="pre">card</span></tt> - <p></p>
+</li>
+<li><tt class="first docutils literal"><span class="pre">pace_input</span></tt> - <p></p>
+</li>
+<li><tt class="first docutils literal"><span class="pre">pace_output</span></tt> - <p></p>
+</li>
+<li><tt class="first docutils literal"><span class="pre">tr_version</span></tt> - <p>Version of TR-03110 to use with PACE</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><p class="first last"><p><tt class="docutils literal"><span class="pre">SC_SUCCESS</span></tt> or error code if an error occurred </p>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</p>
+</p>
+</dd>
+</dl>
+<dl class="docutils">
+<dt id=""><span id="project0group__npa_1ga152ddd07cb17a0a6b6236cb070cb2660"></span><div class="line-block">
+<div class="line">int <strong>perform_terminal_authentication</strong>(sc_card_t * card, const unsigned char ** certs, const size_t * certs_lens, const unsigned char * privkey, size_t privkey_len, const unsigned char * auxiliary_data, size_t auxiliary_data_len)</div>
+</div>
+</dt>
+<dd><p class="first">Terminal Authentication version 2. </p>
+<p class="last"><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="breatheparameterlist first">
+<li><tt class="first docutils literal"><span class="pre">card</span></tt> - <p></p>
+</li>
+<li><tt class="first docutils literal"><span class="pre">certs</span></tt> - <p>chain of cv certificates, the last certificate is the terminal&#8217;s certificate, array should be terminated with <tt class="docutils literal"><span class="pre">NULL</span></tt></p>
+</li>
+<li><tt class="first docutils literal"><span class="pre">certs_lens</span></tt> - <p>length of each element in <tt class="docutils literal"><span class="pre">certs</span></tt>, should be terminated with <tt class="docutils literal"><span class="pre">0</span></tt></p>
+</li>
+<li><tt class="first docutils literal"><span class="pre">privkey</span></tt> - <p>The terminal&#8217;s private key </p>
+</li>
+<li><tt class="first docutils literal"><span class="pre">privkey_len</span></tt> - <p>length of <em>privkey</em></p>
+</li>
+<li><tt class="first docutils literal"><span class="pre">auxiliary_data</span></tt> - <p>auxiliary data for age/validity/community ID verification. Should be an ASN1 object tagged with <tt class="docutils literal"><span class="pre">0x67</span></tt></p>
+</li>
+<li><tt class="first docutils literal"><span class="pre">auxiliary_data_len</span></tt> - <p>length of <em>auxiliary_data</em></p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><p class="first last"><p><tt class="docutils literal"><span class="pre">SC_SUCCESS</span></tt> or error code if an error occurred </p>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</p>
+</dd>
+</dl>
+<dl class="docutils">
+<dt id=""><span id="project0group__npa_1ga67a77a220072ff1b8d968ede9e390c5b"></span><div class="line-block">
+<div class="line">int <strong>perform_chip_authentication</strong>(sc_card_t * card)</div>
+</div>
+</dt>
+<dd><p class="first">Establish secure messaging using Chip Authentication version 2. </p>
+<p class="last"><p>Switches the SM context of <tt class="docutils literal"><span class="pre">card</span></tt> to the new established keys.</p>
+<p><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="breatheparameterlist first">
+<li><tt class="first docutils literal"><span class="pre">card</span></tt> - <p></p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><p class="first last"><p><tt class="docutils literal"><span class="pre">SC_SUCCESS</span></tt> or error code if an error occurred </p>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</p>
+</p>
+</dd>
+</dl>
+<dl class="docutils">
+<dt id=""><span id="project0group__npa_1ga4c7507f8f35c39d4d24766d51fb868cb"></span><div class="line-block">
+<div class="line">int <strong>npa_reset_retry_counter</strong>(sc_card_t * card, enum s_type pin_id, int ask_for_secret, const char * new, size_t new_len)</div>
+</div>
+</dt>
+<dd><p class="first">Sends a reset retry counter APDU. </p>
+<p class="last"><p>According to TR-03110 the reset retry counter APDU is used to set a new PIN or to reset the retry counter of the PIN. The standard requires this operation to be authorized either by an established PACE channel or by the effective authorization of the terminal&#8217;s certificate.</p>
+<p><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="breatheparameterlist first">
+<li><tt class="first docutils literal"><span class="pre">card</span></tt> - <p></p>
+</li>
+<li><tt class="first docutils literal"><span class="pre">pin_id</span></tt> - <p>Type of secret (usually PIN or CAN). You may use <tt class="docutils literal"><span class="pre">enum</span> <span class="pre">s_type</span></tt> from <tt class="docutils literal"><span class="pre">&lt;openssl/pace.h&gt;</span></tt>. </p>
+</li>
+<li><tt class="first docutils literal"><span class="pre">ask_for_secret</span></tt> - <p>whether to ask the user for the secret (<tt class="docutils literal"><span class="pre">1</span></tt>) or not (<tt class="docutils literal"><span class="pre">0</span></tt>) </p>
+</li>
+<li><tt class="first docutils literal"><span class="pre">new</span></tt> - <p>(optional) new secret </p>
+</li>
+<li><tt class="first docutils literal"><span class="pre">new_len</span></tt> - <p>(optional) length of <em>new</em></p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><p class="first last"><p><tt class="docutils literal"><span class="pre">SC_SUCCESS</span></tt> or error code if an error occurred </p>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</p>
+</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="defines">
+<h3>Defines<a class="headerlink" href="#defines" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt id=""><span id="project0group__npa_1gab81a918e060f80ac74c26b15222a092a"></span><strong>npa_change_pin</strong></dt>
+<dd><p class="first">Send APDU to set a new PIN. </p>
+<p class="last"><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="breatheparameterlist first last">
+<li><tt class="first docutils literal"><span class="pre">card</span></tt> - <p></p>
+</li>
+<li><tt class="first docutils literal"><span class="pre">newp</span></tt> - <p>(optional) new PIN </p>
+</li>
+<li><tt class="first docutils literal"><span class="pre">newplen</span></tt> - <p>(optional) length of <em>new</em></p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</p>
+</dd>
+</dl>
+<dl class="docutils">
+<dt id=""><span id="project0group__npa_1gac48a5e211dbe2e4129b1b05cc5323aaa"></span><strong>npa_unblock_pin</strong></dt>
+<dd><p class="first">Send APDU to unblock the PIN. </p>
+<p class="last"><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="breatheparameterlist first last">
+<li><tt class="first docutils literal"><span class="pre">card</span></tt> - <p></p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>In order to compile and execute this example you need to correctly <a class="reference internal" href="README.html#npa-usage"><em>set up
+your environment</em></a>.</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="cm">/* This example shows how to use the library functions perform_pace to</span>
+<span class="cm"> * get a secure channel to the nPA. We use the builtin function npa_change_pin</span>
+<span class="cm"> * to modify the PIN using the secure channel. Then we transmit an arbitrary</span>
+<span class="cm"> * APDU encrypted and authenticated to the card using sm_transmit_apdu. */</span>
+<span class="cp">#ifdef HAVE_CONFIG_H</span>
+<span class="cp">#include &quot;config.h&quot;</span>
+<span class="cp">#endif</span>
+
+<span class="cp">#include &lt;npa/iso-sm.h&gt;</span>
+<span class="cp">#include &lt;npa/npa.h&gt;</span>
+<span class="cp">#include &lt;npa/scutil.h&gt;</span>
+<span class="cp">#include &lt;string.h&gt;</span>
+
+<span class="k">static</span> <span class="kt">int</span> <span class="n">reader_num</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+
+<span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">newpin</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">pin</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+
+<span class="cm">/* SELECT the Master File (MF) */</span>
+<span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">apdubuf</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xA4</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x0C</span><span class="p">,</span> <span class="mh">0x02</span><span class="p">,</span> <span class="mh">0x3F</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">};</span>
+
+<span class="kt">int</span>
+<span class="nf">main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="cm">/* Set up the environment */</span>
+    <span class="kt">int</span> <span class="n">r</span><span class="p">;</span>
+
+    <span class="kt">sc_context_t</span> <span class="o">*</span><span class="n">ctx</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="kt">sc_card_t</span> <span class="o">*</span><span class="n">card</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="kt">sc_reader_t</span> <span class="o">*</span><span class="n">reader</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+
+    <span class="kt">sc_apdu_t</span> <span class="n">apdu</span><span class="p">;</span>
+    <span class="n">u8</span> <span class="n">buf</span><span class="p">[</span><span class="mh">0xffff</span><span class="p">];</span>
+
+    <span class="k">struct</span> <span class="n">establish_pace_channel_input</span> <span class="n">pace_input</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">establish_pace_channel_output</span> <span class="n">pace_output</span><span class="p">;</span>
+
+    <span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">pace_input</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span> <span class="n">pace_input</span><span class="p">);</span>
+    <span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">pace_output</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span> <span class="n">pace_output</span><span class="p">);</span>
+
+
+    <span class="cm">/* Connect to a reader and the nPA */</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">initialize</span><span class="p">(</span><span class="n">reader_num</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ctx</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">reader</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">r</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Can&#39;t initialize reader</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">sc_connect_card</span><span class="p">(</span><span class="n">reader</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">card</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Could not connect to card</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="n">sc_release_context</span><span class="p">(</span><span class="n">ctx</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="cm">/* initialize OpenPACE */</span>
+    <span class="n">EAC_init</span><span class="p">();</span>
+
+
+    <span class="cm">/* Now we try to change the PIN. Therefor we need to establish a SM channel</span>
+<span class="cm">     * with PACE.</span>
+<span class="cm">     *</span>
+<span class="cm">     * You could set your PIN with pin=“123456”; or just leave it at NULL to be</span>
+<span class="cm">     * asked for it. The same applies to the new PIN newpin. */</span>
+    <span class="n">pace_input</span><span class="p">.</span><span class="n">pin_id</span> <span class="o">=</span> <span class="n">PACE_PIN</span><span class="p">;</span>
+    <span class="n">pace_input</span><span class="p">.</span><span class="n">pin</span> <span class="o">=</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">char</span> <span class="o">*</span><span class="p">)</span> <span class="n">pin</span><span class="p">;</span>
+    <span class="n">pace_input</span><span class="p">.</span><span class="n">pin_length</span> <span class="o">=</span> <span class="n">pin</span> <span class="o">?</span> <span class="n">strlen</span><span class="p">(</span><span class="n">pin</span><span class="p">)</span> <span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="n">r</span> <span class="o">=</span> <span class="n">perform_pace</span><span class="p">(</span><span class="n">card</span><span class="p">,</span> <span class="n">pace_input</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">pace_output</span><span class="p">,</span> <span class="n">EAC_TR_VERSION_2_02</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">r</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">goto</span> <span class="n">err</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Established PACE channel with PIN.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+    <span class="n">r</span> <span class="o">=</span> <span class="n">npa_change_pin</span><span class="p">(</span><span class="n">card</span><span class="p">,</span> <span class="n">newpin</span><span class="p">,</span> <span class="n">newpin</span> <span class="o">?</span> <span class="n">strlen</span><span class="p">(</span><span class="n">newpin</span><span class="p">)</span> <span class="o">:</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">r</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">goto</span> <span class="n">err</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Changed PIN.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+
+    <span class="cm">/* Now we want to transmit additional APDUs in the established SM channel.</span>
+<span class="cm">     *</span>
+<span class="cm">     * Here we are parsing the raw apdu buffer apdubuf to be transformed into</span>
+<span class="cm">     * an sc_apdu_t. Alternatively you could also set CLA, INS, P1, P2, ... by</span>
+<span class="cm">     * hand in the sc_apdu_t object. */</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">sc_bytes2apdu</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">apdubuf</span><span class="p">,</span> <span class="k">sizeof</span> <span class="n">apdubuf</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">apdu</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">r</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">goto</span> <span class="n">err</span><span class="p">;</span>
+
+    <span class="cm">/* write the response data to buf */</span>
+    <span class="n">apdu</span><span class="p">.</span><span class="n">resp</span> <span class="o">=</span> <span class="n">buf</span><span class="p">;</span>
+    <span class="n">apdu</span><span class="p">.</span><span class="n">resplen</span> <span class="o">=</span> <span class="k">sizeof</span> <span class="n">buf</span><span class="p">;</span>
+
+    <span class="cm">/* Transmit the APDU with SM */</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">sc_transmit_apdu</span><span class="p">(</span><span class="n">card</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">apdu</span><span class="p">);</span>
+
+
+<span class="nl">err:</span>
+    <span class="n">fprintf</span><span class="p">(</span><span class="n">r</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="n">stderr</span> <span class="o">:</span> <span class="n">stdout</span><span class="p">,</span> <span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">sc_strerror</span><span class="p">(</span><span class="n">r</span><span class="p">));</span>
+
+    <span class="cm">/* Free up memory and wipe it if necessary (e.g. for keys stored in sm_ctx) */</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">pace_output</span><span class="p">.</span><span class="n">ef_cardaccess</span><span class="p">)</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">pace_output</span><span class="p">.</span><span class="n">ef_cardaccess</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">pace_output</span><span class="p">.</span><span class="n">recent_car</span><span class="p">)</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">pace_output</span><span class="p">.</span><span class="n">recent_car</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">pace_output</span><span class="p">.</span><span class="n">previous_car</span><span class="p">)</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">pace_output</span><span class="p">.</span><span class="n">previous_car</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">pace_output</span><span class="p">.</span><span class="n">id_icc</span><span class="p">)</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">pace_output</span><span class="p">.</span><span class="n">id_icc</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">pace_output</span><span class="p">.</span><span class="n">id_pcd</span><span class="p">)</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">pace_output</span><span class="p">.</span><span class="n">id_pcd</span><span class="p">);</span>
+
+    <span class="n">sm_stop</span><span class="p">(</span><span class="n">card</span><span class="p">);</span>
+    <span class="n">sc_reset</span><span class="p">(</span><span class="n">card</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">sc_disconnect_card</span><span class="p">(</span><span class="n">card</span><span class="p">);</span>
+    <span class="n">sc_release_context</span><span class="p">(</span><span class="n">ctx</span><span class="p">);</span>
+    <span class="n">EAC_cleanup</span><span class="p">();</span>
+
+    <span class="k">return</span> <span class="o">-</span><span class="n">r</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="generic-iso-7816-secure-messaging-sm">
+<h2>Generic ISO 7816 Secure Messaging (SM)<a class="headerlink" href="#generic-iso-7816-secure-messaging-sm" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="../_static/doxygen-npa/group__sm.html">Doxygen documentation of the SM module</a>.</p>
+</div>
+<div class="section" id="types">
+<h3>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><em>struct</em> <strong>iso_sm_ctx</strong></div>
+</div>
+<blockquote>
+<div><p>Secure messaging context. </p>
+<p></p>
+<em>Public Members</em><blockquote>
+<div><dl class="docutils">
+<dt id=""><span id="project0structiso__sm__ctx_1a7e7773a8b35e517c4359062dd665c243"></span>void * <strong>priv_data</strong></dt>
+<dd><p class="first">data of the specific crypto implementation </p>
+<p class="last"></p>
+</dd>
+<dt id=""><span id="project0structiso__sm__ctx_1aaa675246e061c50ad24d7a99a503941b"></span>u8 <strong>padding_indicator</strong></dt>
+<dd><p class="first">Padding-content indicator byte (ISO 7816-4 Table 30) </p>
+<p class="last"></p>
+</dd>
+<dt id=""><span id="project0structiso__sm__ctx_1a1b684475c08789633e0aefc7701ba0ef"></span>size_t <strong>block_length</strong></dt>
+<dd><p class="first">Pad to this block length. </p>
+<p class="last"></p>
+</dd>
+<dt id=""><span id="project0structiso__sm__ctx_1aa717969b9143ca2cf42221b663dc5159"></span>int(* <strong>authenticate</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, const u8 *data, size_t datalen, u8 **outdata)</dt>
+<dd><p class="first">Call back function for authentication of data. </p>
+<p class="last"></p>
+</dd>
+<dt id=""><span id="project0structiso__sm__ctx_1adc83748fd7773a41179bc9e216503953"></span>int(* <strong>verify_authentication</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, const u8 *mac, size_t maclen, const u8 *macdata, size_t macdatalen)</dt>
+<dd><p class="first">Call back function for verifying authentication data. </p>
+<p class="last"></p>
+</dd>
+<dt id=""><span id="project0structiso__sm__ctx_1a70b372ae0ff8b78b252944cce8efd776"></span>int(* <strong>encrypt</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, const u8 *data, size_t datalen, u8 **enc)</dt>
+<dd><p class="first">Call back function for encryption of data. </p>
+<p class="last"></p>
+</dd>
+<dt id=""><span id="project0structiso__sm__ctx_1ad23a094a856bca666a58f79cb0826915"></span>int(* <strong>decrypt</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, const u8 *enc, size_t enclen, u8 **data)</dt>
+<dd><p class="first">Call back function for decryption of data. </p>
+<p class="last"></p>
+</dd>
+<dt id=""><span id="project0structiso__sm__ctx_1ab87cfdba4f6b0fad6335f3990dc85b53"></span>int(* <strong>pre_transmit</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, sc_apdu_t *apdu)</dt>
+<dd><p class="first">Call back function for actions before encoding and encryption of <em>apdu</em>. </p>
+<p class="last"></p>
+</dd>
+<dt id=""><span id="project0structiso__sm__ctx_1a3ecce1b3b37a8f517bae19dd7a1c9be0"></span>int(* <strong>post_transmit</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, sc_apdu_t *sm_apdu)</dt>
+<dd><p class="first">Call back function for actions before decryption and decoding of <em>sm_apdu</em>. </p>
+<p class="last"></p>
+</dd>
+<dt id=""><span id="project0structiso__sm__ctx_1a3ea6de352641343968e59a34c627f0e9"></span>int(* <strong>finish</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, sc_apdu_t *apdu)</dt>
+<dd><p class="first">Call back function for actions after decrypting SM protected APDU. </p>
+<p class="last"></p>
+</dd>
+<dt id=""><span id="project0structiso__sm__ctx_1aa5882025ed44301e3287d8aa0f43963e"></span>void(* <strong>clear_free</strong>)(const struct iso_sm_ctx *ctx)</dt>
+<dd><p class="first">Clears and frees private data. </p>
+<p class="last"></p>
+</dd>
+</dl>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="id1">
+<h3>Functions<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt id=""><span id="project0group__sm_1ga4adeb0bb2adcadf9847e578abff4d245"></span><div class="line-block">
+<div class="line">struct  <a class="reference internal" href="#project0structiso__sm__ctx"><em>iso_sm_ctx</em></a>  * <strong>iso_sm_ctx_create</strong>(void)</div>
+</div>
+</dt>
+<dd><p class="first">Creates a SM context. </p>
+<p class="last"><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return:</th><td class="field-body">SM context or NULL if an error occurred </td>
+</tr>
+</tbody>
+</table>
+</p>
+</dd>
+</dl>
+<dl class="docutils">
+<dt id=""><span id="project0group__sm_1gaf4fcb7951774725d8cd074fcbe177dcd"></span><div class="line-block">
+<div class="line">void <strong>iso_sm_ctx_clear_free</strong>(struct  <a class="reference internal" href="#project0structiso__sm__ctx"><em>iso_sm_ctx</em></a>  * sctx)</div>
+</div>
+</dt>
+<dd><p class="first">Clears and frees the SM context including private data. </p>
+<p class="last"><p>Calls <em>sctx-&gt;clear_free()</em> if available</p>
+<p><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="breatheparameterlist first last">
+<li><tt class="first docutils literal"><span class="pre">sctx</span></tt> - <p>(optional) </p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</p>
+</p>
+</dd>
+</dl>
+<dl class="docutils">
+<dt id=""><span id="project0group__sm_1ga7b8d897ead1ce15c321e6e3957f8ac72"></span><div class="line-block">
+<div class="line">int <strong>iso_sm_start</strong>(struct sc_card * card, struct  <a class="reference internal" href="#project0structiso__sm__ctx"><em>iso_sm_ctx</em></a>  * sctx)</div>
+</div>
+</dt>
+<dd><p class="first">Initializes a card for usage of the ISO SM driver. </p>
+<p class="last"><p>If a SM module has been assigned previously to the card, it will be cleaned up.</p>
+<p><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="breatheparameterlist first">
+<li><tt class="first docutils literal"><span class="pre">card</span></tt> - <p></p>
+</li>
+<li><tt class="first docutils literal"><span class="pre">sctx</span></tt> - <p>will NOT be freed automatically. <em>sctx</em> should be present for the time of the SM session.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><p class="first last"><p><tt class="docutils literal"><span class="pre">SC_SUCCESS</span></tt> or error code if an error occurred </p>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</p>
+</p>
+</dd>
+</dl>
+<dl class="docutils">
+<dt id=""><span id="project0group__sm_1ga559b6cef391942e9db5d6e73ce70ef0c"></span><div class="line-block">
+<div class="line">int <strong>sm_stop</strong>(struct sc_card * card)</div>
+</div>
+</dt>
+<dd><p class="first">Stops SM and frees allocated ressources. </p>
+<p class="last"><p>Calls <em>card-&gt;sm_ctx.ops.close()</em> if available and <tt class="docutils literal"><span class="pre">card-&gt;sm_ctx.sm_mode</span></tt> is <tt class="docutils literal"><span class="pre">SM_MODE_TRANSMIT</span></tt></p>
+<p><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="breatheparameterlist first">
+<li><tt class="first docutils literal"><span class="pre">card</span></tt> - <p></p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><p class="first last"><p><tt class="docutils literal"><span class="pre">SC_SUCCESS</span></tt> or error code if an error occurred </p>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</p>
+</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/vscard-logo_128.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Programming with the nPA Library</a><ul>
+<li><a class="reference internal" href="#interface-to-german-identity-card-neuer-personalausweis-npa">Interface to German identity card (neuer Personalausweis, nPA)</a><ul>
+<li><a class="reference internal" href="#functions">Functions</a></li>
+<li><a class="reference internal" href="#defines">Defines</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#generic-iso-7816-secure-messaging-sm">Generic ISO 7816 Secure Messaging (SM)</a><ul>
+<li><a class="reference internal" href="#types">Types</a></li>
+<li><a class="reference internal" href="#id1">Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../virtualsmartcard/api/virtualsmartcard.utils.html"
+                        title="previous chapter">utils Module</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../virtualsmartcard/api/virtualsmartcard.utils.html" title="utils Module"
+             >previous</a></li>
+        <li><a href="../index.html">Virtual Smart Card Architecture 2014-04-18 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009-2013 by Dominik Oepen and Frank Morgner.
+    </div>
+  </body>
+</html>

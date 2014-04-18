@@ -1,0 +1,309 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>CryptoUtils Module &mdash; Virtual Smart Card Architecture 2014-04-18 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/breathe.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2014-04-18',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/chip.ico"/>
+    <link rel="top" title="Virtual Smart Card Architecture 2014-04-18 documentation" href="../../index.html" />
+    <link rel="up" title="virtualsmartcard Package" href="virtualsmartcard.html" />
+    <link rel="next" title="SEutils Module" href="virtualsmartcard.SEutils.html" />
+    <link rel="prev" title="ConstantDefinitions Module" href="virtualsmartcard.ConstantDefinitions.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="virtualsmartcard.SEutils.html" title="SEutils Module"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="virtualsmartcard.ConstantDefinitions.html" title="ConstantDefinitions Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Virtual Smart Card Architecture 2014-04-18 documentation</a> &raquo;</li>
+          <li><a href="../api.html" >Creating a Virtual Smart Card</a> &raquo;</li>
+          <li><a href="virtualsmartcard.html" accesskey="U">virtualsmartcard Package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="cryptoutils-module">
+<h1>CryptoUtils Module<a class="headerlink" href="#cryptoutils-module" title="Permalink to this headline">¶</a></h1>
+<p class="graphviz">
+<img src="../../_images/inheritance-b8fba058c7fad456ce2bb007e9930c8a815a4f03.png" alt="Inheritance diagram of virtualsmartcard.CryptoUtils" usemap="#inheritance98c12266d9" class="inheritance"/>
+<map id="inheritance98c12266d9" name="inheritance98c12266d9">
+<area shape="rect" id="node1" href="#virtualsmartcard.CryptoUtils.PBKDF2" title="virtualsmartcard.CryptoUtils.PBKDF2" alt="" coords="7,5,260,32"/>
+</map>
+</p>
+<span class="target" id="module-virtualsmartcard.CryptoUtils"></span><dl class="class">
+<dt id="virtualsmartcard.CryptoUtils.PBKDF2">
+<em class="property">class </em><tt class="descclassname">virtualsmartcard.CryptoUtils.</tt><tt class="descname">PBKDF2</tt><big>(</big><em>passphrase</em>, <em>salt</em>, <em>iterations=1000</em>, <em>digestmodule=&lt;module 'Crypto.Hash.SHA' from '/usr/lib/python2.7/dist-packages/Crypto/Hash/SHA.pyc'&gt;</em>, <em>macmodule=&lt;module 'Crypto.Hash.HMAC' from '/usr/lib/python2.7/dist-packages/Crypto/Hash/HMAC.pyc'&gt;</em><big>)</big><a class="headerlink" href="#virtualsmartcard.CryptoUtils.PBKDF2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>PBKDF2.py : PKCS#5 v2.0 Password-Based Key Derivation</p>
+<p>This implementation takes a passphrase and a salt (and optionally an
+iteration count, a digest module, and a MAC module) and provides a
+file-like object from which an arbitrarily-sized key can be read.</p>
+<p>If the passphrase and/or salt are unicode objects, they are encoded as
+UTF-8 before they are processed.</p>
+<p>The idea behind PBKDF2 is to derive a cryptographic key from a
+passphrase and a salt.</p>
+<p>PBKDF2 may also be used as a strong salted password hash.  The
+&#8216;crypt&#8217; function is provided for that purpose.</p>
+<p>Remember: Keys generated using PBKDF2 are only as strong as the
+passphrases they are derived from.</p>
+<dl class="method">
+<dt id="virtualsmartcard.CryptoUtils.PBKDF2._PBKDF2__f">
+<tt class="descname">_PBKDF2__f</tt><big>(</big><em>i</em><big>)</big><a class="headerlink" href="#virtualsmartcard.CryptoUtils.PBKDF2._PBKDF2__f" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="virtualsmartcard.CryptoUtils.PBKDF2._pseudorandom">
+<tt class="descname">_pseudorandom</tt><big>(</big><em>key</em>, <em>msg</em><big>)</big><a class="headerlink" href="#virtualsmartcard.CryptoUtils.PBKDF2._pseudorandom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pseudorandom function.  e.g. HMAC-SHA1</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="virtualsmartcard.CryptoUtils.PBKDF2._setup">
+<tt class="descname">_setup</tt><big>(</big><em>passphrase</em>, <em>salt</em>, <em>iterations</em>, <em>prf</em><big>)</big><a class="headerlink" href="#virtualsmartcard.CryptoUtils.PBKDF2._setup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="virtualsmartcard.CryptoUtils.PBKDF2.close">
+<tt class="descname">close</tt><big>(</big><big>)</big><a class="headerlink" href="#virtualsmartcard.CryptoUtils.PBKDF2.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close the stream.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="virtualsmartcard.CryptoUtils.PBKDF2.crypt">
+<em class="property">static </em><tt class="descname">crypt</tt><big>(</big><em>word</em>, <em>salt=None</em>, <em>iterations=None</em><big>)</big><a class="headerlink" href="#virtualsmartcard.CryptoUtils.PBKDF2.crypt" title="Permalink to this definition">¶</a></dt>
+<dd><p>PBKDF2-based unix crypt(3) replacement.</p>
+<p>The number of iterations specified in the salt overrides the &#8216;iterations&#8217;
+parameter.</p>
+<p>The effective hash length is 192 bits.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="virtualsmartcard.CryptoUtils.PBKDF2.hexread">
+<tt class="descname">hexread</tt><big>(</big><em>octets</em><big>)</big><a class="headerlink" href="#virtualsmartcard.CryptoUtils.PBKDF2.hexread" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the specified number of octets. Return them as hexadecimal.</p>
+<p>Note that len(obj.hexread(n)) == 2*n.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="virtualsmartcard.CryptoUtils.PBKDF2.read">
+<tt class="descname">read</tt><big>(</big><em>bytes</em><big>)</big><a class="headerlink" href="#virtualsmartcard.CryptoUtils.PBKDF2.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the specified number of key bytes.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.CryptoUtils._makesalt">
+<tt class="descclassname">virtualsmartcard.CryptoUtils.</tt><tt class="descname">_makesalt</tt><big>(</big><big>)</big><a class="headerlink" href="#virtualsmartcard.CryptoUtils._makesalt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a 48-bit pseudorandom salt for crypt().</p>
+<p>This function is not suitable for generating cryptographic secrets.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.CryptoUtils.append_padding">
+<tt class="descclassname">virtualsmartcard.CryptoUtils.</tt><tt class="descname">append_padding</tt><big>(</big><em>blocklen</em>, <em>data</em>, <em>padding_class=1</em><big>)</big><a class="headerlink" href="#virtualsmartcard.CryptoUtils.append_padding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append padding to the data. 
+Length of padding depends on length of data and the block size of the
+specified encryption algorithm.
+Different types of padding may be selected via the padding_class parameter</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.CryptoUtils.b64encode">
+<tt class="descclassname">virtualsmartcard.CryptoUtils.</tt><tt class="descname">b64encode</tt><big>(</big><em>data</em>, <em>chars='+/'</em><big>)</big><a class="headerlink" href="#virtualsmartcard.CryptoUtils.b64encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.CryptoUtils.calculate_MAC">
+<tt class="descclassname">virtualsmartcard.CryptoUtils.</tt><tt class="descname">calculate_MAC</tt><big>(</big><em>session_key</em>, <em>message</em>, <em>iv='\x00\x00\x00\x00\x00\x00\x00\x00'</em><big>)</big><a class="headerlink" href="#virtualsmartcard.CryptoUtils.calculate_MAC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cyberflex MAC is the last Block of the input encrypted with DES3-CBC</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.CryptoUtils.cipher">
+<tt class="descclassname">virtualsmartcard.CryptoUtils.</tt><tt class="descname">cipher</tt><big>(</big><em>do_encrypt</em>, <em>cipherspec</em>, <em>key</em>, <em>data</em>, <em>iv=None</em><big>)</big><a class="headerlink" href="#virtualsmartcard.CryptoUtils.cipher" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do a cryptographic operation.
+operation = do_encrypt ? encrypt : decrypt,
+cipherspec must be of the form &#8220;cipher-mode&#8221;, or &#8220;cipher&#8221;</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.CryptoUtils.crypt">
+<tt class="descclassname">virtualsmartcard.CryptoUtils.</tt><tt class="descname">crypt</tt><big>(</big><em>word</em>, <em>salt=None</em>, <em>iterations=None</em><big>)</big><a class="headerlink" href="#virtualsmartcard.CryptoUtils.crypt" title="Permalink to this definition">¶</a></dt>
+<dd><p>PBKDF2-based unix crypt(3) replacement.</p>
+<p>The number of iterations specified in the salt overrides the &#8216;iterations&#8217;
+parameter.</p>
+<p>The effective hash length is 192 bits.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.CryptoUtils.crypto_checksum">
+<tt class="descclassname">virtualsmartcard.CryptoUtils.</tt><tt class="descname">crypto_checksum</tt><big>(</big><em>algo</em>, <em>key</em>, <em>data</em>, <em>iv=None</em>, <em>ssc=None</em><big>)</big><a class="headerlink" href="#virtualsmartcard.CryptoUtils.crypto_checksum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute various types of cryptographic checksums.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>algo</strong> &#8211; A string specifying the algorithm to use. Currently supported
+algorithms are &#8220;MAX&#8221; &#8220;HMAC&#8221; and &#8220;CC&#8221; (Meaning a cryptographic
+checksum as used by the ICAO passports)</li>
+<li><strong>key</strong> &#8211; They key used to computed the cryptographic checksum</li>
+<li><strong>data</strong> &#8211; The data for which to calculate the checksum</li>
+<li><strong>iv</strong> &#8211; Optional. An initialization vector. Only used by the &#8220;MAC&#8221; algorithm</li>
+<li><strong>ssc</strong> &#8211; Optional. A send sequence counter to be prepended to the data.
+Only used by the &#8220;CC&#8221; algorithm</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.CryptoUtils.decrypt">
+<tt class="descclassname">virtualsmartcard.CryptoUtils.</tt><tt class="descname">decrypt</tt><big>(</big><em>cipherspec</em>, <em>key</em>, <em>data</em>, <em>iv=None</em><big>)</big><a class="headerlink" href="#virtualsmartcard.CryptoUtils.decrypt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.CryptoUtils.encrypt">
+<tt class="descclassname">virtualsmartcard.CryptoUtils.</tt><tt class="descname">encrypt</tt><big>(</big><em>cipherspec</em>, <em>key</em>, <em>data</em>, <em>iv=None</em><big>)</big><a class="headerlink" href="#virtualsmartcard.CryptoUtils.encrypt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.CryptoUtils.get_cipher">
+<tt class="descclassname">virtualsmartcard.CryptoUtils.</tt><tt class="descname">get_cipher</tt><big>(</big><em>cipherspec</em>, <em>key</em>, <em>iv=None</em><big>)</big><a class="headerlink" href="#virtualsmartcard.CryptoUtils.get_cipher" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.CryptoUtils.get_cipher_blocklen">
+<tt class="descclassname">virtualsmartcard.CryptoUtils.</tt><tt class="descname">get_cipher_blocklen</tt><big>(</big><em>cipherspec</em><big>)</big><a class="headerlink" href="#virtualsmartcard.CryptoUtils.get_cipher_blocklen" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.CryptoUtils.get_cipher_keylen">
+<tt class="descclassname">virtualsmartcard.CryptoUtils.</tt><tt class="descname">get_cipher_keylen</tt><big>(</big><em>cipherspec</em><big>)</big><a class="headerlink" href="#virtualsmartcard.CryptoUtils.get_cipher_keylen" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.CryptoUtils.hash">
+<tt class="descclassname">virtualsmartcard.CryptoUtils.</tt><tt class="descname">hash</tt><big>(</big><em>hashmethod</em>, <em>data</em><big>)</big><a class="headerlink" href="#virtualsmartcard.CryptoUtils.hash" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.CryptoUtils.operation_on_string">
+<tt class="descclassname">virtualsmartcard.CryptoUtils.</tt><tt class="descname">operation_on_string</tt><big>(</big><em>string1</em>, <em>string2</em>, <em>op</em><big>)</big><a class="headerlink" href="#virtualsmartcard.CryptoUtils.operation_on_string" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.CryptoUtils.protect_string">
+<tt class="descclassname">virtualsmartcard.CryptoUtils.</tt><tt class="descname">protect_string</tt><big>(</big><em>string</em>, <em>password</em>, <em>cipherspec=None</em><big>)</big><a class="headerlink" href="#virtualsmartcard.CryptoUtils.protect_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encrypt and authenticate a string</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.CryptoUtils.read_protected_string">
+<tt class="descclassname">virtualsmartcard.CryptoUtils.</tt><tt class="descname">read_protected_string</tt><big>(</big><em>string</em>, <em>password</em>, <em>cipherspec=None</em><big>)</big><a class="headerlink" href="#virtualsmartcard.CryptoUtils.read_protected_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decrypt a protected string and verify the authentication data</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.CryptoUtils.strip_padding">
+<tt class="descclassname">virtualsmartcard.CryptoUtils.</tt><tt class="descname">strip_padding</tt><big>(</big><em>blocklen</em>, <em>data</em>, <em>padding_class=1</em><big>)</big><a class="headerlink" href="#virtualsmartcard.CryptoUtils.strip_padding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Strip the padding of decrypted data. Returns data without padding</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.CryptoUtils.strxor">
+<tt class="descclassname">virtualsmartcard.CryptoUtils.</tt><tt class="descname">strxor</tt><big>(</big><em>a</em>, <em>b</em><big>)</big><a class="headerlink" href="#virtualsmartcard.CryptoUtils.strxor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.CryptoUtils.test_pbkdf2">
+<tt class="descclassname">virtualsmartcard.CryptoUtils.</tt><tt class="descname">test_pbkdf2</tt><big>(</big><big>)</big><a class="headerlink" href="#virtualsmartcard.CryptoUtils.test_pbkdf2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Module self-test</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/vscard-logo_128.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="virtualsmartcard.ConstantDefinitions.html"
+                        title="previous chapter">ConstantDefinitions Module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="virtualsmartcard.SEutils.html"
+                        title="next chapter">SEutils Module</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="virtualsmartcard.SEutils.html" title="SEutils Module"
+             >next</a></li>
+        <li class="right" >
+          <a href="virtualsmartcard.ConstantDefinitions.html" title="ConstantDefinitions Module"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Virtual Smart Card Architecture 2014-04-18 documentation</a> &raquo;</li>
+          <li><a href="../api.html" >Creating a Virtual Smart Card</a> &raquo;</li>
+          <li><a href="virtualsmartcard.html" >virtualsmartcard Package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009-2013 by Dominik Oepen and Frank Morgner.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,204 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>TLVutils Module &mdash; Virtual Smart Card Architecture 2014-04-18 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/breathe.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2014-04-18',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/chip.ico"/>
+    <link rel="top" title="Virtual Smart Card Architecture 2014-04-18 documentation" href="../../index.html" />
+    <link rel="up" title="virtualsmartcard Package" href="virtualsmartcard.html" />
+    <link rel="next" title="VirtualSmartcard Module" href="virtualsmartcard.VirtualSmartcard.html" />
+    <link rel="prev" title="SmartcardSAM Module" href="virtualsmartcard.SmartcardSAM.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="virtualsmartcard.VirtualSmartcard.html" title="VirtualSmartcard Module"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="virtualsmartcard.SmartcardSAM.html" title="SmartcardSAM Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Virtual Smart Card Architecture 2014-04-18 documentation</a> &raquo;</li>
+          <li><a href="../api.html" >Creating a Virtual Smart Card</a> &raquo;</li>
+          <li><a href="virtualsmartcard.html" accesskey="U">virtualsmartcard Package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="tlvutils-module">
+<h1>TLVutils Module<a class="headerlink" href="#tlvutils-module" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-virtualsmartcard.TLVutils"></span><dl class="function">
+<dt id="virtualsmartcard.TLVutils.bertlv_pack">
+<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">bertlv_pack</tt><big>(</big><em>data</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.bertlv_pack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Packs a bertlv list of 3-tuples (tag, length, newvalue) into a string</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.TLVutils.bertlv_unpack">
+<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">bertlv_unpack</tt><big>(</big><em>data</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.bertlv_unpack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unpacks a bertlv coded string into a list of 3-tuples (tag, length,
+newvalue).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.TLVutils.decodeDiscretionaryDataObjects">
+<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">decodeDiscretionaryDataObjects</tt><big>(</big><em>tlv_data</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.decodeDiscretionaryDataObjects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.TLVutils.decodeExtendedHeaderList">
+<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">decodeExtendedHeaderList</tt><big>(</big><em>tlv_data</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.decodeExtendedHeaderList" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.TLVutils.decodeHeaderList">
+<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">decodeHeaderList</tt><big>(</big><em>tlv_data</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.decodeHeaderList" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.TLVutils.decodeOffsetDataObjects">
+<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">decodeOffsetDataObjects</tt><big>(</big><em>tlv_data</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.decodeOffsetDataObjects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.TLVutils.decodeTagList">
+<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">decodeTagList</tt><big>(</big><em>tlv_data</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.decodeTagList" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.TLVutils.encodeDataOffsetObjects">
+<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">encodeDataOffsetObjects</tt><big>(</big><em>datalist</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.encodeDataOffsetObjects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.TLVutils.encodeDiscretionaryDataObjects">
+<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">encodeDiscretionaryDataObjects</tt><big>(</big><em>datalist</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.encodeDiscretionaryDataObjects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.TLVutils.encodebertlvDatalist">
+<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">encodebertlvDatalist</tt><big>(</big><em>tag</em>, <em>datalist</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.encodebertlvDatalist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.TLVutils.pack">
+<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">pack</tt><big>(</big><em>tlv_data</em>, <em>recalculate_length=False</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.pack" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.TLVutils.simpletlv_pack">
+<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">simpletlv_pack</tt><big>(</big><em>tlv_data</em>, <em>recalculate_length=False</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.simpletlv_pack" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.TLVutils.simpletlv_unpack">
+<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">simpletlv_unpack</tt><big>(</big><em>data</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.simpletlv_unpack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unpacks a simpletlv coded string into a list of 3-tuples (tag, length,
+newvalue).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.TLVutils.tlv_find_tag">
+<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">tlv_find_tag</tt><big>(</big><em>tlv_data</em>, <em>tag</em>, <em>num_results=None</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.tlv_find_tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find (and return) all instances of tag in the given tlv structure (as returned by unpack).
+If num_results is specified then at most that many results will be returned.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.TLVutils.tlv_find_tags">
+<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">tlv_find_tags</tt><big>(</big><em>tlv_data</em>, <em>tags</em>, <em>num_results=None</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.tlv_find_tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find (and return) all instances of tags in the given tlv structure (as
+returned by unpack).  If num_results is specified then at most that many
+results will be returned.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.TLVutils.tlv_unpack">
+<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">tlv_unpack</tt><big>(</big><em>data</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.tlv_unpack" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="virtualsmartcard.TLVutils.unpack">
+<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">unpack</tt><big>(</big><em>data</em>, <em>with_marks=None</em>, <em>offset=0</em>, <em>include_filler=False</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.unpack" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/vscard-logo_128.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="virtualsmartcard.SmartcardSAM.html"
+                        title="previous chapter">SmartcardSAM Module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="virtualsmartcard.VirtualSmartcard.html"
+                        title="next chapter">VirtualSmartcard Module</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="virtualsmartcard.VirtualSmartcard.html" title="VirtualSmartcard Module"
+             >next</a></li>
+        <li class="right" >
+          <a href="virtualsmartcard.SmartcardSAM.html" title="SmartcardSAM Module"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Virtual Smart Card Architecture 2014-04-18 documentation</a> &raquo;</li>
+          <li><a href="../api.html" >Creating a Virtual Smart Card</a> &raquo;</li>
+          <li><a href="virtualsmartcard.html" >virtualsmartcard Package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009-2013 by Dominik Oepen and Frank Morgner.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,179 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>CardGenerator Module &mdash; Virtual Smart Card Architecture 2014-04-18 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/breathe.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2014-04-18',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/chip.ico"/>
+    <link rel="top" title="Virtual Smart Card Architecture 2014-04-18 documentation" href="../../index.html" />
+    <link rel="up" title="virtualsmartcard Package" href="virtualsmartcard.html" />
+    <link rel="next" title="ConstantDefinitions Module" href="virtualsmartcard.ConstantDefinitions.html" />
+    <link rel="prev" title="nPA Module" href="virtualsmartcard.cards.nPA.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="virtualsmartcard.ConstantDefinitions.html" title="ConstantDefinitions Module"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="virtualsmartcard.cards.nPA.html" title="nPA Module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Virtual Smart Card Architecture 2014-04-18 documentation</a> &raquo;</li>
+          <li><a href="../api.html" >Creating a Virtual Smart Card</a> &raquo;</li>
+          <li><a href="virtualsmartcard.html" accesskey="U">virtualsmartcard Package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="cardgenerator-module">
+<h1>CardGenerator Module<a class="headerlink" href="#cardgenerator-module" title="Permalink to this headline">¶</a></h1>
+<p class="graphviz">
+<img src="../../_images/inheritance-fa2d9c038c8ceaf096d77099ba4d70b9f26b844d.png" alt="Inheritance diagram of virtualsmartcard.CardGenerator" usemap="#inheritancecb03a25959" class="inheritance"/>
+<map id="inheritancecb03a25959" name="inheritancecb03a25959">
+<area shape="rect" id="node1" href="#virtualsmartcard.CardGenerator.CardGenerator" title="virtualsmartcard.CardGenerator.CardGenerator" alt="" coords="5,5,331,32"/>
+</map>
+</p>
+<span class="target" id="module-virtualsmartcard.CardGenerator"></span><dl class="class">
+<dt id="virtualsmartcard.CardGenerator.CardGenerator">
+<em class="property">class </em><tt class="descclassname">virtualsmartcard.CardGenerator.</tt><tt class="descname">CardGenerator</tt><big>(</big><em>card_type=None</em>, <em>sam=None</em>, <em>mf=None</em><big>)</big><a class="headerlink" href="#virtualsmartcard.CardGenerator.CardGenerator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>This class is used to generate the SAM and filesystem for the 
+different supported card types. It is also able used for persistent storage
+(in encrypted form) of the card on disks.</p>
+<dl class="method">
+<dt id="virtualsmartcard.CardGenerator.CardGenerator._CardGenerator__generate_cryptoflex">
+<tt class="descname">_CardGenerator__generate_cryptoflex</tt><big>(</big><big>)</big><a class="headerlink" href="#virtualsmartcard.CardGenerator.CardGenerator._CardGenerator__generate_cryptoflex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate the Filesystem and SAM of a cryptoflex card</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="virtualsmartcard.CardGenerator.CardGenerator._CardGenerator__generate_ePass">
+<tt class="descname">_CardGenerator__generate_ePass</tt><big>(</big><big>)</big><a class="headerlink" href="#virtualsmartcard.CardGenerator.CardGenerator._CardGenerator__generate_ePass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate the MF and SAM of an ICAO passport. This method is 
+responsible for generating the filesystem and filling it with content.
+Therefore it must interact with the user by prompting for the MRZ and
+optionally for the path to a photo.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="virtualsmartcard.CardGenerator.CardGenerator._CardGenerator__generate_iso_card">
+<tt class="descname">_CardGenerator__generate_iso_card</tt><big>(</big><big>)</big><a class="headerlink" href="#virtualsmartcard.CardGenerator.CardGenerator._CardGenerator__generate_iso_card" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="virtualsmartcard.CardGenerator.CardGenerator._CardGenerator__generate_nPA">
+<tt class="descname">_CardGenerator__generate_nPA</tt><big>(</big><big>)</big><a class="headerlink" href="#virtualsmartcard.CardGenerator.CardGenerator._CardGenerator__generate_nPA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="virtualsmartcard.CardGenerator.CardGenerator.generateCard">
+<tt class="descname">generateCard</tt><big>(</big><big>)</big><a class="headerlink" href="#virtualsmartcard.CardGenerator.CardGenerator.generateCard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a new card</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="virtualsmartcard.CardGenerator.CardGenerator.getCard">
+<tt class="descname">getCard</tt><big>(</big><big>)</big><a class="headerlink" href="#virtualsmartcard.CardGenerator.CardGenerator.getCard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the MF and SAM from the current card</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="virtualsmartcard.CardGenerator.CardGenerator.loadCard">
+<tt class="descname">loadCard</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#virtualsmartcard.CardGenerator.CardGenerator.loadCard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a card from disk</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="virtualsmartcard.CardGenerator.CardGenerator.saveCard">
+<tt class="descname">saveCard</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#virtualsmartcard.CardGenerator.CardGenerator.saveCard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the currently running card to disk</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="virtualsmartcard.CardGenerator.CardGenerator.setCard">
+<tt class="descname">setCard</tt><big>(</big><em>mf=None</em>, <em>sam=None</em><big>)</big><a class="headerlink" href="#virtualsmartcard.CardGenerator.CardGenerator.setCard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the MF and SAM of the current card</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/vscard-logo_128.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="virtualsmartcard.cards.nPA.html"
+                        title="previous chapter">nPA Module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="virtualsmartcard.ConstantDefinitions.html"
+                        title="next chapter">ConstantDefinitions Module</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="virtualsmartcard.ConstantDefinitions.html" title="ConstantDefinitions Module"
+             >next</a></li>
+        <li class="right" >
+          <a href="virtualsmartcard.cards.nPA.html" title="nPA Module"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Virtual Smart Card Architecture 2014-04-18 documentation</a> &raquo;</li>
+          <li><a href="../api.html" >Creating a Virtual Smart Card</a> &raquo;</li>
+          <li><a href="virtualsmartcard.html" >virtualsmartcard Package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009-2013 by Dominik Oepen and Frank Morgner.
+    </div>
+  </body>
+</html>
