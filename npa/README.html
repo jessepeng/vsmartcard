@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>nPA Smart Card Library &mdash; Virtual Smart Card Architecture 2014-04-18 documentation</title>
+    <title>nPA Smart Card Library &mdash; Virtual Smart Card Architecture 2014-05-02 documentation</title>
     
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2014-04-18',
+        VERSION:     '2014-05-02',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,7 +26,7 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="shortcut icon" href="../_static/chip.ico"/>
-    <link rel="top" title="Virtual Smart Card Architecture 2014-04-18 documentation" href="../index.html" />
+    <link rel="top" title="Virtual Smart Card Architecture 2014-05-02 documentation" href="../index.html" />
     <link rel="next" title="Creating a Virtual Smart Card" href="../virtualsmartcard/api.html" />
     <link rel="prev" title="USB CCID Emulator" href="../ccid/README.html" /> 
   </head>
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="../ccid/README.html" title="USB CCID Emulator"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Virtual Smart Card Architecture 2014-04-18 documentation</a> &raquo;</li> 
+        <li><a href="../index.html">Virtual Smart Card Architecture 2014-05-02 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -78,7 +78,7 @@
 (neuer Personalausweis, nPA). The library also implements secure messaging,
 which could also be used for other cards. The included <strong class="command">npa-tool</strong> can
 be used for PIN management or to send APDUs inside a secure channel.</p>
-<p>The nPA Smart Card Library is implemented using <a class="reference external" href="http://openpace.sourceforge.net">OpenPACE</a> <a class="footnote-reference" href="#id1" id="id2">[1]</a> and <a class="reference external" href="https://github.com/OpenSC/OpenSC">OpenSC</a> <a class="footnote-reference" href="#id4" id="id5">[2]</a>. nPA Smart Card Library
+<p>The nPA Smart Card Library is implemented using <a class="reference external" href="https://frankmorgner.github.io/vsmartcard/">OpenPACE</a> <a class="footnote-reference" href="#id1" id="id2">[1]</a> and <a class="reference external" href="https://github.com/OpenSC/OpenSC">OpenSC</a> <a class="footnote-reference" href="#id4" id="id5">[2]</a>. nPA Smart Card Library
 implements and initializes Secure Messaging wrappers of OpenSC to allow a
 transparent SM usage in OpenSC. This allows nPA Smart Card Library to be fully
 compatible with OpenSC.</p>
@@ -129,7 +129,7 @@ make install
 </div>
 <p>The nPA Smart Card Library has the following dependencies:</p>
 <ul class="simple">
-<li><a class="reference external" href="http://openpace.sourceforge.net">OpenPACE</a> <a class="footnote-reference" href="#id1" id="id3">[1]</a></li>
+<li><a class="reference external" href="https://frankmorgner.github.io/vsmartcard/">OpenPACE</a> <a class="footnote-reference" href="#id1" id="id3">[1]</a></li>
 <li><a class="reference external" href="https://github.com/OpenSC/OpenSC">OpenSC</a> <a class="footnote-reference" href="#id4" id="id6">[2]</a></li>
 <li><a class="reference external" href="http://www.openssl.org">OpenSSL</a> <a class="footnote-reference" href="#id7" id="id8">[3]</a></li>
 </ul>
@@ -140,7 +140,7 @@ Here is an example of how to get the standard installation of OpenPACE (with
 the required binaries for OpenSSL):</p>
 <div class="highlight-sh"><div class="highlight"><pre><span class="nv">PREFIX</span><span class="o">=</span>/tmp/install
 <span class="nv">OPENPACE</span><span class="o">=</span><span class="nv">$PWD</span>/openpace
-git clone http://git.code.sf.net/p/openpace/git <span class="nv">$OPENPACE</span>
+git clone https://github.com/frankmorgner/openpace.git <span class="nv">$OPENPACE</span>
 <span class="nb">cd</span> <span class="nv">$OPENPACE</span>
 autoreconf --verbose --install
 <span class="c"># with `--enable-openssl-install` OpenSSL will be downloaded and installed along with OpenPACE</span>
@@ -156,7 +156,7 @@ make install <span class="o">&amp;&amp;</span> <span class="nb">cd</span> -
 <tt class="file docutils literal"><span class="pre">libopensc.so</span></tt>). Here is an example of how to get a suitable installation
 of OpenSC:</p>
 <div class="highlight-sh"><div class="highlight"><pre><span class="nv">VSMARTCARD</span><span class="o">=</span><span class="nv">$PWD</span>/vsmartcard
-git clone http://git.code.sf.net/p/vsmartcard/git <span class="nv">$VSMARTCARD</span>
+git clone https://github.com/frankmorgner/vsmartcard.git <span class="nv">$VSMARTCARD</span>
 <span class="nb">cd</span> <span class="nv">$VSMARTCARD</span>
 git submodule init
 git submodule update
@@ -336,7 +336,7 @@ more than welcome! Please use our <a class="reference external" href="https://gi
 <table class="docutils footnote" frame="void" id="id1" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id3">2</a>)</em> <a class="reference external" href="http://openpace.sourceforge.net">http://openpace.sourceforge.net</a></td></tr>
+<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id3">2</a>)</em> <a class="reference external" href="https://frankmorgner.github.io/vsmartcard/">https://frankmorgner.github.io/vsmartcard/</a></td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id4" rules="none">
@@ -415,7 +415,7 @@ more than welcome! Please use our <a class="reference external" href="https://gi
         <li class="right" >
           <a href="../ccid/README.html" title="USB CCID Emulator"
              >previous</a> |</li>
-        <li><a href="../index.html">Virtual Smart Card Architecture 2014-04-18 documentation</a> &raquo;</li> 
+        <li><a href="../index.html">Virtual Smart Card Architecture 2014-05-02 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
