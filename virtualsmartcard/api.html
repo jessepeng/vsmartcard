@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Creating a Virtual Smart Card &mdash; Virtual Smart Card Architecture 2014-05-02 documentation</title>
+    <title>Creating a Virtual Smart Card &mdash; Virtual Smart Card Architecture 2014-05-26 documentation</title>
     
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2014-05-02',
+        VERSION:     '2014-05-26',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,7 +26,7 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="shortcut icon" href="../_static/chip.ico"/>
-    <link rel="top" title="Virtual Smart Card Architecture 2014-05-02 documentation" href="../index.html" />
+    <link rel="top" title="Virtual Smart Card Architecture 2014-05-26 documentation" href="../index.html" />
     <link rel="next" title="virtualsmartcard Package" href="api/virtualsmartcard.html" />
     <link rel="prev" title="nPA Smart Card Library" href="../npa/README.html" /> 
   </head>
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="../npa/README.html" title="nPA Smart Card Library"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Virtual Smart Card Architecture 2014-05-02 documentation</a> &raquo;</li> 
+        <li><a href="../index.html">Virtual Smart Card Architecture 2014-05-26 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -149,7 +149,7 @@ is only a buffer that is forwarded to the smart card OS. First we modify
 <a class="reference internal" href="api/virtualsmartcard.VirtualSmartcard.html#virtualsmartcard.VirtualSmartcard.CryptoflexOS" title="virtualsmartcard.VirtualSmartcard.CryptoflexOS"><tt class="xref py py-class docutils literal"><span class="pre">CryptoflexOS</span></tt></a>. The
 <a class="reference internal" href="api/virtualsmartcard.CardGenerator.html#module-virtualsmartcard.CardGenerator" title="virtualsmartcard.CardGenerator"><tt class="xref py py-class docutils literal"><span class="pre">CardGenerator</span></tt></a> is used to create a file system and a
 <abbr title="Secure Access Module">SAM</abbr> specific to the cryptoflex (we come back to this later).</p>
-<div class="highlight-python"><div class="highlight"><pre>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">card_type</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">readernum</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ef_cardsecurity</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ef_cardaccess</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ca_key</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">cvca</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">disable_checks</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">logginglevel</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">datasetfile</span><span class="p">,</span> <span class="n">card_type</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">readernum</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ef_cardsecurity</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ef_cardaccess</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ca_key</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">cvca</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">disable_checks</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">logginglevel</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">):</span>
         <span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">exists</span>
         
         <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span> <span class="o">=</span> <span class="n">logginglevel</span><span class="p">,</span> 
@@ -167,18 +167,28 @@ is only a buffer that is forwarded to the smart card OS. First we modify
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Creating new card which will be saved in </span><span class="si">%s</span><span class="s">.&quot;</span><span class="p">,</span>
                               <span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+
+<span class="hll">        <span class="c">#If a dataset file is specified, read the card&#39;s data groups from disk</span>
+</span>        <span class="k">if</span> <span class="n">datasetfile</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">exists</span><span class="p">(</span><span class="n">datasetfile</span><span class="p">):</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Reading Data Groups from file </span><span class="si">%s</span><span class="s">.&quot;</span><span class="p">,</span>
+                        <span class="n">datasetfile</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cardGenerator</span><span class="o">.</span><span class="n">readDatagroups</span><span class="p">(</span><span class="n">datasetfile</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Data Set File </span><span class="si">%s</span><span class="s"> not found, using default values for datagroups.&quot;</span><span class="p">,</span>
+<span class="hll">                    <span class="bp">self</span><span class="o">.</span><span class="n">datasetfile</span><span class="p">)</span>
+</span><span class="hll">
+</span>        <span class="n">MF</span><span class="p">,</span> <span class="n">SAM</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cardGenerator</span><span class="o">.</span><span class="n">getCard</span><span class="p">()</span>
         
-<span class="hll">        <span class="n">MF</span><span class="p">,</span> <span class="n">SAM</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cardGenerator</span><span class="o">.</span><span class="n">getCard</span><span class="p">()</span>
-</span>        
         <span class="c">#Generate an OS object of the correct card_type</span>
         <span class="k">if</span> <span class="n">card_type</span> <span class="o">==</span> <span class="s">&quot;iso7816&quot;</span> <span class="ow">or</span> <span class="n">card_type</span> <span class="o">==</span> <span class="s">&quot;ePass&quot;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">os</span> <span class="o">=</span> <span class="n">Iso7816OS</span><span class="p">(</span><span class="n">MF</span><span class="p">,</span> <span class="n">SAM</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">card_type</span> <span class="o">==</span> <span class="s">&quot;nPA&quot;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">os</span> <span class="o">=</span> <span class="n">NPAOS</span><span class="p">(</span><span class="n">MF</span><span class="p">,</span> <span class="n">SAM</span><span class="p">,</span> <span class="n">ef_cardsecurity</span><span class="o">=</span><span class="n">ef_cardsecurity</span><span class="p">,</span> <span class="n">ef_cardaccess</span><span class="o">=</span><span class="n">ef_cardaccess</span><span class="p">,</span> <span class="n">ca_key</span><span class="o">=</span><span class="n">ca_key</span><span class="p">,</span> <span class="n">cvca</span><span class="o">=</span><span class="n">cvca</span><span class="p">,</span> <span class="n">disable_checks</span><span class="o">=</span><span class="n">disable_checks</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">card_type</span> <span class="o">==</span> <span class="s">&quot;cryptoflex&quot;</span><span class="p">:</span>
-<span class="hll">            <span class="bp">self</span><span class="o">.</span><span class="n">os</span> <span class="o">=</span> <span class="n">CryptoflexOS</span><span class="p">(</span><span class="n">MF</span><span class="p">,</span> <span class="n">SAM</span><span class="p">)</span>
-</span><span class="hll">        <span class="k">elif</span> <span class="n">card_type</span> <span class="o">==</span> <span class="s">&quot;relay&quot;</span><span class="p">:</span>
-</span>            <span class="bp">self</span><span class="o">.</span><span class="n">os</span> <span class="o">=</span> <span class="n">RelayOS</span><span class="p">(</span><span class="n">readernum</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">os</span> <span class="o">=</span> <span class="n">CryptoflexOS</span><span class="p">(</span><span class="n">MF</span><span class="p">,</span> <span class="n">SAM</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">card_type</span> <span class="o">==</span> <span class="s">&quot;relay&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">os</span> <span class="o">=</span> <span class="n">RelayOS</span><span class="p">(</span><span class="n">readernum</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">card_type</span> <span class="o">==</span> <span class="s">&quot;handler_test&quot;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">os</span> <span class="o">=</span> <span class="n">HandlerTestOS</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
@@ -479,7 +489,7 @@ forward, but see yourself...</p>
         <li class="right" >
           <a href="../npa/README.html" title="nPA Smart Card Library"
              >previous</a> |</li>
-        <li><a href="../index.html">Virtual Smart Card Architecture 2014-05-02 documentation</a> &raquo;</li> 
+        <li><a href="../index.html">Virtual Smart Card Architecture 2014-05-26 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
