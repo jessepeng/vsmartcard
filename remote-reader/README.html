@@ -1,0 +1,219 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Remote Smart Card Reader &mdash; Virtual Smart Card Architecture 2014-06-16 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/breathe.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2014-06-16',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/chip.ico"/>
+    <link rel="top" title="Virtual Smart Card Architecture 2014-06-16 documentation" href="../index.html" />
+    <link rel="next" title="PC/SC Relay" href="../pcsc-relay/README.html" />
+    <link rel="prev" title="Virtual Smart Card" href="../virtualsmartcard/README.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../pcsc-relay/README.html" title="PC/SC Relay"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="../virtualsmartcard/README.html" title="Virtual Smart Card"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Virtual Smart Card Architecture 2014-06-16 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="remote-smart-card-reader">
+<span id="remote-reader"></span><h1>Remote Smart Card Reader<a class="headerlink" href="#remote-smart-card-reader" title="Permalink to this headline">¶</a></h1>
+<div class="sidebar">
+<p class="first sidebar-title">Summary</p>
+<p>Use an Android smartphone with NFC as contact-less smart card reader</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body"><a class="reference external" href="mailto:morgner&#37;&#52;&#48;informatik&#46;hu-berlin&#46;de">Frank Morgner</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">License:</th><td class="field-body">GPL version 3</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Tested Platform:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">Android, CyanogenMod</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The Remote Smart Card Reader allows a host computer to use the smartphone&#8217;s NFC
+hardware as contact-less smart card reader. On the host computer, a special
+smart card driver, <abbr title="virtual smart card reader">vpcd</abbr> must be installed. The Remote Smart Card Reader
+establishes a connection to <abbr title="virtual smart card reader">vpcd</abbr> over the network when a contact-less card is
+detected. Since <abbr title="virtual smart card reader">vpcd</abbr> integrates seamlessly into the PC/SC framework of the
+host system, so the contact-less card can be accessed by a typical smart card
+application, for example <a class="reference external" href="https://github.com/OpenSC/OpenSC">OpenSC</a> <a class="footnote-reference" href="#id1" id="id2">[1]</a>.</p>
+<div class="figure">
+<p><img src="../_images/tikz-dcb615ed99211e8f2024f3b389e875ea560fefb1.png" alt="\input{%(wd)s/bilder/tikzstyles.tex}
+    \node (pcsc) [klein, aktivbox, inner xsep=.75cm, align=center] {PC/SC\\Framework};
+\node (sca) [aktivbox, klein, left=.75cm of pcsc, align=center] {Smart Card\\Application};
+\node (vpcd) [box, at=(pcsc.east), kleiner] {\texttt{vpcd}};
+\node (phone) [right=1cm of vpcd] {\includegraphics[width=3cm]{%(wd)s/bilder/smartphone.pdf}};
+\node (app) [at=(phone.center)] {\includegraphics[width=2.8cm, height=4.9cm]{%(wd)s/bilder/remote-reader.png}};
+\node (card) [right=0cm of phone, rotate=45] {\includegraphics[width=2cm]{%(wd)s/bilder/smartcard.pdf}};
+
+\begin{pgfonlayer}{background}
+    \node (box) [box, fit=(pcsc) (sca) (vpcd), inner ysep=1.5em] {};
+    \node [at=(box.north west)] {\includegraphics[width=1cm]{%(wd)s/bilder/computer-tango.pdf}};
+    \path[linie]
+    (sca) edge (pcsc)
+    (vpcd) edge (app)
+    ;
+    \draw [rfid] (phone.center) -- (card.center) ;
+\end{pgfonlayer}" /></p>
+<p class="caption">Remote Smart Card Reader used to access a contact-less card</p></div><p>The Remote Smart Card Reader has the following dependencies:</p>
+<ul class="simple">
+<li>NFC hardware built into the smartphone</li>
+<li>Android 3.0 &#8220;Honeycomb&#8221; (or newer) or CyanogenMod 8 (or newer)</li>
+<li>permissions for a data connection (communication with <abbr title="virtual smart card reader">vpcd</abbr>) and for using
+NFC (communication to the card)</li>
+<li><abbr title="virtual smart card reader">vpcd</abbr> <a class="reference internal" href="../virtualsmartcard/README.html#vicc-install"><em>installed on the host computer</em></a></li>
+</ul>
+<p>For remotely accessing a traditional smart card reader on one computer from an
+other computer, the <a class="reference internal" href="../virtualsmartcard/README.html#vicc"><em>Virtual Smart Card</em></a> in relay mode can be used:</p>
+<div class="figure">
+<p><img src="../_images/tikz-ca376c726a2850715f3524d9094145915de12eb3.png" alt="\input{%(wd)s/bilder/tikzstyles.tex}
+    \node (pcsc) [klein, aktivbox, inner xsep=.75cm, align=center] {PC/SC\\Framework};
+\node (sca) [aktivbox, klein, left=.75cm of pcsc, align=center] {Smart Card\\Application};
+\node (vpcd) [box, at=(pcsc.east), kleiner] {\texttt{vpcd}};
+    \node (pcsc2) [klein, aktivbox, inner xsep=.75cm, align=center, below=2.5cm of vpcd] {PC/SC\\Framework};
+\node (vicc) [aktivbox, left=1cm of pcsc2, kleiner] {\texttt{vicc -t relay}};
+\node (reader) [right=1cm of pcsc2] {\includegraphics[width=2cm]{%(wd)s/bilder/my_cardreader.pdf}};
+\node (card) [at=(reader.east), rotate=45] {\includegraphics[width=2cm]{%(wd)s/bilder/smartcard.pdf}};
+
+\begin{pgfonlayer}{background}
+    \node (box) [box, fit=(pcsc) (sca) (vpcd), inner ysep=1.5em] {};
+    \node (box2) [box, fit=(vicc) (pcsc2), inner ysep=1.5em] {};
+    \node [at=(box.north west)] {\includegraphics[width=1cm]{%(wd)s/bilder/computer-tango.pdf}};
+    \node [at=(box2.north west)] {\includegraphics[width=1cm]{%(wd)s/bilder/computer-tango.pdf}};
+    \path[linie]
+    (sca) edge (pcsc)
+    (vpcd) edge [out=south, in=north] (vicc)
+    (vicc) edge (pcsc2)
+    (pcsc2) edge (reader)
+    ;
+\end{pgfonlayer}" /></p>
+<p class="caption">Virtual Smart Card used in relay mode to remotely access a card</p></div><div class="section" id="download-and-install">
+<h2>Download and Install<a class="headerlink" href="#download-and-install" title="Permalink to this headline">¶</a></h2>
+<p>The Remote Smart Card Reader is not (yet) available in
+any App Store. To use it you need to fetch it from source:</p>
+<div class="highlight-sh"><div class="highlight"><pre>git clone https://github.com/frankmorgner/vsmartcard.git
+</pre></div>
+</div>
+<p>We use <a class="reference external" href="http://developer.android.com/sdk/installing/studio.html">Android Studio</a> <a class="footnote-reference" href="#id3" id="id4">[2]</a> to build and deploy the application. Use
+<em class="menuselection">File ‣ Open</em> to select <tt class="file docutils literal"><span class="pre">vsmartcard/remote-reader</span></tt>.
+Attach your smartphone and choose <em class="menuselection">Run ‣ Run &#8216;app&#8217;</em>.</p>
+</div>
+<div class="section" id="question">
+<h2>Question<a class="headerlink" href="#question" title="Permalink to this headline">¶</a></h2>
+<p>Do you have questions, suggestions or contributions? Feedback of any kind is
+more than welcome! Please use our <a class="reference external" href="https://github.com/frankmorgner/vsmartcard/issues">project trackers</a>.</p>
+</div>
+<div class="section" id="notes-and-references">
+<h2>Notes and References<a class="headerlink" href="#notes-and-references" title="Permalink to this headline">¶</a></h2>
+<table class="docutils footnote" frame="void" id="id1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td><a class="reference external" href="https://github.com/OpenSC/OpenSC">https://github.com/OpenSC/OpenSC</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[2]</a></td><td><a class="reference external" href="http://developer.android.com/sdk/installing/studio.html">http://developer.android.com/sdk/installing/studio.html</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/vscard-logo_128.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Remote Smart Card Reader</a><ul>
+<li><a class="reference internal" href="#download-and-install">Download and Install</a></li>
+<li><a class="reference internal" href="#question">Question</a></li>
+<li><a class="reference internal" href="#notes-and-references">Notes and References</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../virtualsmartcard/README.html"
+                        title="previous chapter">Virtual Smart Card</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../pcsc-relay/README.html"
+                        title="next chapter">PC/SC Relay</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../pcsc-relay/README.html" title="PC/SC Relay"
+             >next</a></li>
+        <li class="right" >
+          <a href="../virtualsmartcard/README.html" title="Virtual Smart Card"
+             >previous</a> |</li>
+        <li><a href="../index.html">Virtual Smart Card Architecture 2014-06-16 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009-2013 by Dominik Oepen and Frank Morgner.
+    </div>
+  </body>
+</html>
