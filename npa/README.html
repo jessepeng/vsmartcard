@@ -333,13 +333,22 @@ cc example.c -I<span class="nv">$VSMARTCARD</span>/npa/src/opensc <span class="s
 OpenSC.</p>
 <p>To let OpenSC recognize the German ID card we implemented an external card
 driver. We supply a sample <tt class="file docutils literal"><span class="pre">opensc.conf</span></tt> which adds our driver to all
-components of OpenSC.</p>
+components of OpenSC. Load it by setting <span class="target" id="index-0"></span><tt class="xref std std-envvar docutils literal"><span class="pre">OPENSC_CONF</span></tt>:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="nb">export </span><span class="nv">OPENSC_CONF</span><span class="o">=</span><span class="nv">$VSMARTCARD</span>/npa/opensc.conf
+</pre></div>
+</div>
+<p>On Windows you need to use <strong class="command">set</strong> instead of <strong class="command">export</strong>. In
+<tt class="file docutils literal"><span class="pre">npa-0.6_win32</span></tt> do the following:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="nb">cd </span>bin
+<span class="nb">set </span><span class="nv">OPENSC_CONF</span><span class="o">=</span>..<span class="se">\e</span>tc<span class="se">\o</span>pensc.conf
+</pre></div>
+</div>
 <p>The card driver recognizes the PIN verification method by it&#8217;s ID. MRZ, CAN,
 eID-PIN and PUK are verified using <abbr title="Password Authenticated Connection Establishment">PACE</abbr> (ID <tt class="docutils literal"><span class="pre">0x01</span></tt>, <tt class="docutils literal"><span class="pre">0x02</span></tt>, <tt class="docutils literal"><span class="pre">0x03</span></tt> and
 <tt class="docutils literal"><span class="pre">0x04</span></tt>). The eSign PIN (ID <tt class="docutils literal"><span class="pre">0x83</span></tt>) is verified using a standard ISO-7816-4
 VERIFY command. Here, for example, we show how to verify the eID-PIN &#8220;123456&#8221;
 with <strong class="command">opensc-explorer</strong>:</p>
-<div class="highlight-sh"><div class="highlight"><pre><span class="nv">OPENSC_CONF</span><span class="o">=</span><span class="nv">$VSMARTCARD</span>/npa/opensc.conf opensc-explorer
+<div class="highlight-sh"><div class="highlight"><pre>opensc-explorer
 OpenSC <span class="o">[</span>3F00<span class="o">]</span>&gt; verify CHV3 313233343536
 Code correct.
 </pre></div>
@@ -349,8 +358,8 @@ structures with an other external library. Currently, the PKCS#15 emulator does
 not support private key and certificate objects for qualified electronic
 signature but only the PIN objects. For example, you can change the eID-PIN
 using the <strong class="command">pkcs15-tool</strong>:</p>
-<div class="highlight-sh"><div class="highlight"><pre><span class="nv">OPENSC_CONF</span><span class="o">=</span><span class="nv">$VSMARTCARD</span>/npa/opensc.conf pkcs15-tool --change-pin --auth-id 03 <span class="se">\</span>
-    --pin<span class="o">=</span>123456 --new-pin<span class="o">=</span>abcdef            <span class="c"># yes, an ASCII eID-PIN is allowed</span>
+<div class="highlight-sh"><div class="highlight"><pre>pkcs15-tool --change-pin --auth-id 03 <span class="se">\</span>
+    --pin<span class="o">=</span>123456 --new-pin<span class="o">=</span>abcdef     <span class="c"># yes, an ASCII eID-PIN is allowed</span>
 </pre></div>
 </div>
 <p>When the eID-PIN was verified incorrectly three times, it is blocked and must
