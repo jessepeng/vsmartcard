@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Virtual Smart Card &mdash; Virtual Smart Card Architecture 2014-06-19 documentation</title>
+    <title>Virtual Smart Card &mdash; Virtual Smart Card Architecture 2014-06-20 documentation</title>
     
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2014-06-19',
+        VERSION:     '2014-06-20',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,7 +26,7 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="shortcut icon" href="../_static/chip.ico"/>
-    <link rel="top" title="Virtual Smart Card Architecture 2014-06-19 documentation" href="../index.html" />
+    <link rel="top" title="Virtual Smart Card Architecture 2014-06-20 documentation" href="../index.html" />
     <link rel="next" title="Remote Smart Card Reader" href="../remote-reader/README.html" />
     <link rel="prev" title="Welcome to the Virtual Smart Card Architecture documentation!" href="../index.html" /> 
   </head>
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="../index.html" title="Welcome to the Virtual Smart Card Architecture documentation!"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Virtual Smart Card Architecture 2014-06-19 documentation</a> &raquo;</li> 
+        <li><a href="../index.html">Virtual Smart Card Architecture 2014-06-20 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -97,61 +97,44 @@ internet for example.</p>
 reader.</p>
 <p>The file <tt class="file docutils literal"><span class="pre">utils.py</span></tt> was taken from Henryk Plötz&#8217;s <a class="reference external" href="https://github.com/henryk/cyberflex-shell">cyberflex-shell</a> <a class="footnote-reference" href="#id3" id="id4">[3]</a>.</p>
 <div class="figure">
-<p><img src="../_images/tikz-415af53ada0bec75ce3acd2482277eaf02c08544.png" alt="\input{%(wd)s/bilder/tikzstyles.tex}
+<p><img src="../_images/tikz-c8b4b39abc50a5c80a3564bddc7eaa9208f21b3f.png" alt="\input{%(wd)s/bilder/tikzstyles.tex}
     \node (pcsclite)
-[klein, aktivbox, shape=rectangle split, rectangle split parts=3, inner xsep=3em]
-    {PCSC-Lite
-    \nodepart{second}
-    \footnotesize \texttt{libpcsclite}
-    \nodepart{third}
-\footnotesize \texttt{pcscd}
+[klein, aktivbox, inner xsep=.7cm, text width=3cm]
+    {PC/SC Framework\\\
+(native)
     };
-\node (pcsc) [box, kleiner, at=(pcsclite.two west)] {PC/SC};
-\node (sca) [aktivbox, klein, left=of pcsc, align=center] {Smart Card\\Application};
-\node (vpcd) [box, at=(pcsclite.three east)] {\texttt{vpcd}};
-    \node (vicc) [aktivbox, right=of vpcd] {\texttt{vicc}};
+\node (sca) [aktivbox, klein, left=of pcsclite] {Smart Card\\Application};
+\node (vpcd) [box, at=(pcsclite.east), xshift=-.3cm] {\texttt{vpcd}};
+    \node (vicc) [aktivbox, right=of pcsclite] {\texttt{vicc}};
 
 \begin{pgfonlayer}{background}
     \path[linie]
-    (sca) edge (pcsc)
+    (sca) edge (pcsclite)
     (vpcd) edge (vicc)
     ;
 \end{pgfonlayer}" /></p>
-<p class="caption">Virtual Smart Card used with PCSC-Lite</p></div><p class="versionadded">
-<span class="versionmodified">New in version 0.7: </span>We implemented <abbr title="virtual smart card reader">vpcd</abbr> as user mode device driver for Windows so that
-<abbr title="virtual smart card">vpicc</abbr> can directly be used in Windows&#8217; smart card applications that use
-PC/SC.</p>
-<p class="versionadded">
+<p class="caption">Virtual Smart Card used with PCSC-Lite or WinSCard</p></div><p class="versionadded">
 <span class="versionmodified">New in version 0.7: </span>The Virtual Smart Card optionally brings its own standalone implementation of
 PC/SC. This allows accessing <abbr title="virtual smart card">vpicc</abbr> without PCSC-Lite. Our PC/SC
 implementation acts as replacement for <tt class="docutils literal"><span class="pre">libpcsclite</span></tt> which can lead to
 problems when used in parallel with PCSC-Lite.</p>
 <div class="figure">
-<p><img src="../_images/tikz-286f5de345307cff8930faa948c75269ca032605.png" alt="\input{%(wd)s/bilder/tikzstyles.tex}
+<p><img src="../_images/tikz-1f24c1b836d26b13eac66059467cad49b0b4d1ca.png" alt="\input{%(wd)s/bilder/tikzstyles.tex}
     \node (pcsclite)
-[box, shape=rectangle split, rectangle split parts=2, inner xsep=3em]
-    {Virtual Smart Card
-    \nodepart{second}
-    \footnotesize \texttt{libpcsclite} with \texttt{vpcd}
+[klein, box, text width=4cm]
+    {Virtual Smart Card's\\
+PC/SC Framework
     };
-\node (pcsc) [box, kleiner, at=(pcsclite.two west)] {PC/SC};
-\node (sca) [aktivbox, klein, left=of pcsc, align=center] {Smart Card\\Application};
-    \node (vicc) [aktivbox, right=of pcsclite.two east] {\texttt{vicc}};
+\node (sca) [aktivbox, klein, left=of pcsclite] {Smart Card\\Application};
+    \node (vicc) [aktivbox, right=of pcsclite] {\texttt{vicc}};
 
 \begin{pgfonlayer}{background}
     \path[linie]
-    (sca) edge (pcsc)
-    (pcsclite.two east) edge (vicc)
+    (sca) edge (pcsclite)
+    (pcsclite) edge (vicc)
     ;
 \end{pgfonlayer}" /></p>
-<p class="caption">Virtual Smart Card used with its own PC/SC implementation</p></div><div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">This software can actually be used in a relay attack allowing full access
-to the card. We discussed the impact especially on the <a class="reference external" href="http://media.ccc.de/browse/congress/2010/27c3-4297-de-die_gesamte_technik_ist_sicher.html">Relay attack
-against the German ID card</a>,
-but it generally concerns <em>all</em> contact-less smart cards.</p>
-</div>
-<div class="section" id="download">
+<p class="caption">Virtual Smart Card used with its own PC/SC implementation</p></div><div class="section" id="download">
 <h2>Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h2>
 <p>You can find the latest release of Virtual Smart Card on <a class="reference external" href="http://sourceforge.net/projects/vsmartcard/files">Sourceforge</a>.</p>
 <p>Alternatively, you can clone our git repository:</p>
@@ -188,6 +171,10 @@ the following:</p>
 </ul>
 <div class="section" id="building-and-installing-vpcd-on-windows">
 <h3>Building and installing <abbr title="virtual smart card reader">vpcd</abbr> on Windows<a class="headerlink" href="#building-and-installing-vpcd-on-windows" title="Permalink to this headline">¶</a></h3>
+<p class="versionadded">
+<span class="versionmodified">New in version 0.7: </span>We implemented <abbr title="virtual smart card reader">vpcd</abbr> as user mode device driver for Windows so that
+<abbr title="virtual smart card">vpicc</abbr> can directly be used in Windows&#8217; smart card applications that use
+PC/SC.</p>
 <p>For the Windows integration we extended <a class="reference external" href="http://www.codeproject.com/Articles/134010/An-UMDF-Driver-for-a-Virtual-Smart-Card-Reader">Fabio Ottavi&#8217;s UMDF Driver for a
 Virtual Smart Card Reader</a> <a class="footnote-reference" href="#id19" id="id20">[11]</a> with a <abbr title="virtual smart card reader">vpcd</abbr> interface. To build <abbr title="virtual smart card reader">vpcd</abbr> for
 Windows we use <a class="reference external" href="http://msdn.microsoft.com/en-us/windows/hardware/hh852365.aspx">Windows Driver Kit 8.1 and Visual Studio 2013</a> <a class="footnote-reference" href="#id22" id="id23">[12]</a>:</p>
@@ -503,7 +490,7 @@ more than welcome! Please use our <a class="reference external" href="https://gi
         <li class="right" >
           <a href="../index.html" title="Welcome to the Virtual Smart Card Architecture documentation!"
              >previous</a> |</li>
-        <li><a href="../index.html">Virtual Smart Card Architecture 2014-06-19 documentation</a> &raquo;</li> 
+        <li><a href="../index.html">Virtual Smart Card Architecture 2014-06-20 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
