@@ -1,22 +1,23 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>VirtualSmartcard Module &mdash; Virtual Smart Card Architecture 2014-06-22 documentation</title>
+    <title>VirtualSmartcard Module &mdash; Virtual Smart Card Architecture 2014-07-08 documentation</title>
     
-    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/breathe.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootswatch-3.1.0/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2014-06-22',
+        VERSION:     '2014-07-08',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,45 +26,129 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../../_static/chip.ico"/>
-    <link rel="top" title="Virtual Smart Card Architecture 2014-06-22 documentation" href="../../index.html" />
+    <link rel="top" title="Virtual Smart Card Architecture 2014-07-08 documentation" href="../../index.html" />
     <link rel="up" title="virtualsmartcard Package" href="virtualsmartcard.html" />
     <link rel="next" title="utils Module" href="virtualsmartcard.utils.html" />
-    <link rel="prev" title="TLVutils Module" href="virtualsmartcard.TLVutils.html" /> 
+    <link rel="prev" title="TLVutils Module" href="virtualsmartcard.TLVutils.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
   </head>
   <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="virtualsmartcard.utils.html" title="utils Module"
-             accesskey="N">next</a></li>
-        <li class="right" >
-          <a href="virtualsmartcard.TLVutils.html" title="TLVutils Module"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../../index.html">Virtual Smart Card Architecture 2014-06-22 documentation</a> &raquo;</li>
-          <li><a href="../api.html" >Creating a Virtual Smart Card</a> &raquo;</li>
-          <li><a href="virtualsmartcard.html" accesskey="U">virtualsmartcard Package</a> &raquo;</li> 
-      </ul>
-    </div>  
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body">
+  <div id="navbar" class="navbar navbar-default ">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          Virtual Smart Card Architecture</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
             
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Virtual Smart Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../remote-reader/README.html">Remote Smart Card Reader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pcsc-relay/README.html">PC/SC Relay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ccid/README.html">USB CCID Emulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../npa/README.html">nPA Smart Card Library</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">Creating a Virtual Smart Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../npa/api.html">Programming with the nPA Library</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">VirtualSmartcard Module</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="virtualsmartcard.TLVutils.html" title="Previous Chapter: TLVutils Module"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; TLVutils Module</span>
+    </a>
+  </li>
+  <li>
+    <a href="virtualsmartcard.utils.html" title="Next Chapter: utils Module"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">utils Module &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
   <div class="section" id="virtualsmartcard-module">
 <h1>VirtualSmartcard Module<a class="headerlink" href="#virtualsmartcard-module" title="Permalink to this headline">¶</a></h1>
 <p class="graphviz">
-<img src="../../_images/inheritance-8931940737ffd963d33cc88dc4285530f3abc87e.png" alt="Inheritance diagram of virtualsmartcard.VirtualSmartcard" usemap="#inheritance4bd50c7c14" class="inheritance"/>
+<img src="../../_images/inheritance-bba7f649218303ea0393ecc04bafe13c854db63d.png" alt="Inheritance diagram of virtualsmartcard.VirtualSmartcard" usemap="#inheritance4bd50c7c14" class="inheritance"/>
 <map id="inheritance4bd50c7c14" name="inheritance4bd50c7c14">
-<area shape="rect" id="node1" href="#virtualsmartcard.VirtualSmartcard.HandlerTestOS" title="virtualsmartcard.VirtualSmartcard.HandlerTestOS" alt="" coords="267,4,501,22"/>
-<area shape="rect" id="node2" href="#virtualsmartcard.VirtualSmartcard.SmartcardOS" title="virtualsmartcard.VirtualSmartcard.SmartcardOS" alt="" coords="5,39,232,57"/>
-<area shape="rect" id="node5" href="#virtualsmartcard.VirtualSmartcard.Iso7816OS" title="virtualsmartcard.VirtualSmartcard.Iso7816OS" alt="" coords="276,39,492,57"/>
-<area shape="rect" id="node7" href="#virtualsmartcard.VirtualSmartcard.RelayOS" title="virtualsmartcard.VirtualSmartcard.RelayOS" alt="" coords="281,74,487,93"/>
-<area shape="rect" id="node4" href="#virtualsmartcard.VirtualSmartcard.NPAOS" title="virtualsmartcard.VirtualSmartcard.NPAOS" alt="" coords="551,21,749,40"/>
-<area shape="rect" id="node9" href="#virtualsmartcard.VirtualSmartcard.CryptoflexOS" title="virtualsmartcard.VirtualSmartcard.CryptoflexOS" alt="" coords="536,56,763,75"/>
-<area shape="rect" id="node12" href="#virtualsmartcard.VirtualSmartcard.VirtualICC" title="virtualsmartcard.VirtualSmartcard.VirtualICC" alt="" coords="12,4,225,22"/>
+<area shape="rect" id="node1" href="#virtualsmartcard.VirtualSmartcard.VirtualICC" title="virtualsmartcard.VirtualSmartcard.VirtualICC" alt="" coords="12,74,225,93"/>
+<area shape="rect" id="node2" href="#virtualsmartcard.VirtualSmartcard.HandlerTestOS" title="virtualsmartcard.VirtualSmartcard.HandlerTestOS" alt="" coords="267,4,501,22"/>
+<area shape="rect" id="node3" href="#virtualsmartcard.VirtualSmartcard.SmartcardOS" title="virtualsmartcard.VirtualSmartcard.SmartcardOS" alt="" coords="5,39,232,57"/>
+<area shape="rect" id="node6" href="#virtualsmartcard.VirtualSmartcard.Iso7816OS" title="virtualsmartcard.VirtualSmartcard.Iso7816OS" alt="" coords="276,39,492,57"/>
+<area shape="rect" id="node8" href="#virtualsmartcard.VirtualSmartcard.RelayOS" title="virtualsmartcard.VirtualSmartcard.RelayOS" alt="" coords="281,74,487,93"/>
+<area shape="rect" id="node5" href="#virtualsmartcard.VirtualSmartcard.NPAOS" title="virtualsmartcard.VirtualSmartcard.NPAOS" alt="" coords="551,21,749,40"/>
+<area shape="rect" id="node10" href="#virtualsmartcard.VirtualSmartcard.CryptoflexOS" title="virtualsmartcard.VirtualSmartcard.CryptoflexOS" alt="" coords="536,56,763,75"/>
 </map>
 </p>
 <span class="target" id="module-virtualsmartcard.VirtualSmartcard"></span><dl class="class">
@@ -611,53 +696,20 @@ printed when the user presses crtl-c</p>
 </div>
 
 
-          </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-            <p class="logo"><a href="../../index.html">
-              <img class="logo" src="../../_static/vscard-logo_128.png" alt="Logo"/>
-            </a></p>
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="virtualsmartcard.TLVutils.html"
-                        title="previous chapter">TLVutils Module</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="virtualsmartcard.utils.html"
-                        title="next chapter">utils Module</a></p>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
+    </div>
+      
+  </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="virtualsmartcard.utils.html" title="utils Module"
-             >next</a></li>
-        <li class="right" >
-          <a href="virtualsmartcard.TLVutils.html" title="TLVutils Module"
-             >previous</a> |</li>
-        <li><a href="../../index.html">Virtual Smart Card Architecture 2014-06-22 documentation</a> &raquo;</li>
-          <li><a href="../api.html" >Creating a Virtual Smart Card</a> &raquo;</li>
-          <li><a href="virtualsmartcard.html" >virtualsmartcard Package</a> &raquo;</li> 
-      </ul>
-    </div>
-    <div class="footer">
-        &copy; Copyright 2009-2013 by Dominik Oepen and Frank Morgner.
-    </div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2009-2014 by Dominik Oepen and Frank Morgner.<br/>
+    </p>
+  </div>
+</footer>
   </body>
 </html>

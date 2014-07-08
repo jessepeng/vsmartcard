@@ -1,22 +1,23 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Remote Smart Card Reader &mdash; Virtual Smart Card Architecture 2014-06-22 documentation</title>
+    <title>Remote Smart Card Reader &mdash; Virtual Smart Card Architecture 2014-07-08 documentation</title>
     
-    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/breathe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.1.0/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2014-06-22',
+        VERSION:     '2014-07-08',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,30 +26,121 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/chip.ico"/>
-    <link rel="top" title="Virtual Smart Card Architecture 2014-06-22 documentation" href="../index.html" />
+    <link rel="top" title="Virtual Smart Card Architecture 2014-07-08 documentation" href="../index.html" />
     <link rel="next" title="PC/SC Relay" href="../pcsc-relay/README.html" />
-    <link rel="prev" title="Virtual Smart Card" href="../virtualsmartcard/README.html" /> 
+    <link rel="prev" title="Virtual Smart Card" href="../virtualsmartcard/README.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
   </head>
   <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../pcsc-relay/README.html" title="PC/SC Relay"
-             accesskey="N">next</a></li>
-        <li class="right" >
-          <a href="../virtualsmartcard/README.html" title="Virtual Smart Card"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Virtual Smart Card Architecture 2014-06-22 documentation</a> &raquo;</li> 
-      </ul>
-    </div>  
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body">
+  <div id="navbar" class="navbar navbar-default ">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Virtual Smart Card Architecture</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
             
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../virtualsmartcard/README.html">Virtual Smart Card</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Remote Smart Card Reader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcsc-relay/README.html">PC/SC Relay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ccid/README.html">USB CCID Emulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../npa/README.html">nPA Smart Card Library</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../virtualsmartcard/api.html">Creating a Virtual Smart Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../npa/api.html">Programming with the nPA Library</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Remote Smart Card Reader</a><ul>
+<li><a class="reference internal" href="#download-and-install">Download and Install</a></li>
+<li><a class="reference internal" href="#question">Question</a></li>
+<li><a class="reference internal" href="#notes-and-references">Notes and References</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="../virtualsmartcard/README.html" title="Previous Chapter: Virtual Smart Card"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Virtual Smart Ca...</span>
+    </a>
+  </li>
+  <li>
+    <a href="../pcsc-relay/README.html" title="Next Chapter: PC/SC Relay"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">PC/SC Relay &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
   <div class="section" id="remote-smart-card-reader">
 <span id="remote-reader"></span><h1>Remote Smart Card Reader<a class="headerlink" href="#remote-smart-card-reader" title="Permalink to this headline">¶</a></h1>
 <div class="sidebar">
@@ -166,61 +258,20 @@ more than welcome! Please use our <a class="reference external" href="https://gi
 </div>
 
 
-          </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-            <p class="logo"><a href="../index.html">
-              <img class="logo" src="../_static/vscard-logo_128.png" alt="Logo"/>
-            </a></p>
-  <h3><a href="../index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Remote Smart Card Reader</a><ul>
-<li><a class="reference internal" href="#download-and-install">Download and Install</a></li>
-<li><a class="reference internal" href="#question">Question</a></li>
-<li><a class="reference internal" href="#notes-and-references">Notes and References</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="../virtualsmartcard/README.html"
-                        title="previous chapter">Virtual Smart Card</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="../pcsc-relay/README.html"
-                        title="next chapter">PC/SC Relay</a></p>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
+    </div>
+      
+  </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../pcsc-relay/README.html" title="PC/SC Relay"
-             >next</a></li>
-        <li class="right" >
-          <a href="../virtualsmartcard/README.html" title="Virtual Smart Card"
-             >previous</a> |</li>
-        <li><a href="../index.html">Virtual Smart Card Architecture 2014-06-22 documentation</a> &raquo;</li> 
-      </ul>
-    </div>
-    <div class="footer">
-        &copy; Copyright 2009-2013 by Dominik Oepen and Frank Morgner.
-    </div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2009-2014 by Dominik Oepen and Frank Morgner.<br/>
+    </p>
+  </div>
+</footer>
   </body>
 </html>

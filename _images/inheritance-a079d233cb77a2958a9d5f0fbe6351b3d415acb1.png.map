@@ -1,0 +1,9 @@
+<map id="inheritance498eda02c2" name="inheritance498eda02c2">
+<area shape="rect" id="node1" href="#virtualsmartcard.SmartcardFilesystem.MF" title="virtualsmartcard.SmartcardFilesystem.MF" alt="" coords="523,21,719,39"/>
+<area shape="rect" id="node2" href="#virtualsmartcard.SmartcardFilesystem.DF" title="virtualsmartcard.SmartcardFilesystem.DF" alt="" coords="250,21,446,39"/>
+<area shape="rect" id="node4" href="#virtualsmartcard.SmartcardFilesystem.File" title="virtualsmartcard.SmartcardFilesystem.File" alt="" coords="12,38,209,56"/>
+<area shape="rect" id="node7" href="#virtualsmartcard.SmartcardFilesystem.EF" title="virtualsmartcard.SmartcardFilesystem.EF" alt="" coords="251,55,445,73"/>
+<area shape="rect" id="node6" href="#virtualsmartcard.SmartcardFilesystem.RecordStructureEF" title="virtualsmartcard.SmartcardFilesystem.RecordStructureEF" alt="" coords="489,55,754,73"/>
+<area shape="rect" id="node10" href="#virtualsmartcard.SmartcardFilesystem.TransparentStructureEF" title="virtualsmartcard.SmartcardFilesystem.TransparentStructureEF" alt="" coords="478,90,764,108"/>
+<area shape="rect" id="node9" href="#virtualsmartcard.SmartcardFilesystem.Record" title="virtualsmartcard.SmartcardFilesystem.Record" alt="" coords="4,4,217,22"/>
+</map>
