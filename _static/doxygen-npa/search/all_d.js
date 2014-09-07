@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['sc_5fapdu_5fget_5foctets',['sc_apdu_get_octets',['../group__scutil.html#ga0efc9c18c1f53f5a518339c587436695',1,'scutil.h']]],
+  ['sc_5fapdu_5fset_5fresp',['sc_apdu_set_resp',['../group__scutil.html#gabb642f14206f468b9fe408c29b920c06',1,'scutil.h']]],
   ['scutil_2eh',['scutil.h',['../scutil_8h.html',1,'']]],
   ['sfid_5fef_5fcardaccess',['SFID_EF_CARDACCESS',['../group__npa.html#ga46adfcee8778feb03c97f201b6f81d56',1,'npa.h']]],
   ['sfid_5fef_5fcardsecurity',['SFID_EF_CARDSECURITY',['../group__npa.html#ga2d1501393a0c711ee3e62615d581704c',1,'npa.h']]],

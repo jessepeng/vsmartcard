@@ -133,17 +133,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__scutil.html#ga66eb7618b1e581b69e4003eea4ee6099">write_binary_rec</a>(sc_card_t *card, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> sfid,</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        u8 *ef, <span class="keywordtype">size_t</span> ef_len);</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">/* @} */</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment"> * OPENSC functions that do not get exported (sometimes)</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__scutil.html#ga0efc9c18c1f53f5a518339c587436695">sc_apdu_get_octets</a>(sc_context_t *ctx, <span class="keyword">const</span> sc_apdu_t *apdu, u8 **buf,</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordtype">size_t</span> *len, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> proto);</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__scutil.html#gabb642f14206f468b9fe408c29b920c06">sc_apdu_set_resp</a>(sc_context_t *ctx, sc_apdu_t *apdu, <span class="keyword">const</span> u8 *buf,</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keywordtype">size_t</span> len);</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="comment">/* Returns an index number if a match was found, -1 otherwise. table has to</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="comment"> * be null terminated. */</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="keywordtype">int</span> _sc_match_atr(<span class="keyword">struct</span> sc_card *card, <span class="keyword">struct</span> sc_atr_table *table, <span class="keywordtype">int</span> *type_out);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="comment">/* @} */</span></div>
 <div class="ttc" id="group__scutil_html_ga378cdc86e95f37938c53b8a5e1e4ac3c"><div class="ttname"><a href="group__scutil.html#ga378cdc86e95f37938c53b8a5e1e4ac3c">_bin_log</a></div><div class="ttdeci">void _bin_log(sc_context_t *ctx, int type, const char *file, int line, const char *func, const char *label, const u8 *data, size_t len, FILE *f)</div><div class="ttdoc">Log binary data. </div></div>
+<div class="ttc" id="group__scutil_html_gabb642f14206f468b9fe408c29b920c06"><div class="ttname"><a href="group__scutil.html#gabb642f14206f468b9fe408c29b920c06">sc_apdu_set_resp</a></div><div class="ttdeci">int sc_apdu_set_resp(sc_context_t *ctx, sc_apdu_t *apdu, const u8 *buf, size_t len)</div></div>
 <div class="ttc" id="group__scutil_html_ga66eb7618b1e581b69e4003eea4ee6099"><div class="ttname"><a href="group__scutil.html#ga66eb7618b1e581b69e4003eea4ee6099">write_binary_rec</a></div><div class="ttdeci">int write_binary_rec(sc_card_t *card, unsigned char sfid, u8 *ef, size_t ef_len)</div><div class="ttdoc">Recursively write an EF by short file identifier. </div></div>
 <div class="ttc" id="group__scutil_html_gaaeef0cac63ffeed82f9e03d5503436d0"><div class="ttname"><a href="group__scutil.html#gaaeef0cac63ffeed82f9e03d5503436d0">initialize</a></div><div class="ttdeci">int initialize(int reader_id, int verbose, sc_context_t **ctx, sc_reader_t **reader)</div><div class="ttdoc">Initializes smart card context and reader. </div></div>
 <div class="ttc" id="group__scutil_html_gaf04ee2467a43d327c063ec76cd226717"><div class="ttname"><a href="group__scutil.html#gaf04ee2467a43d327c063ec76cd226717">print_avail</a></div><div class="ttdeci">int print_avail(int verbose)</div><div class="ttdoc">Prints the available readers to stdout. </div></div>
 <div class="ttc" id="group__scutil_html_gae73c97c4b7db3127e3f55bad80e6daf6"><div class="ttname"><a href="group__scutil.html#gae73c97c4b7db3127e3f55bad80e6daf6">read_binary_rec</a></div><div class="ttdeci">int read_binary_rec(sc_card_t *card, unsigned char sfid, u8 **ef, size_t *ef_len)</div><div class="ttdoc">Recursively read an EF by short file identifier. </div></div>
+<div class="ttc" id="group__scutil_html_ga0efc9c18c1f53f5a518339c587436695"><div class="ttname"><a href="group__scutil.html#ga0efc9c18c1f53f5a518339c587436695">sc_apdu_get_octets</a></div><div class="ttdeci">int sc_apdu_get_octets(sc_context_t *ctx, const sc_apdu_t *apdu, u8 **buf, size_t *len, unsigned int proto)</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jul 21 2014 16:47:13 for nPASmartCardLibrary by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Sep 7 2014 14:59:26 for nPASmartCardLibrary by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

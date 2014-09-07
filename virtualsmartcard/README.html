@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Virtual Smart Card &mdash; vsmartcard 2014-07-21 documentation</title>
+    <title>Virtual Smart Card &mdash; vsmartcard 2014-09-07 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2014-07-21',
+        VERSION:     '2014-09-07',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -31,7 +31,7 @@
     <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/chip.ico"/>
-    <link rel="top" title="vsmartcard 2014-07-21 documentation" href="../index.html" />
+    <link rel="top" title="vsmartcard 2014-09-07 documentation" href="../index.html" />
     <link rel="next" title="Remote Smart Card Reader" href="../remote-reader/README.html" />
     <link rel="prev" title="Welcome to the Virtual Smart Card Architecture documentation!" href="../index.html" />
 <meta charset='utf-8'>
@@ -445,6 +445,12 @@ Emulation of German identity card (`--type=nPA`):
 Report bugs to https://github.com/frankmorgner/vsmartcard/issues
 </pre></div>
 </div>
+<p class="versionadded">
+<span class="versionmodified">New in version 0.7: </span>We implemented <strong class="command">vpcd-config</strong> which tries to guess the local IP
+address and outputs <abbr title="virtual smart card reader">vpcd</abbr>&#8216;s configuration. <abbr title="virtual smart card">vpicc</abbr>&#8216;s options should be
+chosen accordingly (<em class="xref std std-option">--hostname</em> and <em class="xref std std-option">--port</em>)
+<strong class="command">vpcd-config</strong> also prints a QR code for configuration of the
+<a class="reference internal" href="../remote-reader/README.html#remote-reader"><em>Remote Smart Card Reader</em></a>.</p>
 <p>On Windows you can start <abbr title="virtual smart card">vpicc</abbr> with <strong class="command">python.exe src/vpicc/vicc.in</strong>
 or <strong class="command">python.exe vicc</strong>. Note emulating the German ID card
 (<em class="xref std std-option">--type nPA</em>) when running <abbr title="virtual smart card">vpicc</abbr> on Windows is currently not
