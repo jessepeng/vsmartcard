@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Virtual Smart Card &mdash; vsmartcard 2014-09-07 documentation</title>
+    <title>Virtual Smart Card &mdash; vsmartcard 2014-10-03 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2014-09-07',
+        VERSION:     '2014-10-03',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -31,7 +31,7 @@
     <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/chip.ico"/>
-    <link rel="top" title="vsmartcard 2014-09-07 documentation" href="../index.html" />
+    <link rel="top" title="vsmartcard 2014-10-03 documentation" href="../index.html" />
     <link rel="next" title="Remote Smart Card Reader" href="../remote-reader/README.html" />
     <link rel="prev" title="Welcome to the Virtual Smart Card Architecture documentation!" href="../index.html" />
 <meta charset='utf-8'>
@@ -214,7 +214,7 @@ internet for example.</p>
 reader.</p>
 <p>The file <tt class="file docutils literal"><span class="pre">utils.py</span></tt> was taken from Henryk Plötz&#8217;s <a class="reference external" href="https://github.com/henryk/cyberflex-shell">cyberflex-shell</a> <a class="footnote-reference" href="#id3" id="id4">[3]</a>.</p>
 <div class="figure">
-<p><img src="../_images/tikz-c8b4b39abc50a5c80a3564bddc7eaa9208f21b3f.png" alt="\input{%(wd)s/bilder/tikzstyles.tex}
+<p><img src="../_images/tikz-bf8a52f04fb14bc367622d64cd67c369ce02c105.png" alt="\input{%(wd)s/bilder/tikzstyles.tex}
     \node (pcsclite)
 [klein, aktivbox, inner xsep=.7cm, text width=3cm]
     {PC/SC Framework\\\
@@ -222,12 +222,12 @@ reader.</p>
     };
 \node (sca) [aktivbox, klein, left=of pcsclite] {Smart Card\\Application};
 \node (vpcd) [box, at=(pcsclite.east), xshift=-.3cm] {\texttt{vpcd}};
-    \node (vicc) [aktivbox, right=of pcsclite] {\texttt{vicc}};
+    \node (vicc) [aktivbox, right=2cm of pcsclite] {\texttt{vicc}};
 
 \begin{pgfonlayer}{background}
     \path[linie]
     (sca) edge (pcsclite)
-    (vpcd) edge (vicc)
+    (vpcd) edge node {\includegraphics[width=1.2cm]{%(wd)s/bilder/simplecloud.pdf}} (vicc)
     ;
 \end{pgfonlayer}" /></p>
 <p class="caption">Virtual Smart Card used with PCSC-Lite or WinSCard</p></div><p class="versionadded">
@@ -236,19 +236,19 @@ PC/SC. This allows accessing <abbr title="virtual smart card">vpicc</abbr> witho
 implementation acts as replacement for <tt class="docutils literal"><span class="pre">libpcsclite</span></tt> which can lead to
 problems when used in parallel with PCSC-Lite.</p>
 <div class="figure">
-<p><img src="../_images/tikz-1f24c1b836d26b13eac66059467cad49b0b4d1ca.png" alt="\input{%(wd)s/bilder/tikzstyles.tex}
+<p><img src="../_images/tikz-e85c075dfcf44812d62f226411c87c9477920e37.png" alt="\input{%(wd)s/bilder/tikzstyles.tex}
     \node (pcsclite)
 [klein, box, text width=4cm]
     {Virtual Smart Card's\\
 PC/SC Framework
     };
 \node (sca) [aktivbox, klein, left=of pcsclite] {Smart Card\\Application};
-    \node (vicc) [aktivbox, right=of pcsclite] {\texttt{vicc}};
+    \node (vicc) [aktivbox, right=2cm of pcsclite] {\texttt{vicc}};
 
 \begin{pgfonlayer}{background}
     \path[linie]
     (sca) edge (pcsclite)
-    (pcsclite) edge (vicc)
+    (pcsclite) edge node {\includegraphics[width=1.5cm]{%(wd)s/bilder/simplecloud.pdf}} (vicc)
     ;
 \end{pgfonlayer}" /></p>
 <p class="caption">Virtual Smart Card used with its own PC/SC implementation</p></div><div class="section" id="download">
