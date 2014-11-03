@@ -1,0 +1,10 @@
+setup Module
+============
+
+.. inheritance-diagram:: setup
+.. automodule:: setup
+    :members:
+    :undoc-members:
+    :inherited-members:
+    :show-inheritance:
+    :private-members:

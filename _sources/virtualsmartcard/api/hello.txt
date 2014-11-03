@@ -1,0 +1,10 @@
+hello Module
+============
+
+.. inheritance-diagram:: hello
+.. automodule:: hello
+    :members:
+    :undoc-members:
+    :inherited-members:
+    :show-inheritance:
+    :private-members:

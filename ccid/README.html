@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>USB CCID Emulator &mdash; vsmartcard 2014-10-03 documentation</title>
+    <title>USB CCID Emulator &mdash; vsmartcard 2014-11-03 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2014-10-03',
+        VERSION:     '2014-11-03',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -31,7 +31,7 @@
     <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/chip.ico"/>
-    <link rel="top" title="vsmartcard 2014-10-03 documentation" href="../index.html" />
+    <link rel="top" title="vsmartcard 2014-11-03 documentation" href="../index.html" />
     <link rel="next" title="nPA Smart Card Library" href="../npa/README.html" />
     <link rel="prev" title="PC/SC Relay" href="../pcsc-relay/README.html" />
 <meta charset='utf-8'>
@@ -424,7 +424,7 @@ make install <span class="o">&amp;&amp;</span> <span class="nb">cd</span> -
 <p>Now <tt class="file docutils literal"><span class="pre">libopensc.so</span></tt> should be located in <tt class="docutils literal"><span class="pre">$PREFIX/lib</span></tt>. Here is how to
 configure the USB CCID Emulator to use it:</p>
 <div class="highlight-sh"><div class="highlight"><pre><span class="nb">cd</span> <span class="nv">$VSMARTCARD</span>/ccid
-./configure --prefix<span class="o">=</span><span class="nv">$PREFIX</span> <span class="nv">OPENSC_LIBS</span><span class="o">=</span><span class="s2">&quot;-L$PREFIX/lib -lopensc&quot;</span>
+./configure --prefix<span class="o">=</span><span class="nv">$PREFIX</span> <span class="nv">OPENSC_LIBS</span><span class="o">=</span><span class="s2">&quot;-L</span><span class="nv">$PREFIX</span><span class="s2">/lib -lopensc&quot;</span>
 make install <span class="o">&amp;&amp;</span> <span class="nb">cd</span> -
 </pre></div>
 </div>

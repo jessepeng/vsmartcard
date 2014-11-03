@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>nPA Smart Card Library &mdash; vsmartcard 2014-10-03 documentation</title>
+    <title>nPA Smart Card Library &mdash; vsmartcard 2014-11-03 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2014-10-03',
+        VERSION:     '2014-11-03',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -31,7 +31,7 @@
     <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/chip.ico"/>
-    <link rel="top" title="vsmartcard 2014-10-03 documentation" href="../index.html" />
+    <link rel="top" title="vsmartcard 2014-11-03 documentation" href="../index.html" />
     <link rel="next" title="Creating a Virtual Smart Card" href="../virtualsmartcard/api.html" />
     <link rel="prev" title="USB CCID Emulator" href="../ccid/README.html" />
 <meta charset='utf-8'>
@@ -292,7 +292,7 @@ make install <span class="o">&amp;&amp;</span> <span class="nb">cd</span> -
 <p>To complete this step-by-step guide, here is how to install nPA Smart Card Library:</p>
 <div class="highlight-sh"><div class="highlight"><pre><span class="nb">cd</span> <span class="nv">$VSMARTCARD</span>/npa
 autoreconf --verbose --install
-./configure --prefix<span class="o">=</span><span class="nv">$PREFIX</span> <span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span><span class="nv">$PREFIX</span>/lib/pkgconfig <span class="nv">OPENSC_LIBS</span><span class="o">=</span><span class="s2">&quot;-L$PREFIX/lib -lopensc -lcrypto&quot;</span>
+./configure --prefix<span class="o">=</span><span class="nv">$PREFIX</span> <span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span><span class="nv">$PREFIX</span>/lib/pkgconfig <span class="nv">OPENSC_LIBS</span><span class="o">=</span><span class="s2">&quot;-L</span><span class="nv">$PREFIX</span><span class="s2">/lib -lopensc -lcrypto&quot;</span>
 make install <span class="o">&amp;&amp;</span> <span class="nb">cd</span> -
 </pre></div>
 </div>
@@ -438,9 +438,10 @@ cc example.c -I<span class="nv">$VSMARTCARD</span>/npa/src/opensc <span class="s
 </pre></div>
 </div>
 <p>Alternatively you can specify libraries and flags by hand:</p>
-<div class="highlight-sh"><pre>cc example.c -I$VSMARTCARD/npa/src/opensc \
-    -I$PREFIX/include \
-    -L$PREFIX/lib -lnpa -lopensc -lcrypto"</pre>
+<div class="highlight-sh"><div class="highlight"><pre>cc example.c -I<span class="nv">$VSMARTCARD</span>/npa/src/opensc <span class="se">\</span>
+    -I<span class="nv">$PREFIX</span>/include <span class="se">\</span>
+    -L<span class="nv">$PREFIX</span>/lib -lnpa -lopensc -lcrypto<span class="s2">&quot;</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -476,8 +477,8 @@ structures with an other external library. Currently, the PKCS#15 emulator does
 not support private key and certificate objects for qualified electronic
 signature but only the PIN objects. For example, you can change the eID-PIN
 using the <strong class="command">pkcs15-tool</strong>:</p>
-<div class="highlight-sh"><div class="highlight"><pre>pkcs15-tool --change-pin --auth-id 03 <span class="se">\</span>
-    --pin<span class="o">=</span>123456 --new-pin<span class="o">=</span>abcdef     <span class="c"># yes, an ASCII eID-PIN is allowed</span>
+<div class="highlight-sh"><div class="highlight"><pre>pkcs15-tool --change-pin --auth-id <span class="m">03</span> <span class="se">\</span>
+    --pin<span class="o">=</span><span class="m">123456</span> --new-pin<span class="o">=</span>abcdef     <span class="c"># yes, an ASCII eID-PIN is allowed</span>
 </pre></div>
 </div>
 <p>When the eID-PIN was verified incorrectly three times, it is blocked and must

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Virtual Smart Card &mdash; vsmartcard 2014-10-03 documentation</title>
+    <title>Virtual Smart Card &mdash; vsmartcard 2014-11-03 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2014-10-03',
+        VERSION:     '2014-11-03',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -31,7 +31,7 @@
     <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/chip.ico"/>
-    <link rel="top" title="vsmartcard 2014-10-03 documentation" href="../index.html" />
+    <link rel="top" title="vsmartcard 2014-11-03 documentation" href="../index.html" />
     <link rel="next" title="Remote Smart Card Reader" href="../remote-reader/README.html" />
     <link rel="prev" title="Welcome to the Virtual Smart Card Architecture documentation!" href="../index.html" />
 <meta charset='utf-8'>
@@ -214,11 +214,11 @@ internet for example.</p>
 reader.</p>
 <p>The file <tt class="file docutils literal"><span class="pre">utils.py</span></tt> was taken from Henryk Plötz&#8217;s <a class="reference external" href="https://github.com/henryk/cyberflex-shell">cyberflex-shell</a> <a class="footnote-reference" href="#id3" id="id4">[3]</a>.</p>
 <div class="figure">
-<p><img src="../_images/tikz-bf8a52f04fb14bc367622d64cd67c369ce02c105.png" alt="\input{%(wd)s/bilder/tikzstyles.tex}
+<p><img src="../_images/tikz-c2b6e0c4be766388efb50a965bcb6f691308c688.png" alt="\input{%(wd)s/bilder/tikzstyles.tex}
     \node (pcsclite)
 [klein, aktivbox, inner xsep=.7cm, text width=3cm]
     {PC/SC Framework\\\
-(native)
+(\texttt{pcscd} or \texttt{SCardSvr})
     };
 \node (sca) [aktivbox, klein, left=of pcsclite] {Smart Card\\Application};
 \node (vpcd) [box, at=(pcsclite.east), xshift=-.3cm] {\texttt{vpcd}};
@@ -341,12 +341,12 @@ with a different card emulator are covered in <a class="reference internal" href
 we will focus on configuring and running the provided modules.</p>
 <div class="section" id="configuring-vpcd-on-unix">
 <h3>Configuring <abbr title="virtual smart card reader">vpcd</abbr> on Unix<a class="headerlink" href="#configuring-vpcd-on-unix" title="Permalink to this headline">¶</a></h3>
-<p>The configuration file from <abbr title="virtual smart card reader">vpcd</abbr> is usually placed into
-<tt class="file docutils literal"><span class="pre">/etc/reader.conf.d/</span></tt>. The PC/SC daemon should read it and load the
-<abbr title="virtual smart card reader">vpcd</abbr> on startup. In debug mode <strong class="command">pcscd -f -d</strong> should say something
-like &#8220;Attempting startup of Virtual PCD&#8221;. For older versions of PCSC-Lite you
+<p>The configuration file of <abbr title="virtual smart card reader">vpcd</abbr> is usually placed into
+<tt class="file docutils literal"><span class="pre">/etc/reader.conf.d/</span></tt>. For older versions of PCSC-Lite you
 need to run <strong class="command">update-reader.conf</strong> to update <strong class="command">pcscd</strong>&#8216;s main
-configuration file.</p>
+configuration file. The PC/SC daemon should read it and load the
+<abbr title="virtual smart card reader">vpcd</abbr> on startup. In debug mode <strong class="command">pcscd -f -d</strong> should say something
+like &#8220;Attempting startup of Virtual PCD&#8221; when loading <abbr title="virtual smart card reader">vpcd</abbr>.</p>
 <p>By default, <abbr title="virtual smart card reader">vpcd</abbr> opens a socket for <abbr title="virtual smart card">vpicc</abbr> and waits for incoming
 connections.  The port to open should be specified in <tt class="docutils literal"><span class="pre">CHANNELID</span></tt> and
 <tt class="docutils literal"><span class="pre">DEVICENAME</span></tt>:</p>
@@ -362,9 +362,11 @@ needs to be started with <em class="xref std std-option">--reversed</em> in this
 </div>
 <div class="section" id="configuring-vpcd-on-windows">
 <h3>Configuring <abbr title="virtual smart card reader">vpcd</abbr> on Windows<a class="headerlink" href="#configuring-vpcd-on-windows" title="Permalink to this headline">¶</a></h3>
-<p>The configuration file <cite>BixVReader.ini</cite> from <abbr title="virtual smart card reader">vpcd</abbr> is usually placed into
-<tt class="file docutils literal"><span class="pre">C:\Windows</span></tt> (<span class="target" id="index-1"></span><tt class="xref std std-envvar docutils literal"><span class="pre">%SystemRoot%</span></tt>). The PC/SC daemon should read it and load the
-<abbr title="virtual smart card reader">vpcd</abbr> on startup. The Windows Device Manager should list the <em class="guilabel">Bix Virtual Smart Card Reader</em>.</p>
+<p>The configuration file <cite>BixVReader.ini</cite> of <abbr title="virtual smart card reader">vpcd</abbr> is usually placed into
+<tt class="file docutils literal"><span class="pre">C:\Windows</span></tt> (<span class="target" id="index-1"></span><tt class="xref std std-envvar docutils literal"><span class="pre">SystemRoot</span></tt>). The user mode device driver
+framework (<strong class="command">WUDFHost.exe</strong>) should read it automatically and load the
+<abbr title="virtual smart card reader">vpcd</abbr> on startup. The Windows Device Manager <strong class="command">mmc devmgmt.msc</strong> should
+list the <em class="guilabel">Bix Virtual Smart Card Reader</em>.</p>
 <p><abbr title="virtual smart card reader">vpcd</abbr> opens a socket for <abbr title="virtual smart card">vpicc</abbr> and waits for incoming
 connections. The port to open should be specified in <tt class="docutils literal"><span class="pre">TCP_PORT</span></tt>:</p>
 <div class="highlight-sh"><div class="highlight"><pre><span class="o">[</span>Driver<span class="o">]</span>
