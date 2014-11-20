@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>PC/SC Relay &mdash; vsmartcard 2014-11-03 documentation</title>
+    <title>PC/SC Relay &mdash; vsmartcard 2014-11-20 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2014-11-03',
+        VERSION:     '2014-11-20',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -31,7 +31,7 @@
     <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/chip.ico"/>
-    <link rel="top" title="vsmartcard 2014-11-03 documentation" href="../index.html" />
+    <link rel="top" title="vsmartcard 2014-11-20 documentation" href="../index.html" />
     <link rel="next" title="USB CCID Emulator" href="../ccid/README.html" />
     <link rel="prev" title="Remote Smart Card Reader" href="../remote-reader/README.html" />
 <meta charset='utf-8'>
@@ -110,6 +110,7 @@
 <li><a class="reference internal" href="#">PC/SC Relay</a><ul>
 <li><a class="reference internal" href="#download">Download</a></li>
 <li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#installation-on-linux-unix-and-similar">Installation on Linux, Unix and similar</a></li>
 <li><a class="reference internal" href="#hints-on-libnfc">Hints on libnfc</a></li>
 <li><a class="reference internal" href="#hints-on-pc-sc-middleware">Hints on PC/SC middleware</a></li>
 </ul>
@@ -210,6 +211,11 @@ does not need to access PC/SC in this case.</li>
 <p>With PC/SC Relay you can relay a contact-less or contact based smart card
 over a long distance. Also you can use it in combination with the <a class="reference internal" href="../virtualsmartcard/README.html#vicc"><em>Virtual Smart Card</em></a>
 to completely emulate an ISO/IEC 14443 smart card.</p>
+<p>PC/SC Relay has the following dependencies:</p>
+<ul class="simple">
+<li>PC/SC middleware</li>
+<li><a class="reference external" href="http://www.libnfc.org/">libnfc</a> <a class="footnote-reference" href="#id3" id="id4">[2]</a></li>
+</ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">This software can actually be used in a relay attack allowing full access
@@ -219,7 +225,8 @@ but it generally concerns <em>all</em> contact-less smart cards.</p>
 </div>
 <div class="section" id="download">
 <h2>Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h2>
-<p>You can find the latest release of PC/SC Relay on <a class="reference external" href="http://sourceforge.net/projects/vsmartcard/files">Sourceforge</a>.</p>
+<p>You can find the latest release of PC/SC Relay on <a class="reference external" href="https://github.com/frankmorgner/vsmartcard/releases">Github</a>. Older releases are
+still available on <a class="reference external" href="http://sourceforge.net/projects/vsmartcard/files">Sourceforge</a>.</p>
 <p>Alternatively, you can clone our git repository:</p>
 <div class="highlight-sh"><div class="highlight"><pre>git clone https://github.com/frankmorgner/vsmartcard.git
 </pre></div>
@@ -227,6 +234,8 @@ but it generally concerns <em>all</em> contact-less smart cards.</p>
 </div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="installation-on-linux-unix-and-similar">
+<h3>Installation on Linux, Unix and similar<a class="headerlink" href="#installation-on-linux-unix-and-similar" title="Permalink to this headline">¶</a></h3>
 <p>The PC/SC Relay uses the GNU Build System to compile and install. If you are
 unfamiliar with it, please have a look at <tt class="file docutils literal"><span class="pre">INSTALL</span></tt>. If you can not find
 it, you are probably working bleeding edge in the repository.  Run the
@@ -242,11 +251,7 @@ make
 make install
 </pre></div>
 </div>
-<p>PC/SC Relay has the following dependencies:</p>
-<ul class="simple">
-<li>PC/SC middleware</li>
-<li><a class="reference external" href="http://www.libnfc.org/">libnfc</a> <a class="footnote-reference" href="#id3" id="id4">[2]</a></li>
-</ul>
+</div>
 <div class="section" id="hints-on-libnfc">
 <h3>Hints on libnfc<a class="headerlink" href="#hints-on-libnfc" title="Permalink to this headline">¶</a></h3>
 <p>Here is an example of how to get the standard

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>nPA Smart Card Library &mdash; vsmartcard 2014-11-03 documentation</title>
+    <title>nPA Smart Card Library &mdash; vsmartcard 2014-11-20 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2014-11-03',
+        VERSION:     '2014-11-20',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -31,7 +31,7 @@
     <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/chip.ico"/>
-    <link rel="top" title="vsmartcard 2014-11-03 documentation" href="../index.html" />
+    <link rel="top" title="vsmartcard 2014-11-20 documentation" href="../index.html" />
     <link rel="next" title="Creating a Virtual Smart Card" href="../virtualsmartcard/api.html" />
     <link rel="prev" title="USB CCID Emulator" href="../ccid/README.html" />
 <meta charset='utf-8'>
@@ -110,6 +110,7 @@
 <li><a class="reference internal" href="#">nPA Smart Card Library</a><ul>
 <li><a class="reference internal" href="#download">Download</a></li>
 <li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#installation-on-linux-unix-and-similar">Installation on Linux, Unix and similar</a></li>
 <li><a class="reference internal" href="#installation-of-openpace-and-openssl">Installation of OpenPACE and OpenSSL</a></li>
 <li><a class="reference internal" href="#installation-of-opensc">Installation of OpenSC</a></li>
 <li><a class="reference internal" href="#installation-of-the-npa-smart-card-library">Installation of the nPA Smart Card Library</a></li>
@@ -220,9 +221,16 @@ kleiner, yshift=-1cm]
     (libnpa) edge (opensc)
     (libnpa) edge (openpace);
 \end{pgfonlayer}" /></p>
-<p class="caption">Architecture of the nPA Smart Card Library</p></div><div class="section" id="download">
+<p class="caption">Architecture of the nPA Smart Card Library</p></div><p>The nPA Smart Card Library has the following dependencies:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://frankmorgner.github.io/openpace/">OpenPACE</a> <a class="footnote-reference" href="#id1" id="id3">[1]</a></li>
+<li><a class="reference external" href="https://github.com/OpenSC/OpenSC">OpenSC</a> <a class="footnote-reference" href="#id4" id="id6">[2]</a></li>
+<li><a class="reference external" href="http://www.openssl.org">OpenSSL</a> <a class="footnote-reference" href="#id7" id="id8">[3]</a></li>
+</ul>
+<div class="section" id="download">
 <h2>Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h2>
-<p>You can find the latest release of nPA Smart Card Library on <a class="reference external" href="http://sourceforge.net/projects/vsmartcard/files">Sourceforge</a>.</p>
+<p>You can find the latest release of nPA Smart Card Library on <a class="reference external" href="https://github.com/frankmorgner/vsmartcard/releases">Github</a>. Older releases are
+still available on <a class="reference external" href="http://sourceforge.net/projects/vsmartcard/files">Sourceforge</a>.</p>
 <p>Alternatively, you can clone our git repository:</p>
 <div class="highlight-sh"><div class="highlight"><pre>git clone https://github.com/frankmorgner/vsmartcard.git
 </pre></div>
@@ -230,6 +238,8 @@ kleiner, yshift=-1cm]
 </div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="installation-on-linux-unix-and-similar">
+<h3>Installation on Linux, Unix and similar<a class="headerlink" href="#installation-on-linux-unix-and-similar" title="Permalink to this headline">¶</a></h3>
 <p>The nPA Smart Card Library uses the GNU Build System to compile and install. If you are
 unfamiliar with it, please have a look at <tt class="file docutils literal"><span class="pre">INSTALL</span></tt>. If you can not find
 it, you are probably working bleeding edge in the repository.  Run the
@@ -245,12 +255,7 @@ make
 make install
 </pre></div>
 </div>
-<p>The nPA Smart Card Library has the following dependencies:</p>
-<ul class="simple">
-<li><a class="reference external" href="https://frankmorgner.github.io/openpace/">OpenPACE</a> <a class="footnote-reference" href="#id1" id="id3">[1]</a></li>
-<li><a class="reference external" href="https://github.com/OpenSC/OpenSC">OpenSC</a> <a class="footnote-reference" href="#id4" id="id6">[2]</a></li>
-<li><a class="reference external" href="http://www.openssl.org">OpenSSL</a> <a class="footnote-reference" href="#id7" id="id8">[3]</a></li>
-</ul>
+</div>
 <div class="section" id="installation-of-openpace-and-openssl">
 <h3>Installation of OpenPACE and OpenSSL<a class="headerlink" href="#installation-of-openpace-and-openssl" title="Permalink to this headline">¶</a></h3>
 <p>The nPA Smart Card Library links against OpenSSL, which must be patched for OpenPACE.
