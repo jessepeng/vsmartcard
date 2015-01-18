@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>nPA Module &mdash; vsmartcard 2014-11-20 documentation</title>
+    <title>nPA Module &mdash; vsmartcard 2015-01-18 documentation</title>
     
     <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2014-11-20',
+        VERSION:     '2015-01-18',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -31,7 +31,7 @@
     <script type="text/javascript" src="../../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../../_static/chip.ico"/>
-    <link rel="top" title="vsmartcard 2014-11-20 documentation" href="../../index.html" />
+    <link rel="top" title="vsmartcard 2015-01-18 documentation" href="../../index.html" />
     <link rel="up" title="cards Package" href="virtualsmartcard.cards.html" />
     <link rel="next" title="tests Package" href="virtualsmartcard.tests.html" />
     <link rel="prev" title="ePass Module" href="virtualsmartcard.cards.ePass.html" />
@@ -247,7 +247,7 @@ to support new or different algorithms.</p>
 
 <dl class="class">
 <dt id="virtualsmartcard.cards.nPA.nPA_SAM">
-<em class="property">class </em><tt class="descclassname">virtualsmartcard.cards.nPA.</tt><tt class="descname">nPA_SAM</tt><big>(</big><em>pin</em>, <em>can</em>, <em>mrz</em>, <em>puk</em>, <em>mf</em>, <em>default_se=&lt;class 'virtualsmartcard.cards.nPA.nPA_SE'&gt;</em><big>)</big><a class="headerlink" href="#virtualsmartcard.cards.nPA.nPA_SAM" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">virtualsmartcard.cards.nPA.</tt><tt class="descname">nPA_SAM</tt><big>(</big><em>eid_pin</em>, <em>can</em>, <em>mrz</em>, <em>puk</em>, <em>qes_pin</em>, <em>mf</em>, <em>default_se=&lt;class 'virtualsmartcard.cards.nPA.nPA_SE'&gt;</em><big>)</big><a class="headerlink" href="#virtualsmartcard.cards.nPA.nPA_SAM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="virtualsmartcard.SmartcardSAM.html#virtualsmartcard.SmartcardSAM.SAM" title="virtualsmartcard.SmartcardSAM.SAM"><tt class="xref py py-class docutils literal"><span class="pre">virtualsmartcard.SmartcardSAM.SAM</span></tt></a></p>
 <dl class="method">
 <dt id="virtualsmartcard.cards.nPA.nPA_SAM.FSdecrypt">
@@ -580,22 +580,7 @@ SEID is used as a reference to identify the SE.</p>
 <dl class="method">
 <dt id="virtualsmartcard.cards.nPA.nPA_SE.compute_digital_signature">
 <tt class="descname">compute_digital_signature</tt><big>(</big><em>p1</em>, <em>p2</em>, <em>data</em><big>)</big><a class="headerlink" href="#virtualsmartcard.cards.nPA.nPA_SE.compute_digital_signature" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute a digital signature for the given data.
-Algorithm and key are specified in the current SE</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>p1</strong> &#8211; Must be 0x9E = Secure Messaging class for digital signatures</li>
-<li><strong>p2</strong> &#8211; Must be one of 0x9A, 0xAC, 0xBC. Indicates what kind of data
-is included in the data field.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="virtualsmartcard.cards.nPA.nPA_SE.decipher">
@@ -967,7 +952,7 @@ contain a data to sign (tag 0x9A, 0xAC or 0xBC) and a digital signature
       
     </p>
     <p>
-        &copy; Copyright 2009-2014 by Dominik Oepen and Frank Morgner.<br/>
+        &copy; Copyright 2009-2015 by Dominik Oepen and Frank Morgner.<br/>
     </p>
   </div>
 </footer>

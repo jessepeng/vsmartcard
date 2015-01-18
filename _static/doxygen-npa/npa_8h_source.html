@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">nPASmartCardLibrary
-   &#160;<span id="projectnumber">0.6</span>
+   &#160;<span id="projectnumber">0.7</span>
    </div>
   </td>
  </tr>
@@ -201,50 +201,51 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *privkey, <span class="keywordtype">size_t</span> privkey_len,</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *auxiliary_data, <span class="keywordtype">size_t</span> auxiliary_data_len);</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__npa.html#ga67a77a220072ff1b8d968ede9e390c5b">perform_chip_authentication</a>(sc_card_t *card);</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__npa.html#ga4c7507f8f35c39d4d24766d51fb868cb">npa_reset_retry_counter</a>(sc_card_t *card,</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        <span class="keyword">enum</span> s_type pin_id, <span class="keywordtype">int</span> ask_for_secret,</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">new</span>, <span class="keywordtype">size_t</span> new_len);</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__npa.html#ga246a724aa74d40b87d635758878aa2a6">npa_pace_get_tries_left</a>(sc_card_t *card,</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        <span class="keyword">enum</span> s_type pin_id, <span class="keywordtype">int</span> *tries_left);</div>
-<div class="line"><a name="l00224"></a><span class="lineno"><a class="line" href="group__npa.html#gac48a5e211dbe2e4129b1b05cc5323aaa">  224</a></span>&#160;<span class="preprocessor">#define npa_unblock_pin(card) \</span></div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="preprocessor">    npa_reset_retry_counter(card, PACE_PIN, 0, NULL, 0)</span></div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;</div>
-<div class="line"><a name="l00233"></a><span class="lineno"><a class="line" href="group__npa.html#gab81a918e060f80ac74c26b15222a092a">  233</a></span>&#160;<span class="preprocessor">#define npa_change_pin(card, newp, newplen) \</span></div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="preprocessor">    npa_reset_retry_counter(card, PACE_PIN, 1, newp, newplen)</span></div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;</div>
-<div class="line"><a name="l00237"></a><span class="lineno"><a class="line" href="group__npa.html#ga16f7efc7f640063be6ea0af3ac834034">  237</a></span>&#160;<span class="preprocessor">#define NPA_FLAG_DISABLE_CHECK_ALL 1</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__npa.html#ga193e21a171980fcc0d65e86d887652d6">perform_chip_authentication</a>(sc_card_t *card,</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> **ef_cardsecurity, <span class="keywordtype">size_t</span> *ef_cardsecurity_len);</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__npa.html#ga4c7507f8f35c39d4d24766d51fb868cb">npa_reset_retry_counter</a>(sc_card_t *card,</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        <span class="keyword">enum</span> s_type pin_id, <span class="keywordtype">int</span> ask_for_secret,</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">new</span>, <span class="keywordtype">size_t</span> new_len);</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="keywordtype">int</span> <a class="code" href="group__npa.html#ga246a724aa74d40b87d635758878aa2a6">npa_pace_get_tries_left</a>(sc_card_t *card,</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;        <span class="keyword">enum</span> s_type pin_id, <span class="keywordtype">int</span> *tries_left);</div>
+<div class="line"><a name="l00227"></a><span class="lineno"><a class="line" href="group__npa.html#gac48a5e211dbe2e4129b1b05cc5323aaa">  227</a></span>&#160;<span class="preprocessor">#define npa_unblock_pin(card) \</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="preprocessor">    npa_reset_retry_counter(card, PACE_PIN, 0, NULL, 0)</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;</div>
+<div class="line"><a name="l00236"></a><span class="lineno"><a class="line" href="group__npa.html#gab81a918e060f80ac74c26b15222a092a">  236</a></span>&#160;<span class="preprocessor">#define npa_change_pin(card, newp, newplen) \</span></div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="preprocessor">    npa_reset_retry_counter(card, PACE_PIN, 1, newp, newplen)</span></div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;</div>
-<div class="line"><a name="l00239"></a><span class="lineno"><a class="line" href="group__npa.html#ga3b8a1978b2d121bf2be0aec6fb9eec56">  239</a></span>&#160;<span class="preprocessor">#define NPA_FLAG_DISABLE_CHECK_TA 2</span></div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;</div>
-<div class="line"><a name="l00241"></a><span class="lineno"><a class="line" href="group__npa.html#gaf8aaca03d794fa79ffe63815d2995b97">  241</a></span>&#160;<span class="preprocessor">#define NPA_FLAG_DISABLE_CHECK_CA 4</span></div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">char</span> <a class="code" href="group__npa.html#gaca889ab000cf62e52bfb9b97a6428b8f">npa_default_flags</a>;</div>
+<div class="line"><a name="l00240"></a><span class="lineno"><a class="line" href="group__npa.html#ga16f7efc7f640063be6ea0af3ac834034">  240</a></span>&#160;<span class="preprocessor">#define NPA_FLAG_DISABLE_CHECK_ALL 1</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;</div>
+<div class="line"><a name="l00242"></a><span class="lineno"><a class="line" href="group__npa.html#ga3b8a1978b2d121bf2be0aec6fb9eec56">  242</a></span>&#160;<span class="preprocessor">#define NPA_FLAG_DISABLE_CHECK_TA 2</span></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;</div>
+<div class="line"><a name="l00244"></a><span class="lineno"><a class="line" href="group__npa.html#gaf8aaca03d794fa79ffe63815d2995b97">  244</a></span>&#160;<span class="preprocessor">#define NPA_FLAG_DISABLE_CHECK_CA 4</span></div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="keyword">typedef</span> <a class="code" href="group__npa.html#ga6ff3d929a1c1a0dda3e64409c4f19b34">STACK_OF</a>(CVC_DISCRETIONARY_DATA_TEMPLATE) ASN1_AUXILIARY_DATA;</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;DECLARE_ASN1_FUNCTIONS(ASN1_AUXILIARY_DATA)</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="preprocessor">#ifdef  __cplusplus</span></div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;}</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="comment">/* @} */</span></div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">char</span> <a class="code" href="group__npa.html#gaca889ab000cf62e52bfb9b97a6428b8f">npa_default_flags</a>;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="keyword">typedef</span> <a class="code" href="group__npa.html#ga6ff3d929a1c1a0dda3e64409c4f19b34">STACK_OF</a>(CVC_DISCRETIONARY_DATA_TEMPLATE) ASN1_AUXILIARY_DATA;</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;DECLARE_ASN1_FUNCTIONS(ASN1_AUXILIARY_DATA)</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="preprocessor">#ifdef  __cplusplus</span></div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;}</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="comment">/* @} */</span></div>
 <div class="ttc" id="group__npa_html_gabc7481da778211ffcaa8e682bc6f5938"><div class="ttname"><a href="group__npa.html#gabc7481da778211ffcaa8e682bc6f5938">get_pace_capabilities</a></div><div class="ttdeci">int get_pace_capabilities(u8 *bitmap)</div><div class="ttdoc">Get the PACE capabilities. </div></div>
 <div class="ttc" id="group__npa_html_gaadfcaf886bcf7bfeaaa79d5fd9547819"><div class="ttname"><a href="group__npa.html#gaadfcaf886bcf7bfeaaa79d5fd9547819">perform_pace</a></div><div class="ttdeci">int perform_pace(sc_card_t *card, struct establish_pace_channel_input pace_input, struct establish_pace_channel_output *pace_output, enum eac_tr_version tr_version)</div><div class="ttdoc">Establish secure messaging using PACE. </div></div>
 <div class="ttc" id="group__npa_html_ga246a724aa74d40b87d635758878aa2a6"><div class="ttname"><a href="group__npa.html#ga246a724aa74d40b87d635758878aa2a6">npa_pace_get_tries_left</a></div><div class="ttdeci">int npa_pace_get_tries_left(sc_card_t *card, enum s_type pin_id, int *tries_left)</div><div class="ttdoc">Sends an MSE:Set AT to determine the number of remaining tries. </div></div>
-<div class="ttc" id="group__npa_html_ga67a77a220072ff1b8d968ede9e390c5b"><div class="ttname"><a href="group__npa.html#ga67a77a220072ff1b8d968ede9e390c5b">perform_chip_authentication</a></div><div class="ttdeci">int perform_chip_authentication(sc_card_t *card)</div><div class="ttdoc">Establish secure messaging using Chip Authentication version 2. </div></div>
 <div class="ttc" id="group__npa_html_gaf1a3f74c045e7a815368a9bb6b08b353"><div class="ttname"><a href="group__npa.html#gaf1a3f74c045e7a815368a9bb6b08b353">npa_secret_name</a></div><div class="ttdeci">const char * npa_secret_name(enum s_type pin_id)</div><div class="ttdoc">Names the type of the PACE secret. </div></div>
 <div class="ttc" id="group__npa_html_gaca889ab000cf62e52bfb9b97a6428b8f"><div class="ttname"><a href="group__npa.html#gaca889ab000cf62e52bfb9b97a6428b8f">npa_default_flags</a></div><div class="ttdeci">char npa_default_flags</div><div class="ttdoc">Use npa_default_flags to disable checks for EAC/SM. </div></div>
 <div class="ttc" id="iso-sm_8h_html"><div class="ttname"><a href="iso-sm_8h.html">iso-sm.h</a></div></div>
 <div class="ttc" id="group__npa_html_ga4c7507f8f35c39d4d24766d51fb868cb"><div class="ttname"><a href="group__npa.html#ga4c7507f8f35c39d4d24766d51fb868cb">npa_reset_retry_counter</a></div><div class="ttdeci">int npa_reset_retry_counter(sc_card_t *card, enum s_type pin_id, int ask_for_secret, const char *new, size_t new_len)</div><div class="ttdoc">Sends a reset retry counter APDU. </div></div>
+<div class="ttc" id="group__npa_html_ga193e21a171980fcc0d65e86d887652d6"><div class="ttname"><a href="group__npa.html#ga193e21a171980fcc0d65e86d887652d6">perform_chip_authentication</a></div><div class="ttdeci">int perform_chip_authentication(sc_card_t *card, unsigned char **ef_cardsecurity, size_t *ef_cardsecurity_len)</div><div class="ttdoc">Establish secure messaging using Chip Authentication version 2. </div></div>
 <div class="ttc" id="group__npa_html_ga6ff3d929a1c1a0dda3e64409c4f19b34"><div class="ttname"><a href="group__npa.html#ga6ff3d929a1c1a0dda3e64409c4f19b34">STACK_OF</a></div><div class="ttdeci">typedef STACK_OF(CVC_DISCRETIONARY_DATA_TEMPLATE) ASN1_AUXILIARY_DATA</div><div class="ttdoc">ASN.1 type for authenticated auxiliary data for terminal authentication. </div></div>
 <div class="ttc" id="group__npa_html_ga152ddd07cb17a0a6b6236cb070cb2660"><div class="ttname"><a href="group__npa.html#ga152ddd07cb17a0a6b6236cb070cb2660">perform_terminal_authentication</a></div><div class="ttdeci">int perform_terminal_authentication(sc_card_t *card, const unsigned char **certs, const size_t *certs_lens, const unsigned char *privkey, size_t privkey_len, const unsigned char *auxiliary_data, size_t auxiliary_data_len)</div><div class="ttdoc">Terminal Authentication version 2. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 20 2014 21:18:13 for nPASmartCardLibrary by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 18 2015 02:20:21 for nPASmartCardLibrary by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

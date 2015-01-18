@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">nPASmartCardLibrary
-   &#160;<span id="projectnumber">0.6</span>
+   &#160;<span id="projectnumber">0.7</span>
    </div>
   </td>
  </tr>
@@ -147,8 +147,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="comment"> * be null terminated. */</span></div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="keywordtype">int</span> _sc_match_atr(<span class="keyword">struct</span> sc_card *card, <span class="keyword">struct</span> sc_atr_table *table, <span class="keywordtype">int</span> *type_out);</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="comment">/* @} */</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="keywordtype">int</span> fread_to_eof(<span class="keyword">const</span> <span class="keywordtype">char</span> *file, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> **buf, <span class="keywordtype">size_t</span> *buflen);</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="comment">/* @} */</span></div>
 <div class="ttc" id="group__scutil_html_ga378cdc86e95f37938c53b8a5e1e4ac3c"><div class="ttname"><a href="group__scutil.html#ga378cdc86e95f37938c53b8a5e1e4ac3c">_bin_log</a></div><div class="ttdeci">void _bin_log(sc_context_t *ctx, int type, const char *file, int line, const char *func, const char *label, const u8 *data, size_t len, FILE *f)</div><div class="ttdoc">Log binary data. </div></div>
 <div class="ttc" id="group__scutil_html_gabb642f14206f468b9fe408c29b920c06"><div class="ttname"><a href="group__scutil.html#gabb642f14206f468b9fe408c29b920c06">sc_apdu_set_resp</a></div><div class="ttdeci">int sc_apdu_set_resp(sc_context_t *ctx, sc_apdu_t *apdu, const u8 *buf, size_t len)</div></div>
 <div class="ttc" id="group__scutil_html_ga66eb7618b1e581b69e4003eea4ee6099"><div class="ttname"><a href="group__scutil.html#ga66eb7618b1e581b69e4003eea4ee6099">write_binary_rec</a></div><div class="ttdeci">int write_binary_rec(sc_card_t *card, unsigned char sfid, u8 *ef, size_t ef_len)</div><div class="ttdoc">Recursively write an EF by short file identifier. </div></div>
@@ -159,7 +161,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 20 2014 21:18:13 for nPASmartCardLibrary by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 18 2015 02:20:21 for nPASmartCardLibrary by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

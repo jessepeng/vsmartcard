@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>VirtualSmartcard Module &mdash; vsmartcard 2014-11-20 documentation</title>
+    <title>VirtualSmartcard Module &mdash; vsmartcard 2015-01-18 documentation</title>
     
     <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2014-11-20',
+        VERSION:     '2015-01-18',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -31,7 +31,7 @@
     <script type="text/javascript" src="../../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../../_static/chip.ico"/>
-    <link rel="top" title="vsmartcard 2014-11-20 documentation" href="../../index.html" />
+    <link rel="top" title="vsmartcard 2015-01-18 documentation" href="../../index.html" />
     <link rel="up" title="virtualsmartcard Package" href="virtualsmartcard.html" />
     <link rel="next" title="utils Module" href="virtualsmartcard.utils.html" />
     <link rel="prev" title="TLVutils Module" href="virtualsmartcard.TLVutils.html" />
@@ -424,7 +424,7 @@ historical bytes of the card capabilities.</p>
 
 <dl class="class">
 <dt id="virtualsmartcard.VirtualSmartcard.NPAOS">
-<em class="property">class </em><tt class="descclassname">virtualsmartcard.VirtualSmartcard.</tt><tt class="descname">NPAOS</tt><big>(</big><em>mf</em>, <em>sam</em>, <em>ins2handler=None</em>, <em>maxle=65536</em>, <em>ef_cardsecurity=None</em>, <em>ef_cardaccess=None</em>, <em>ca_key=None</em>, <em>cvca=None</em>, <em>disable_checks=False</em><big>)</big><a class="headerlink" href="#virtualsmartcard.VirtualSmartcard.NPAOS" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">virtualsmartcard.VirtualSmartcard.</tt><tt class="descname">NPAOS</tt><big>(</big><em>mf</em>, <em>sam</em>, <em>ins2handler=None</em>, <em>maxle=65536</em>, <em>ef_cardsecurity=None</em>, <em>ef_cardaccess=None</em>, <em>ca_key=None</em>, <em>cvca=None</em>, <em>disable_checks=False</em>, <em>esign_key=None</em>, <em>esign_ca_cert=None</em>, <em>esign_cert=None</em><big>)</big><a class="headerlink" href="#virtualsmartcard.VirtualSmartcard.NPAOS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#virtualsmartcard.VirtualSmartcard.Iso7816OS" title="virtualsmartcard.VirtualSmartcard.Iso7816OS"><tt class="xref py py-class docutils literal"><span class="pre">virtualsmartcard.VirtualSmartcard.Iso7816OS</span></tt></a></p>
 <dl class="attribute">
 <dt id="virtualsmartcard.VirtualSmartcard.NPAOS.SAM">
@@ -643,7 +643,7 @@ This class can be used to implement relay or MitM attacks.</p>
 
 <dl class="class">
 <dt id="virtualsmartcard.VirtualSmartcard.VirtualICC">
-<em class="property">class </em><tt class="descclassname">virtualsmartcard.VirtualSmartcard.</tt><tt class="descname">VirtualICC</tt><big>(</big><em>filename</em>, <em>datasetfile</em>, <em>card_type</em>, <em>host</em>, <em>port</em>, <em>readernum=None</em>, <em>ef_cardsecurity=None</em>, <em>ef_cardaccess=None</em>, <em>ca_key=None</em>, <em>cvca=None</em>, <em>disable_checks=False</em>, <em>logginglevel=20</em><big>)</big><a class="headerlink" href="#virtualsmartcard.VirtualSmartcard.VirtualICC" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">virtualsmartcard.VirtualSmartcard.</tt><tt class="descname">VirtualICC</tt><big>(</big><em>filename</em>, <em>datasetfile</em>, <em>card_type</em>, <em>host</em>, <em>port</em>, <em>readernum=None</em>, <em>ef_cardsecurity=None</em>, <em>ef_cardaccess=None</em>, <em>ca_key=None</em>, <em>cvca=None</em>, <em>disable_checks=False</em>, <em>esign_key=None</em>, <em>esign_ca_cert=None</em>, <em>esign_cert=None</em>, <em>logginglevel=20</em><big>)</big><a class="headerlink" href="#virtualsmartcard.VirtualSmartcard.VirtualICC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>This class is responsible for maintaining the communication of the virtual
 PCD and the emulated smartcard. vpicc and vpcd communicate via a socket.
@@ -710,7 +710,7 @@ printed when the user presses crtl-c</p>
       
     </p>
     <p>
-        &copy; Copyright 2009-2014 by Dominik Oepen and Frank Morgner.<br/>
+        &copy; Copyright 2009-2015 by Dominik Oepen and Frank Morgner.<br/>
     </p>
   </div>
 </footer>

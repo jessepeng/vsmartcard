@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">nPASmartCardLibrary
-   &#160;<span id="projectnumber">0.6</span>
+   &#160;<span id="projectnumber">0.7</span>
    </div>
   </td>
  </tr>
@@ -268,9 +268,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ga152ddd07cb17a0a6b6236cb070cb2660"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__npa.html#ga152ddd07cb17a0a6b6236cb070cb2660">perform_terminal_authentication</a> (sc_card_t *card, const unsigned char **certs, const size_t *certs_lens, const unsigned char *privkey, size_t privkey_len, const unsigned char *auxiliary_data, size_t auxiliary_data_len)</td></tr>
 <tr class="memdesc:ga152ddd07cb17a0a6b6236cb070cb2660"><td class="mdescLeft">&#160;</td><td class="mdescRight">Terminal Authentication version 2.  <a href="group__npa.html#ga152ddd07cb17a0a6b6236cb070cb2660">More...</a><br /></td></tr>
 <tr class="separator:ga152ddd07cb17a0a6b6236cb070cb2660"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga67a77a220072ff1b8d968ede9e390c5b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__npa.html#ga67a77a220072ff1b8d968ede9e390c5b">perform_chip_authentication</a> (sc_card_t *card)</td></tr>
-<tr class="memdesc:ga67a77a220072ff1b8d968ede9e390c5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Establish secure messaging using Chip Authentication version 2.  <a href="group__npa.html#ga67a77a220072ff1b8d968ede9e390c5b">More...</a><br /></td></tr>
-<tr class="separator:ga67a77a220072ff1b8d968ede9e390c5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga193e21a171980fcc0d65e86d887652d6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__npa.html#ga193e21a171980fcc0d65e86d887652d6">perform_chip_authentication</a> (sc_card_t *card, unsigned char **ef_cardsecurity, size_t *ef_cardsecurity_len)</td></tr>
+<tr class="memdesc:ga193e21a171980fcc0d65e86d887652d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Establish secure messaging using Chip Authentication version 2.  <a href="group__npa.html#ga193e21a171980fcc0d65e86d887652d6">More...</a><br /></td></tr>
+<tr class="separator:ga193e21a171980fcc0d65e86d887652d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4c7507f8f35c39d4d24766d51fb868cb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__npa.html#ga4c7507f8f35c39d4d24766d51fb868cb">npa_reset_retry_counter</a> (sc_card_t *card, enum s_type pin_id, int ask_for_secret, const char *new, size_t new_len)</td></tr>
 <tr class="memdesc:ga4c7507f8f35c39d4d24766d51fb868cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a reset retry counter APDU.  <a href="group__npa.html#ga4c7507f8f35c39d4d24766d51fb868cb">More...</a><br /></td></tr>
 <tr class="separator:ga4c7507f8f35c39d4d24766d51fb868cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -292,7 +292,7 @@ char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grou
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 20 2014 21:18:13 for nPASmartCardLibrary by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 18 2015 02:20:22 for nPASmartCardLibrary by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

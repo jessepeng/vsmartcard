@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Creating a Virtual Smart Card &mdash; vsmartcard 2014-11-20 documentation</title>
+    <title>Creating a Virtual Smart Card &mdash; vsmartcard 2015-01-18 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2014-11-20',
+        VERSION:     '2015-01-18',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -31,7 +31,7 @@
     <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/chip.ico"/>
-    <link rel="top" title="vsmartcard 2014-11-20 documentation" href="../index.html" />
+    <link rel="top" title="vsmartcard 2015-01-18 documentation" href="../index.html" />
     <link rel="next" title="virtualsmartcard Package" href="api/virtualsmartcard.html" />
     <link rel="prev" title="nPA Smart Card Library" href="../npa/README.html" />
 <meta charset='utf-8'>
@@ -226,6 +226,7 @@ network byte order, i.e. big endian) is sent followed by the data itself.</p>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="api/virtualsmartcard.tests.html">tests Package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/virtualsmartcard.tests.CardGenerator_test.html">CardGenerator_test Module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/virtualsmartcard.tests.CryptoUtils_test.html">CryptoUtils_test Module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/virtualsmartcard.tests.SmartcardSAM_test.html">SmartcardSAM_test Module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/virtualsmartcard.tests.utils_test.html">utils_test Module</a></li>
@@ -267,7 +268,7 @@ is only a buffer that is forwarded to the smart card OS. First we modify
 <a class="reference internal" href="api/virtualsmartcard.VirtualSmartcard.html#virtualsmartcard.VirtualSmartcard.CryptoflexOS" title="virtualsmartcard.VirtualSmartcard.CryptoflexOS"><tt class="xref py py-class docutils literal"><span class="pre">CryptoflexOS</span></tt></a>. The
 <a class="reference internal" href="api/virtualsmartcard.CardGenerator.html#module-virtualsmartcard.CardGenerator" title="virtualsmartcard.CardGenerator"><tt class="xref py py-class docutils literal"><span class="pre">CardGenerator</span></tt></a> is used to create a file system and a
 <abbr title="Secure Access Module">SAM</abbr> specific to the cryptoflex (we come back to this later).</p>
-<div class="highlight-python"><div class="highlight"><pre>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">datasetfile</span><span class="p">,</span> <span class="n">card_type</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">readernum</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ef_cardsecurity</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ef_cardaccess</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ca_key</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">cvca</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">disable_checks</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">logginglevel</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">datasetfile</span><span class="p">,</span> <span class="n">card_type</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">readernum</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ef_cardsecurity</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ef_cardaccess</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ca_key</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">cvca</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">disable_checks</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">esign_key</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">esign_ca_cert</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">esign_cert</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">logginglevel</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">):</span>
         <span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">exists</span>
         
         <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span> <span class="o">=</span> <span class="n">logginglevel</span><span class="p">,</span> 
@@ -299,7 +300,7 @@ is only a buffer that is forwarded to the smart card OS. First we modify
 </span>        <span class="k">if</span> <span class="n">card_type</span> <span class="o">==</span> <span class="s">&quot;iso7816&quot;</span> <span class="ow">or</span> <span class="n">card_type</span> <span class="o">==</span> <span class="s">&quot;ePass&quot;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">os</span> <span class="o">=</span> <span class="n">Iso7816OS</span><span class="p">(</span><span class="n">MF</span><span class="p">,</span> <span class="n">SAM</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">card_type</span> <span class="o">==</span> <span class="s">&quot;nPA&quot;</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">os</span> <span class="o">=</span> <span class="n">NPAOS</span><span class="p">(</span><span class="n">MF</span><span class="p">,</span> <span class="n">SAM</span><span class="p">,</span> <span class="n">ef_cardsecurity</span><span class="o">=</span><span class="n">ef_cardsecurity</span><span class="p">,</span> <span class="n">ef_cardaccess</span><span class="o">=</span><span class="n">ef_cardaccess</span><span class="p">,</span> <span class="n">ca_key</span><span class="o">=</span><span class="n">ca_key</span><span class="p">,</span> <span class="n">cvca</span><span class="o">=</span><span class="n">cvca</span><span class="p">,</span> <span class="n">disable_checks</span><span class="o">=</span><span class="n">disable_checks</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">os</span> <span class="o">=</span> <span class="n">NPAOS</span><span class="p">(</span><span class="n">MF</span><span class="p">,</span> <span class="n">SAM</span><span class="p">,</span> <span class="n">ef_cardsecurity</span><span class="o">=</span><span class="n">ef_cardsecurity</span><span class="p">,</span> <span class="n">ef_cardaccess</span><span class="o">=</span><span class="n">ef_cardaccess</span><span class="p">,</span> <span class="n">ca_key</span><span class="o">=</span><span class="n">ca_key</span><span class="p">,</span> <span class="n">cvca</span><span class="o">=</span><span class="n">cvca</span><span class="p">,</span> <span class="n">disable_checks</span><span class="o">=</span><span class="n">disable_checks</span><span class="p">,</span> <span class="n">esign_key</span><span class="o">=</span><span class="n">esign_key</span><span class="p">,</span> <span class="n">esign_ca_cert</span><span class="o">=</span><span class="n">esign_ca_cert</span><span class="p">,</span> <span class="n">esign_cert</span><span class="o">=</span><span class="n">esign_cert</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">card_type</span> <span class="o">==</span> <span class="s">&quot;cryptoflex&quot;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">os</span> <span class="o">=</span> <span class="n">CryptoflexOS</span><span class="p">(</span><span class="n">MF</span><span class="p">,</span> <span class="n">SAM</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">card_type</span> <span class="o">==</span> <span class="s">&quot;relay&quot;</span><span class="p">:</span>
@@ -560,7 +561,7 @@ forward, but see yourself...</p>
       
     </p>
     <p>
-        &copy; Copyright 2009-2014 by Dominik Oepen and Frank Morgner.<br/>
+        &copy; Copyright 2009-2015 by Dominik Oepen and Frank Morgner.<br/>
     </p>
   </div>
 </footer>
