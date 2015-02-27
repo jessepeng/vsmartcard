@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>PC/SC Relay &mdash; vsmartcard 2015-02-02 documentation</title>
+    <title>PC/SC Relay &mdash; vsmartcard 2015-02-27 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2015-02-02',
+        VERSION:     '2015-02-27',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -31,7 +31,7 @@
     <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/chip.ico"/>
-    <link rel="top" title="vsmartcard 2015-02-02 documentation" href="../index.html" />
+    <link rel="top" title="vsmartcard 2015-02-27 documentation" href="../index.html" />
     <link rel="next" title="USB CCID Emulator" href="../ccid/README.html" />
     <link rel="prev" title="Remote Smart Card Reader" href="../remote-reader/README.html" />
 <meta charset='utf-8'>
@@ -202,8 +202,9 @@ backends are supported:</p>
 Response APDUs are then sent back via RFID. The contact-less data will be
 relayed to one of the following:</p>
 <ul class="simple">
-<li>to a smart card inserted into one of the systems smart card readers. The
-smart card reader must be accessible with PC/SC.</li>
+<li>to a <em>real</em> smart card inserted into one of the systems&#8217; smart card readers.
+The smart card reader must be accessible with PC/SC. The smart card may be
+contact-based <em>or</em> contact-less.</li>
 <li>to a <a class="reference internal" href="../virtualsmartcard/README.html#vicc"><em>Virtual Smart Card</em></a> that directly connects to <strong class="command">pcsc-relay</strong>. The virtual
 smart card&#8217;s native interface is used and (despite its name) PC/SC Relay
 does not need to access PC/SC in this case.</li>
@@ -211,7 +212,85 @@ does not need to access PC/SC in this case.</li>
 <p>With PC/SC Relay you can relay a contact-less or contact based smart card
 over a long distance. Also you can use it in combination with the <a class="reference internal" href="../virtualsmartcard/README.html#vicc"><em>Virtual Smart Card</em></a>
 to completely emulate an ISO/IEC 14443 smart card.</p>
-<p>PC/SC Relay has the following dependencies:</p>
+<div class="figure">
+<p><img src="../_images/tikz-af7c500944810aa476bbd56c4c9693e6faec1d17.png" alt="\input{%(wd)s/bilder/tikzstyles.tex}
+\tikzstyle{bla}=[shape=rectangle split, rectangle split parts=2,
+every text node part/.style={align=center, klein}, text width=7cm,
+every second node part/.style={kleiner}, inner sep=0pt]
+
+\tikzstyle{keks}=[to path={-- ++(.1,0) |- (\tikztotarget)}]
+
+\node (touchatag)
+    {\includegraphics[keepaspectratio, height=2cm,
+    width=2cm]{%(wd)s/bilder/touchatag.png}};
+\node (touchatagbeschreibung) [below=0cm of touchatag, kleiner]
+{touchatag};
+
+\node (pcsc-relay) [right=of touchatag]
+{\texttt{pcsc-relay}};
+\node (pcsc-relaybeschreibung) [below=0cm of pcsc-relay, kleiner]
+{NFC emulator
+};
+
+\node (vicc) [right=of pcsc-relay]
+{\texttt{vicc -t nPA}};
+\node (viccbeschreibung) [below=0cm of vicc, kleiner]
+{nPA emulator};
+
+\node (group) [fit=(touchatag) (pcsc-relay) (vicc) (touchatagbeschreibung)
+(pcsc-relaybeschreibung) (viccbeschreibung)] {};
+\node (funktionenchat) [below=0cm of group, bla]
+{
+    PACE
+    \nodepart{second}
+            \begin{itemize}
+        \item Display context (eID/eSign)
+        \item Display requested permissions
+    \end{itemize}
+};
+\node (funktionenpace) [below=.5 of funktionenchat, bla]
+{
+    Terminal Authentication
+    \nodepart{second}
+            \begin{itemize}
+        \item Verify authenticy of terminal
+        \item Check freshness of cv certificate
+        \item With certificate database
+            \begin{itemize}
+                \item Identification of service provider
+                \item Display purpose of transaction
+            \end{itemize}
+    \end{itemize}
+};
+
+\begin{pgfonlayer}{background}
+    \node (box) [fit=(touchatag) (pcsc-relay) (vicc) (touchatagbeschreibung)
+    (pcsc-relaybeschreibung) (viccbeschreibung) (funktionenchat)
+    (funktionenpace), box, inner sep=.5cm] {};
+    \node (boxbild) at (box.north west)
+    {\includegraphics[keepaspectratio, height=1.5cm,
+    width=1.5cm]{%(wd)s/bilder/moko/moko_reader.png}};
+    \node [right=0cm of boxbild.east, yshift=.3cm]
+    {Openmoko Neo FreeRunner};
+\end{pgfonlayer}
+
+\node (a) [left=1.5of box]
+    {\includegraphics[keepaspectratio, height=4cm,
+    width=4cm]{%(wd)s/bilder/ivak_kiosk-terminal.pdf}};
+\node (e) [below=0cm of a, text width=2.5cm, align=center]
+{(Public) Terminal};
+
+
+\begin{pgfonlayer}{background}
+    \path
+    (touchatag)  edge  [doppelpfeil] (pcsc-relay)
+    (pcsc-relay) edge [doppelpfeil] (vicc)
+    (vicc.east) edge [keks, pfeil] (funktionenchat.text east)
+    (vicc.east) edge [keks, pfeil] (funktionenpace.text east)
+    (a) edge [decorate, decoration={expanding waves, angle=20, segment
+    length=6}, nichtrundelinie] (touchatag.south west);
+\end{pgfonlayer}" /></p>
+<p class="caption">Emulate a contact-less German ID card to perform sanity checks</p></div><p>PC/SC Relay has the following dependencies:</p>
 <ul class="simple">
 <li>PC/SC middleware</li>
 <li><a class="reference external" href="http://www.libnfc.org/">libnfc</a> <a class="footnote-reference" href="#id3" id="id4">[2]</a></li>

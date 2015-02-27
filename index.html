@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Welcome to the Virtual Smart Card Architecture documentation! &mdash; vsmartcard 2015-02-02 documentation</title>
+    <title>Welcome to the Virtual Smart Card Architecture documentation! &mdash; vsmartcard 2015-02-27 documentation</title>
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '2015-02-02',
+        VERSION:     '2015-02-27',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -31,7 +31,7 @@
     <script type="text/javascript" src="_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="_static/chip.ico"/>
-    <link rel="top" title="vsmartcard 2015-02-02 documentation" href="#" />
+    <link rel="top" title="vsmartcard 2015-02-27 documentation" href="#" />
     <link rel="next" title="Virtual Smart Card" href="virtualsmartcard/README.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -107,11 +107,6 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Welcome to the Virtual Smart Card Architecture documentation!</a><ul>
-<li><a class="reference internal" href="#example-use-cases">Example Use Cases</a><ul>
-<li><a class="reference internal" href="#mobile-phone-with-virtual-smartcard-connected-via-nfc">Mobile Phone with Virtual Smartcard connected via NFC</a></li>
-<li><a class="reference internal" href="#mobile-smart-card-reader">Mobile Smart Card Reader</a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#download">Download</a></li>
 <li><a class="reference internal" href="#references">References</a></li>
 </ul>
@@ -215,249 +210,6 @@ have a look at these programming guides and try yourself:</p>
 <li class="toctree-l1"><a class="reference internal" href="virtualsmartcard/api.html">Creating a Virtual Smart Card</a></li>
 <li class="toctree-l1"><a class="reference internal" href="npa/api.html">Programming with the nPA Library</a></li>
 </ul>
-</div>
-<div class="section" id="example-use-cases">
-<h2>Example Use Cases<a class="headerlink" href="#example-use-cases" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="mobile-phone-with-virtual-smartcard-connected-via-nfc">
-<h3>Mobile Phone with Virtual Smartcard connected via NFC<a class="headerlink" href="#mobile-phone-with-virtual-smartcard-connected-via-nfc" title="Permalink to this headline">¶</a></h3>
-<div class="figure">
-<p><img src="_images/tikz-80f9ee6200d577d22533862391fb23df44c49417.png" alt="\input{%(wd)s/bilder/tikzstyles.tex}
-\tikzstyle{bla}=[kleiner, text width=.45\textwidth]
-
-\node (antenna)
-{\includegraphics[width=1cm]{%(wd)s/bilder/network-wireless.pdf}};
-\node (antennatext) [right=0of antenna, bla]
-{Smartphone emulates nPA via NFC};
-\node (display) [below=.25of antenna]
-{\includegraphics[width=1cm]{%(wd)s/bilder/display.pdf}};
-\node (displaytext) [right=0of display, bla]
-{Display service provider, purpose of transaction, security context,
-requested permissions};
-\node (firewall) [below=.25of display]
-{\includegraphics[width=1cm]{%(wd)s/bilder/Firewall.pdf}};
-\node (firewalltext) [right=0of firewall, bla]
-{Verification of terminal authentication and sanitiy checks};
-
-\node (features) [fit=(display) (antenna) (firewall)] {};
-
-\node (moko) [left=0of features.west] {\includegraphics[height=4cm]{%(wd)s/bilder/phone-fic-neo-freerunner.pdf}};
-
-\node (pc)  [left=1.5of moko]
-{\includegraphics[width=2cm]{%(wd)s/bilder/ivak_kiosk-terminal.pdf}};
-
-\begin{pgfonlayer}{background}
-
-    \node (mokobox)
-    [box,
-    fit=(moko) (antennatext) (displaytext) (firewalltext)
-    (features)] {};
-
-    \draw [rfid]
-    (pc) -- (moko) ;
-
-\end{pgfonlayer}" /></p>
-<p class="caption">Emulating a smart card for checking an untrusted device</p></div><div class="figure">
-<p><img src="_images/tikz-af7c500944810aa476bbd56c4c9693e6faec1d17.png" alt="\input{%(wd)s/bilder/tikzstyles.tex}
-\tikzstyle{bla}=[shape=rectangle split, rectangle split parts=2,
-every text node part/.style={align=center, klein}, text width=7cm,
-every second node part/.style={kleiner}, inner sep=0pt]
-
-\tikzstyle{keks}=[to path={-- ++(.1,0) |- (\tikztotarget)}]
-
-\node (touchatag)
-    {\includegraphics[keepaspectratio, height=2cm,
-    width=2cm]{%(wd)s/bilder/touchatag.png}};
-\node (touchatagbeschreibung) [below=0cm of touchatag, kleiner]
-{touchatag};
-
-\node (pcsc-relay) [right=of touchatag]
-{\texttt{pcsc-relay}};
-\node (pcsc-relaybeschreibung) [below=0cm of pcsc-relay, kleiner]
-{NFC emulator
-};
-
-\node (vicc) [right=of pcsc-relay]
-{\texttt{vicc -t nPA}};
-\node (viccbeschreibung) [below=0cm of vicc, kleiner]
-{nPA emulator};
-
-\node (group) [fit=(touchatag) (pcsc-relay) (vicc) (touchatagbeschreibung)
-(pcsc-relaybeschreibung) (viccbeschreibung)] {};
-\node (funktionenchat) [below=0cm of group, bla]
-{
-    PACE
-    \nodepart{second}
-            \begin{itemize}
-        \item Display context (eID/eSign)
-        \item Display requested permissions
-    \end{itemize}
-};
-\node (funktionenpace) [below=.5 of funktionenchat, bla]
-{
-    Terminal Authentication
-    \nodepart{second}
-            \begin{itemize}
-        \item Verify authenticy of terminal
-        \item Check freshness of cv certificate
-        \item With certificate database
-            \begin{itemize}
-                \item Identification of service provider
-                \item Display purpose of transaction
-            \end{itemize}
-    \end{itemize}
-};
-
-\begin{pgfonlayer}{background}
-    \node (box) [fit=(touchatag) (pcsc-relay) (vicc) (touchatagbeschreibung)
-    (pcsc-relaybeschreibung) (viccbeschreibung) (funktionenchat)
-    (funktionenpace), box, inner sep=.5cm] {};
-    \node (boxbild) at (box.north west)
-    {\includegraphics[keepaspectratio, height=1.5cm,
-    width=1.5cm]{%(wd)s/bilder/moko/moko_reader.png}};
-    \node [right=0cm of boxbild.east, yshift=.3cm]
-    {Openmoko Neo FreeRunner};
-\end{pgfonlayer}
-
-\node (a) [left=1.5of box]
-    {\includegraphics[keepaspectratio, height=4cm,
-    width=4cm]{%(wd)s/bilder/ivak_kiosk-terminal.pdf}};
-\node (e) [below=0cm of a, text width=2.5cm, align=center]
-{(Public) Terminal};
-
-
-\begin{pgfonlayer}{background}
-    \path
-    (touchatag)  edge  [doppelpfeil] (pcsc-relay)
-    (pcsc-relay) edge [doppelpfeil] (vicc)
-    (vicc.east) edge [keks, pfeil] (funktionenchat.text east)
-    (vicc.east) edge [keks, pfeil] (funktionenpace.text east)
-    (a) edge [decorate, decoration={expanding waves, angle=20, segment
-    length=6}, nichtrundelinie] (touchatag.south west);
-\end{pgfonlayer}" /></p>
-<p class="caption">Implementation of the nPA emulator</p></div></div>
-<div class="section" id="mobile-smart-card-reader">
-<h3>Mobile Smart Card Reader<a class="headerlink" href="#mobile-smart-card-reader" title="Permalink to this headline">¶</a></h3>
-<div class="figure">
-<p><img src="_images/tikz-1d33e42386e7cbcfb6928b3734eb67c93a087f5f.png" alt="\input{%(wd)s/bilder/tikzstyles.tex}
-\tikzstyle{bla}=[kleiner, text width=.45\textwidth]
-
-\node (reader)
-{\includegraphics[width=1cm]{%(wd)s/bilder/my_cardreader.pdf}};
-\node (readertext) [right=0of reader, bla]
-{Smartphone provides smart card reader via USB};
-\node (display) [below=0of reader]
-{\includegraphics[width=1cm]{%(wd)s/bilder/display.pdf}};
-\node (displaytext) [right=0of display, bla]
-{Secure display of service provider and purpose of transaction};
-\node (keyboard) [below=0of display]
-{\includegraphics[width=1cm]{%(wd)s/bilder/keyboard.pdf}};
-\node (keyboardtext) [right=0of keyboard, bla]
-{Secure PIN Entry};
-\node (firewall) [below=0of keyboard]
-{\includegraphics[width=1cm]{%(wd)s/bilder/Firewall.pdf}};
-\node (firewalltext) [right=0of firewall, bla]
-{Verification of terminal authentication and sanitiy checks};
-
-\node (features) [fit=(display) (keyboard) (reader) (firewall)] {};
-
-\node (moko) [left=0of features.west] {\includegraphics[height=4cm]{%(wd)s/bilder/phone-fic-neo-freerunner.pdf}};
-
-\node (epa) [left=1.5of moko, yshift=-2cm]
-{\includegraphics[width=3cm]{%(wd)s/bilder/nPA_VS.png}};
-\node (pc)  [left=1.5of moko, yshift=1.5cm]
-{\includegraphics[width=3cm]{%(wd)s/bilder/computer-tango.pdf}};
-
-\begin{pgfonlayer}{background}
-
-    \node (mokobox)
-    [box,
-    fit=(moko) (readertext) (displaytext) (keyboardtext) (firewalltext)
-    (features)] {};
-
-    \draw [usb]
-    (moko) -- (pc.center) ;
-    \draw [decorate, decoration={expanding waves, angle=20, segment length=6}, nichtrundelinie]
-    (moko) -- (epa) ;
-
-\end{pgfonlayer}" /></p>
-<p class="caption">Portable smart card reader with trusted user interface</p></div><div class="figure">
-<p><img src="_images/tikz-051059070b2965bd273ce76c4955237e978bf27c.png" alt="\input{%(wd)s/bilder/tikzstyles.tex}
-\tikzstyle{keks}=[to path={-- ++(.1,0) |- (\tikztotarget)}]
-
-\tikzstyle{bla}=[shape=rectangle split, rectangle split parts=2,
-every text node part/.style={align=center, klein}, text width=7cm,
-every second node part/.style={kleiner}, inner sep=0pt]
-
-\node (ccid-emulator)
-{\texttt{ccid-emulator}};
-
-\node (basis) [below=3of ccid-emulator]
-{\includegraphics[keepaspectratio, height=2cm,
-    width=2cm]{%(wd)s/bilder/moko/basisleser_plain_klein.png}};
-\node (basisbeschreibung) [below=0cm of basis, kleiner, text width=2cm]
-{Reiner SCT RFID basis};
-
-\node (npa) [left=1.5of basis]
-{\includegraphics[keepaspectratio, height=3cm,
-    width=3cm]{%(wd)s/bilder/nPA_VS.png}};
-\node (npabeschreibung) [below=0cm of npa, kleiner]
-{German identity card};
-
-\node (funktionenchat) [right=.6cm of ccid-emulator.east, anchor=text west, bla]
-{
-    PACE
-    \nodepart{second}
-    \begin{itemize}
-
-    \item Display CHAT
-        \begin{itemize}
-            \item Display context (eID/eSign)
-            \item Display requested permissions
-        \end{itemize}
-
-        \item Display certificate description
-        \begin{itemize}
-            \item Identification of service provider
-            \item Display purpose of transaction
-        \end{itemize}
-
-        \item Secure PIN entry
-    \end{itemize}
-};
-\node (funktionenpace) [below=.5 of funktionenchat, bla]
-{
-    Terminal Authentication
-    \nodepart{second}
-            \begin{itemize}
-        \item Verify authenticy of terminal
-        \item Check freshness of cv certificate
-    \end{itemize}
-};
-
-\begin{pgfonlayer}{background}
-    \node (box) [fit=(ccid-emulator) (basis) (basisbeschreibung)
-    (funktionenchat) (funktionenpace), box, inner sep=.5cm] {};
-    \node (boxbild) at (box.north west)
-    {\includegraphics[keepaspectratio, height=1.5cm,
-    width=1.5cm]{%(wd)s/bilder/moko/moko_reader.png}};
-    \node [right=0cm of boxbild.east, yshift=.3cm]
-    {Openmoko Neo FreeRunner};
-\end{pgfonlayer}
-
-\node (a) [above=1of npa]
-    {\includegraphics[keepaspectratio, height=3cm,
-    width=3cm]{%(wd)s/bilder/computer-tango.pdf}};
-
-
-\begin{pgfonlayer}{background}
-    \path
-    (ccid-emulator) edge [doppelpfeil] (basis)
-    (basis) edge [rfid] (npa)
-    (a.center) edge [usb] (ccid-emulator)
-    (ccid-emulator.east) edge [pfeil, keks] (funktionenchat.text west)
-    (ccid-emulator.east) edge [pfeil, keks] (funktionenpace.text west);
-\end{pgfonlayer}" /></p>
-<p class="caption">Implementation of a mobile smart card reader</p></div></div>
 </div>
 <div class="section" id="download">
 <h2>Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h2>

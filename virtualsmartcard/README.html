@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Virtual Smart Card &mdash; vsmartcard 2015-02-02 documentation</title>
+    <title>Virtual Smart Card &mdash; vsmartcard 2015-02-27 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2015-02-02',
+        VERSION:     '2015-02-27',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -31,7 +31,7 @@
     <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/chip.ico"/>
-    <link rel="top" title="vsmartcard 2015-02-02 documentation" href="../index.html" />
+    <link rel="top" title="vsmartcard 2015-02-27 documentation" href="../index.html" />
     <link rel="next" title="Remote Smart Card Reader" href="../remote-reader/README.html" />
     <link rel="prev" title="Welcome to the Virtual Smart Card Architecture documentation!" href="../index.html" />
 <meta charset='utf-8'>
@@ -252,7 +252,13 @@ PC/SC Framework
     (pcsclite) edge node {\includegraphics[width=1.5cm]{%(wd)s/bilder/simplecloud.pdf}} (vicc)
     ;
 \end{pgfonlayer}" /></p>
-<p class="caption">Virtual Smart Card used with its own PC/SC implementation</p></div><p>Depending on your usage of the <abbr title="virtual smart card">vpicc</abbr> you may need to install the following:</p>
+<p class="caption">Virtual Smart Card used with its own PC/SC implementation</p></div><p>On Android, where a traditional PC/SC framework is not available, you can use
+our framework to make your real contact-less smart accessible through PKCS#11.
+For example, an email signing application can use the PKCS#11 interface of
+OpenSC, which is linked against our PC/SC implementation. Then an Android App
+(e.g. <a class="reference internal" href="../remote-reader/README.html#remote-reader"><em>Remote Smart Card Reader</em></a>) can connect as <abbr title="virtual smart card">vpicc</abbr> delegating all requests
+and responses via NFC to a contact-less smart card that signs the mail.</p>
+<p>Depending on your usage of the <abbr title="virtual smart card">vpicc</abbr> you may need to install the following:</p>
 <ul class="simple">
 <li><a class="reference external" href="http://www.python.org/">Python</a> <a class="footnote-reference" href="#id7" id="id8">[5]</a></li>
 <li><a class="reference external" href="http://pyscard.sourceforge.net/">pyscard</a> <a class="footnote-reference" href="#id9" id="id10">[6]</a></li>
