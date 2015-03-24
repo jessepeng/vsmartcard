@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>USB CCID Emulator &mdash; vsmartcard 2015-03-11 documentation</title>
+    <title>USB CCID Emulator &mdash; vsmartcard 2015-03-24 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2015-03-11',
+        VERSION:     '2015-03-24',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -31,7 +31,7 @@
     <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/chip.ico"/>
-    <link rel="top" title="vsmartcard 2015-03-11 documentation" href="../index.html" />
+    <link rel="top" title="vsmartcard 2015-03-24 documentation" href="../index.html" />
     <link rel="next" title="nPA Smart Card Library" href="../npa/README.html" />
     <link rel="prev" title="PC/SC Relay" href="../pcsc-relay/README.html" />
 <meta charset='utf-8'>
@@ -264,85 +264,8 @@ their PC/SC counterpart:</p>
 <p>PIN verification/modification and <abbr title="Password Authenticated Connection Establishment">PACE</abbr> can also be started by the application
 transmitting (SCardTransmit) specially crafted APDUs.  Only the alternative
 initialization of <abbr title="Password Authenticated Connection Establishment">PACE</abbr> using SCardControl requires patching the driver
-(available for libccid, see <tt class="file docutils literal"><span class="pre">patches</span></tt>). The pseudo APDUs with no need for</p>
-<div class="figure">
-<p><img src="../_images/tikz-051059070b2965bd273ce76c4955237e978bf27c.png" alt="\input{%(wd)s/bilder/tikzstyles.tex}
-\tikzstyle{keks}=[to path={-- ++(.1,0) |- (\tikztotarget)}]
-
-\tikzstyle{bla}=[shape=rectangle split, rectangle split parts=2,
-every text node part/.style={align=center, klein}, text width=7cm,
-every second node part/.style={kleiner}, inner sep=0pt]
-
-\node (ccid-emulator)
-{\texttt{ccid-emulator}};
-
-\node (basis) [below=3of ccid-emulator]
-{\includegraphics[keepaspectratio, height=2cm,
-    width=2cm]{%(wd)s/bilder/moko/basisleser_plain_klein.png}};
-\node (basisbeschreibung) [below=0cm of basis, kleiner, text width=2cm]
-{Reiner SCT RFID basis};
-
-\node (npa) [left=1.5of basis]
-{\includegraphics[keepaspectratio, height=3cm,
-    width=3cm]{%(wd)s/bilder/nPA_VS.png}};
-\node (npabeschreibung) [below=0cm of npa, kleiner]
-{German identity card};
-
-\node (funktionenchat) [right=.6cm of ccid-emulator.east, anchor=text west, bla]
-{
-    PACE
-    \nodepart{second}
-    \begin{itemize}
-
-    \item Display CHAT
-        \begin{itemize}
-            \item Display context (eID/eSign)
-            \item Display requested permissions
-        \end{itemize}
-
-        \item Display certificate description
-        \begin{itemize}
-            \item Identification of service provider
-            \item Display purpose of transaction
-        \end{itemize}
-
-        \item Secure PIN entry
-    \end{itemize}
-};
-\node (funktionenpace) [below=.5 of funktionenchat, bla]
-{
-    Terminal Authentication
-    \nodepart{second}
-            \begin{itemize}
-        \item Verify authenticy of terminal
-        \item Check freshness of cv certificate
-    \end{itemize}
-};
-
-\begin{pgfonlayer}{background}
-    \node (box) [fit=(ccid-emulator) (basis) (basisbeschreibung)
-    (funktionenchat) (funktionenpace), box, inner sep=.5cm] {};
-    \node (boxbild) at (box.north west)
-    {\includegraphics[keepaspectratio, height=1.5cm,
-    width=1.5cm]{%(wd)s/bilder/moko/moko_reader.png}};
-    \node [right=0cm of boxbild.east, yshift=.3cm]
-    {Openmoko Neo FreeRunner};
-\end{pgfonlayer}
-
-\node (a) [above=1of npa]
-    {\includegraphics[keepaspectratio, height=3cm,
-    width=3cm]{%(wd)s/bilder/computer-tango.pdf}};
-
-
-\begin{pgfonlayer}{background}
-    \path
-    (ccid-emulator) edge [doppelpfeil] (basis)
-    (basis) edge [rfid] (npa)
-    (a.center) edge [usb] (ccid-emulator)
-    (ccid-emulator.east) edge [pfeil, keks] (funktionenchat.text west)
-    (ccid-emulator.east) edge [pfeil, keks] (funktionenpace.text west);
-\end{pgfonlayer}" /></p>
-<p class="caption">Implementation of a mobile smart card reader for the German ID card</p></div><p>patches are defined as follows (see <a class="reference external" href="https://www.bsi.bund.de/DE/Publikationen/TechnischeRichtlinien/tr03119/index_htm.html">BSI TR-03119 1.3</a> <a class="footnote-reference" href="#id12" id="id13">[6]</a> p. 33-34):</p>
+(available for libccid, see <tt class="file docutils literal"><span class="pre">patches</span></tt>). The pseudo APDUs with no need for
+patches are defined as follows (see <a class="reference external" href="https://www.bsi.bund.de/DE/Publikationen/TechnischeRichtlinien/tr03119/index_htm.html">BSI TR-03119 1.3</a> <a class="footnote-reference" href="#id12" id="id13">[6]</a> p. 33-34):</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="18%" />
@@ -471,7 +394,84 @@ at ($($(ccid.two west)+(-3,0)$)!.5!(kernel.three west)$)
 <p>Whereas using the USB CCID Emulator on the host system as smart card reader only
 needs a usable PC/SC middleware with USB CCID driver. This is the case for most
 modern Windows and Unix-like systems by default.</p>
-<div class="section" id="download">
+<div class="figure">
+<p><img src="../_images/tikz-051059070b2965bd273ce76c4955237e978bf27c.png" alt="\input{%(wd)s/bilder/tikzstyles.tex}
+\tikzstyle{keks}=[to path={-- ++(.1,0) |- (\tikztotarget)}]
+
+\tikzstyle{bla}=[shape=rectangle split, rectangle split parts=2,
+every text node part/.style={align=center, klein}, text width=7cm,
+every second node part/.style={kleiner}, inner sep=0pt]
+
+\node (ccid-emulator)
+{\texttt{ccid-emulator}};
+
+\node (basis) [below=3of ccid-emulator]
+{\includegraphics[keepaspectratio, height=2cm,
+    width=2cm]{%(wd)s/bilder/moko/basisleser_plain_klein.png}};
+\node (basisbeschreibung) [below=0cm of basis, kleiner, text width=2cm]
+{Reiner SCT RFID basis};
+
+\node (npa) [left=1.5of basis]
+{\includegraphics[keepaspectratio, height=3cm,
+    width=3cm]{%(wd)s/bilder/nPA_VS.png}};
+\node (npabeschreibung) [below=0cm of npa, kleiner]
+{German identity card};
+
+\node (funktionenchat) [right=.6cm of ccid-emulator.east, anchor=text west, bla]
+{
+    PACE
+    \nodepart{second}
+    \begin{itemize}
+
+    \item Display CHAT
+        \begin{itemize}
+            \item Display context (eID/eSign)
+            \item Display requested permissions
+        \end{itemize}
+
+        \item Display certificate description
+        \begin{itemize}
+            \item Identification of service provider
+            \item Display purpose of transaction
+        \end{itemize}
+
+        \item Secure PIN entry
+    \end{itemize}
+};
+\node (funktionenpace) [below=.5 of funktionenchat, bla]
+{
+    Terminal Authentication
+    \nodepart{second}
+            \begin{itemize}
+        \item Verify authenticy of terminal
+        \item Check freshness of cv certificate
+    \end{itemize}
+};
+
+\begin{pgfonlayer}{background}
+    \node (box) [fit=(ccid-emulator) (basis) (basisbeschreibung)
+    (funktionenchat) (funktionenpace), box, inner sep=.5cm] {};
+    \node (boxbild) at (box.north west)
+    {\includegraphics[keepaspectratio, height=1.5cm,
+    width=1.5cm]{%(wd)s/bilder/moko/moko_reader.png}};
+    \node [right=0cm of boxbild.east, yshift=.3cm]
+    {Openmoko Neo FreeRunner};
+\end{pgfonlayer}
+
+\node (a) [above=1of npa]
+    {\includegraphics[keepaspectratio, height=3cm,
+    width=3cm]{%(wd)s/bilder/computer-tango.pdf}};
+
+
+\begin{pgfonlayer}{background}
+    \path
+    (ccid-emulator) edge [doppelpfeil] (basis)
+    (basis) edge [rfid] (npa)
+    (a.center) edge [usb] (ccid-emulator)
+    (ccid-emulator.east) edge [pfeil, keks] (funktionenchat.text west)
+    (ccid-emulator.east) edge [pfeil, keks] (funktionenpace.text west);
+\end{pgfonlayer}" /></p>
+<p class="caption">Implementation of a mobile smart card reader for the German ID card</p></div><div class="section" id="download">
 <h2>Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h2>
 <p>You can find the latest release of USB CCID Emulator on <a class="reference external" href="https://github.com/frankmorgner/vsmartcard/releases">Github</a>. Older releases are
 still available on <a class="reference external" href="http://sourceforge.net/projects/vsmartcard/files">Sourceforge</a>.</p>

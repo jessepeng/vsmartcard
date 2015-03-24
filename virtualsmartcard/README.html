@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Virtual Smart Card &mdash; vsmartcard 2015-03-11 documentation</title>
+    <title>Virtual Smart Card &mdash; vsmartcard 2015-03-24 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2015-03-11',
+        VERSION:     '2015-03-24',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -31,7 +31,7 @@
     <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/chip.ico"/>
-    <link rel="top" title="vsmartcard 2015-03-11 documentation" href="../index.html" />
+    <link rel="top" title="vsmartcard 2015-03-24 documentation" href="../index.html" />
     <link rel="next" title="Remote Smart Card Reader" href="../remote-reader/README.html" />
     <link rel="prev" title="Welcome to the Virtual Smart Card Architecture documentation!" href="../index.html" />
 <meta charset='utf-8'>
@@ -365,7 +365,7 @@ connections.  The port to open should be specified in <tt class="docutils litera
 <tt class="docutils literal"><span class="pre">DEVICENAME</span></tt>:</p>
 <div class="highlight-sh"><div class="highlight"><pre>FRIENDLYNAME <span class="s2">&quot;Virtual PCD&quot;</span>
 <span class="hll">DEVICENAME   /dev/null:0x8C7B
-</span>LIBPATH      /usr/lib/pcsc/drivers/serial/libvpcd.so
+</span>LIBPATH      /usr/lib/pcsc/drivers/serial/libifdvpcd.so
 <span class="hll">CHANNELID    0x8C7B
 </span></pre></div>
 </div>
@@ -409,7 +409,6 @@ switches:</p>
             [--reader READER] [--ef-cardaccess EF_CARDACCESS]
             [--ef-cardsecurity EF_CARDSECURITY] [--cvca CVCA]
             [--disable-ta-checks] [--ca-key CA_KEY] [-d DATASETFILE]
-            [--esign-cert ESIGN_CERT] [--esign-ca-cert ESIGN_CA_CERT]
 
 Virtual Smart Card 0.8: Smart card emulator written in Python. The emulator
 connects to the virtual smart card reader reader (vpcd). Smart card
@@ -462,10 +461,6 @@ Emulation of German identity card (`--type=nPA`):
                         BirthName, Country, City, ZIP, Street, CommunityID,
                         ResidencePermit1, ResidencePermit2, dg12, dg14, dg15,
                         dg16, dg21.
-  --esign-cert ESIGN_CERT
-                        the card holder&#39;s certificate for QES
-  --esign-ca-cert ESIGN_CA_CERT
-                        the CA&#39;s certificate for QES
 
 Report bugs to https://github.com/frankmorgner/vsmartcard/issues
 </pre></div>
