@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Android Smart Card Emulator &mdash; vsmartcard 2015-03-24 documentation</title>
+    <title>Android Smart Card Emulator &mdash; vsmartcard 2015-05-11 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2015-03-24',
+        VERSION:     '2015-05-11',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -31,7 +31,7 @@
     <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/chip.ico"/>
-    <link rel="top" title="vsmartcard 2015-03-24 documentation" href="../index.html" />
+    <link rel="top" title="vsmartcard 2015-05-11 documentation" href="../index.html" />
     <link rel="next" title="PC/SC Relay" href="../pcsc-relay/README.html" />
     <link rel="prev" title="Remote Smart Card Reader" href="../remote-reader/README.html" />
 <meta charset='utf-8'>
@@ -202,6 +202,11 @@ runtime of <a class="reference external" href="http://www.jcardsim.org/">jCardSi
 <li>Android 4.4 &#8220;KitKat&#8221; (or newer) or CyanogenMod 11 (or newer)</li>
 </ul>
 <p>For emulating a contact-less smart card with a desktop or notebook, have a look at <a class="reference internal" href="../pcsc-relay/README.html#pcsc-relay"><em>PC/SC Relay</em></a>.</p>
+<p>Please note that the currently emulated applets are verifying the PIN by
+transmitting it without any protection between card and terminal. You may want
+to have a look at Erik Nellessen&#8217;s <a class="reference external" href="https://github.com/eriknellessen/Virtual-Keycard">Virtual Keycard</a> <a class="footnote-reference" href="#id11" id="id12">[6]</a>. His project patches the
+MUSCLE applet to use the PACE protocol for PIN verification. It also comes with
+a driver for OpenSC (i.e. can be accessed via PKCS#11, Minidriver/CSP or tokend).</p>
 <div class="section" id="download-and-install">
 <span id="acardemulator-install"></span><h2>Download and Install<a class="headerlink" href="#download-and-install" title="Permalink to this headline">¶</a></h2>
 <p>To manually compile the app you need to fetch the sources and initialize the
@@ -213,7 +218,7 @@ git submodule init
 git submodule update
 </pre></div>
 </div>
-<p>We use <a class="reference external" href="http://developer.android.com/sdk/installing/studio.html">Android Studio</a> <a class="footnote-reference" href="#id11" id="id12">[6]</a> to build and deploy the application. Use
+<p>We use <a class="reference external" href="http://developer.android.com/sdk/installing/studio.html">Android Studio</a> <a class="footnote-reference" href="#id13" id="id14">[7]</a> to build and deploy the application. Use
 <em class="menuselection">File ‣ Open</em> to select <tt class="file docutils literal"><span class="pre">vsmartcard/ACardEmulator</span></tt>.
 Attach your smartphone and choose <em class="menuselection">Run ‣ Run &#8216;app&#8217;</em>.</p>
 </div>
@@ -257,7 +262,13 @@ more than welcome! Please use our <a class="reference external" href="https://gi
 <table class="docutils footnote" frame="void" id="id11" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id12">[6]</a></td><td><a class="reference external" href="http://developer.android.com/sdk/installing/studio.html">http://developer.android.com/sdk/installing/studio.html</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id12">[6]</a></td><td><a class="reference external" href="https://github.com/eriknellessen/Virtual-Keycard">https://github.com/eriknellessen/Virtual-Keycard</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id13" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id14">[7]</a></td><td><a class="reference external" href="http://developer.android.com/sdk/installing/studio.html">http://developer.android.com/sdk/installing/studio.html</a></td></tr>
 </tbody>
 </table>
 </div>

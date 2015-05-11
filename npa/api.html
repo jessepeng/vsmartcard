@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Programming with the nPA Library &mdash; vsmartcard 2015-03-24 documentation</title>
+    <title>Programming with the nPA Library &mdash; vsmartcard 2015-05-11 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2015-03-24',
+        VERSION:     '2015-05-11',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -31,7 +31,7 @@
     <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/chip.ico"/>
-    <link rel="top" title="vsmartcard 2015-03-24 documentation" href="../index.html" />
+    <link rel="top" title="vsmartcard 2015-05-11 documentation" href="../index.html" />
     <link rel="prev" title="utils Module" href="../virtualsmartcard/api/virtualsmartcard.utils.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -389,6 +389,7 @@ your environment</em></a>.</p>
 <span class="cp">#include &quot;config.h&quot;</span>
 <span class="cp">#endif</span>
 
+<span class="cp">#include &lt;libopensc/sm.h&gt;</span>
 <span class="cp">#include &lt;npa/iso-sm.h&gt;</span>
 <span class="cp">#include &lt;npa/npa.h&gt;</span>
 <span class="cp">#include &lt;npa/scutil.h&gt;</span>
@@ -491,7 +492,7 @@ your environment</em></a>.</p>
     <span class="k">if</span> <span class="p">(</span><span class="n">pace_output</span><span class="p">.</span><span class="n">id_pcd</span><span class="p">)</span>
         <span class="n">free</span><span class="p">(</span><span class="n">pace_output</span><span class="p">.</span><span class="n">id_pcd</span><span class="p">);</span>
 
-    <span class="n">sm_stop</span><span class="p">(</span><span class="n">card</span><span class="p">);</span>
+    <span class="n">sc_sm_stop</span><span class="p">(</span><span class="n">card</span><span class="p">);</span>
     <span class="n">sc_reset</span><span class="p">(</span><span class="n">card</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
     <span class="n">sc_disconnect_card</span><span class="p">(</span><span class="n">card</span><span class="p">);</span>
     <span class="n">sc_release_context</span><span class="p">(</span><span class="n">ctx</span><span class="p">);</span>
@@ -530,35 +531,35 @@ your environment</em></a>.</p>
 <dd><p class="first">Pad to this block length. </p>
 <p class="last"></p>
 </dd>
-<dt id=""><span id="project0structiso__sm__ctx_1aa717969b9143ca2cf42221b663dc5159"></span>int(* <strong>authenticate</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, const u8 *data, size_t datalen, u8 **outdata)</dt>
+<dt id=""><span id="project0structiso__sm__ctx_1a712978750dc0ea420b7a1686c3d0b39d"></span>int(* <strong>authenticate</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, const u8 *data, size_t datalen, u8 **outdata)</dt>
 <dd><p class="first">Call back function for authentication of data. </p>
 <p class="last"></p>
 </dd>
-<dt id=""><span id="project0structiso__sm__ctx_1adc83748fd7773a41179bc9e216503953"></span>int(* <strong>verify_authentication</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, const u8 *mac, size_t maclen, const u8 *macdata, size_t macdatalen)</dt>
+<dt id=""><span id="project0structiso__sm__ctx_1a71c511da1521f411b0719f14652fa2ee"></span>int(* <strong>verify_authentication</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, const u8 *mac, size_t maclen, const u8 *macdata, size_t macdatalen)</dt>
 <dd><p class="first">Call back function for verifying authentication data. </p>
 <p class="last"></p>
 </dd>
-<dt id=""><span id="project0structiso__sm__ctx_1a70b372ae0ff8b78b252944cce8efd776"></span>int(* <strong>encrypt</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, const u8 *data, size_t datalen, u8 **enc)</dt>
+<dt id=""><span id="project0structiso__sm__ctx_1a251ab404091a0a4c247f704c9068c4b2"></span>int(* <strong>encrypt</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, const u8 *data, size_t datalen, u8 **enc)</dt>
 <dd><p class="first">Call back function for encryption of data. </p>
 <p class="last"></p>
 </dd>
-<dt id=""><span id="project0structiso__sm__ctx_1ad23a094a856bca666a58f79cb0826915"></span>int(* <strong>decrypt</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, const u8 *enc, size_t enclen, u8 **data)</dt>
+<dt id=""><span id="project0structiso__sm__ctx_1a8d3fdd3601b2d054d12b4f9842fb54c9"></span>int(* <strong>decrypt</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, const u8 *enc, size_t enclen, u8 **data)</dt>
 <dd><p class="first">Call back function for decryption of data. </p>
 <p class="last"></p>
 </dd>
-<dt id=""><span id="project0structiso__sm__ctx_1ab87cfdba4f6b0fad6335f3990dc85b53"></span>int(* <strong>pre_transmit</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, sc_apdu_t *apdu)</dt>
+<dt id=""><span id="project0structiso__sm__ctx_1add0c53457458407d88215af921ff1480"></span>int(* <strong>pre_transmit</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, sc_apdu_t *apdu)</dt>
 <dd><p class="first">Call back function for actions before encoding and encryption of <em>apdu</em>. </p>
 <p class="last"></p>
 </dd>
-<dt id=""><span id="project0structiso__sm__ctx_1a3ecce1b3b37a8f517bae19dd7a1c9be0"></span>int(* <strong>post_transmit</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, sc_apdu_t *sm_apdu)</dt>
+<dt id=""><span id="project0structiso__sm__ctx_1a77fde30fd949760a354be7e14f693f1e"></span>int(* <strong>post_transmit</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, sc_apdu_t *sm_apdu)</dt>
 <dd><p class="first">Call back function for actions before decryption and decoding of <em>sm_apdu</em>. </p>
 <p class="last"></p>
 </dd>
-<dt id=""><span id="project0structiso__sm__ctx_1a3ea6de352641343968e59a34c627f0e9"></span>int(* <strong>finish</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, sc_apdu_t *apdu)</dt>
+<dt id=""><span id="project0structiso__sm__ctx_1a04c9f8b955d9d6039e91c962d47977ee"></span>int(* <strong>finish</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, sc_apdu_t *apdu)</dt>
 <dd><p class="first">Call back function for actions after decrypting SM protected APDU. </p>
 <p class="last"></p>
 </dd>
-<dt id=""><span id="project0structiso__sm__ctx_1aa5882025ed44301e3287d8aa0f43963e"></span>void(* <strong>clear_free</strong>)(const struct iso_sm_ctx *ctx)</dt>
+<dt id=""><span id="project0structiso__sm__ctx_1aeb19697eb55ab4cf3cb1ae0c66691dc1"></span>void(* <strong>clear_free</strong>)(const struct iso_sm_ctx *ctx)</dt>
 <dd><p class="first">Clears and frees private data. </p>
 <p class="last"></p>
 </dd>
@@ -637,33 +638,10 @@ your environment</em></a>.</p>
 </p>
 </dd>
 </dl>
-<dl class="docutils">
-<dt id=""><span id="project0group__sm_1ga559b6cef391942e9db5d6e73ce70ef0c"></span><div class="line-block">
-<div class="line">int <strong>sm_stop</strong>(struct sc_card * card)</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">doxygenfunction: Cannot find function &#8220;sm_stop&#8221; in doxygen xml output for project &#8220;project0&#8221; from directory: npa/xml</p>
 </div>
-</dt>
-<dd><p class="first">Stops SM and frees allocated ressources. </p>
-<p class="last"><p>Calls <em>card-&gt;sm_ctx.ops.close()</em> if available and <tt class="docutils literal"><span class="pre">card-&gt;sm_ctx.sm_mode</span></tt> is <tt class="docutils literal"><span class="pre">SM_MODE_TRANSMIT</span></tt></p>
-<p><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="breatheparameterlist first">
-<li><tt class="first docutils literal"><span class="pre">card</span></tt> - <p></p>
-</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><p class="first last"><p><tt class="docutils literal"><span class="pre">SC_SUCCESS</span></tt> or error code if an error occurred </p>
-</p>
-</td>
-</tr>
-</tbody>
-</table>
-</p>
-</p>
-</dd>
-</dl>
 </div>
 </div>
 </div>
