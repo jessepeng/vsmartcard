@@ -23,7 +23,7 @@ before_install:
 
 install:
   - if [ $TRAVIS_OS_NAME == linux ]; then
-      if [ -z "$HOST" ]; then
+      if [ -z "$HOST" -o "${COVERITY_SCAN_BRANCH}" == 1 ]; then
         sudo ln -s /lib/x86_64-linux-gnu/libgcc_s.so.1 /lib/x86_64-linux-gnu/libgcc_s.so;
         sudo apt-get -qq install libpcsclite-dev libusb-dev xutils-dev gengetopt help2man swig python-dev;
       else
@@ -35,7 +35,7 @@ before_script:
   # libnpa requires OpenPACE
   - git clone https://github.com/frankmorgner/openpace && cd openpace
   - autoreconf -vis
-  - if [ -z "$HOST" ]; then
+  - if [ -z "$HOST" -o "${COVERITY_SCAN_BRANCH}" == 1 ]; then
       ./configure --prefix=$PREFIX --enable-openssl-install --enable-python;
     else
       export CROSS_COMPILE=$HOST-;
@@ -52,7 +52,7 @@ before_script:
   - grep sc_apdu_get_octets src/libopensc/libopensc.exports || echo sc_apdu_get_octets >> src/libopensc/libopensc.exports
   - grep sc_pkcs15_pincache_add src/libopensc/libopensc.exports || echo sc_pkcs15_pincache_add >> src/libopensc/libopensc.exports
   - ./bootstrap
-  - if [ -z "$HOST" ]; then
+  - if [ -z "$HOST" -o "${COVERITY_SCAN_BRANCH}" == 1 ]; then
       ./configure --prefix=$PREFIX;
     else
       unset CC;
@@ -63,7 +63,7 @@ before_script:
   # Configure libnpa
   - cd $TRAVIS_BUILD_DIR/npa
   - autoreconf -vsi
-  - if [ -z "$HOST" ]; then
+  - if [ -z "$HOST" -o "${COVERITY_SCAN_BRANCH}" == 1 ]; then
       ./configure OPENSC_LIBS="-L$PREFIX/lib -lopensc -lcrypto";
     else
       ./configure --host=$HOST OPENSC_LIBS="-L$PREFIX/lib -lopensc -lcrypto";
@@ -71,24 +71,24 @@ before_script:
     fi
   # Configure virtualsmartcard
   - cd $TRAVIS_BUILD_DIR/virtualsmartcard && autoreconf -vsi
-  - if [ -z "$HOST" ]; then
+  - if [ -z "$HOST" -o "${COVERITY_SCAN_BRANCH}" == 1 ]; then
       ./configure;
     else
       ./configure --host=$HOST --enable-libpcsclite;
     fi
   # pcsc-relay requires libnfc
   - git clone https://github.com/nfc-tools/libnfc.git && cd libnfc && autoreconf -vsi
-  - if [ -z "$HOST" ]; then
+  - if [ -z "$HOST" -o "${COVERITY_SCAN_BRANCH}" == 1 ]; then
       ./configure --prefix=$PREFIX;
       make install;
     fi
   # Configure pcsc-relay
-  - if [ -z "$HOST" ]; then
+  - if [ -z "$HOST" -o "${COVERITY_SCAN_BRANCH}" == 1 ]; then
       cd $TRAVIS_BUILD_DIR/pcsc-relay;
       autoreconf -vsi;
       ./configure --host=$HOST;
     fi
-  - if [ -z "$HOST" ]; then
+  - if [ -z "$HOST" -o "${COVERITY_SCAN_BRANCH}" == 1 ]; then
       cd $TRAVIS_BUILD_DIR/ccid && autoreconf -vsi && ./configure OPENSSL_CFLAGS="-I$PREFIX/include" OPENSSL_LIBS="-L$PREFIX/lib -lcrypto" OPENSC_LIBS="-L$PREFIX/lib -lopensc";
     fi
 
@@ -103,18 +103,22 @@ addons:
 
 script:
   # Build libnpa
-  - make -C $TRAVIS_BUILD_DIR/npa
+  - if [ "${COVERITY_SCAN_BRANCH}" != 1 ]; then
+      make -C $TRAVIS_BUILD_DIR/npa;
+    fi
   # Build virtualsmartcard
-  - make -C $TRAVIS_BUILD_DIR/virtualsmartcard
+  - if [ "${COVERITY_SCAN_BRANCH}" != 1 ]; then
+      make -C $TRAVIS_BUILD_DIR/virtualsmartcard;
+    fi
   # Verify virtualsmartcard
-  - if [ -z "$HOST" ]; then
+  - if [ -z "$HOST" -a "${COVERITY_SCAN_BRANCH}" != 1 ]; then
       cd $TRAVIS_BUILD_DIR/virtualsmartcard/src/vpicc && export PYTHONPATH=$PYTHONPATH:`pwd` && export LD_LIBRARY_PATH=$PREFIX/lib/ && python -m unittest discover -s virtualsmartcard.tests -p *_test.py -v;
     fi
   # Build pcsc-relay
-  - if [ -z "$HOST" ]; then
+  - if [ -z "$HOST" -a "${COVERITY_SCAN_BRANCH}" != 1 ]; then
       make -C $TRAVIS_BUILD_DIR/pcsc-relay;
     fi
   # Build ccid
-  - if [ -z "$HOST" ]; then
+  - if [ -z "$HOST" -a "${COVERITY_SCAN_BRANCH}" != 1 ]; then
       make -C $TRAVIS_BUILD_DIR/ccid;
     fi
