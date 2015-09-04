@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 
@@ -6,18 +5,18 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Remote Smart Card Reader &mdash; vsmartcard 2015-05-11 documentation</title>
+    <title>Remote Smart Card Reader &mdash; vsmartcard 2015-09-04 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/breathe.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootswatch-3.1.0/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.2.0/flatly/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2015-05-11',
+        VERSION:     '2015-09-04',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -28,10 +27,10 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/chip.ico"/>
-    <link rel="top" title="vsmartcard 2015-05-11 documentation" href="../index.html" />
+    <link rel="top" title="vsmartcard 2015-09-04 documentation" href="../index.html" />
     <link rel="next" title="Android Smart Card Emulator" href="../ACardEmulator/README.html" />
     <link rel="prev" title="Virtual Smart Card" href="../virtualsmartcard/README.html" />
 <meta charset='utf-8'>
@@ -40,7 +39,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 
   </head>
-  <body>
+  <body role="document">
   
   <a href="https://github.com/frankmorgner/vsmartcard"
      class="visible-desktop hidden-xs"><img
@@ -73,7 +72,6 @@
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
-            <li class="divider-vertical"></li>
             
             
               <li class="dropdown globaltoc-container">
@@ -123,11 +121,11 @@
               
                 
   <li>
-    <a href="../virtualsmartcard/README.html" title="Previous Chapter: Virtual Smart Card"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Virtual Smart Ca...</span>
+    <a href="../virtualsmartcard/README.html" title="Previous Chapter: Virtual Smart Card"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Virtual Smart...</span>
     </a>
   </li>
   <li>
-    <a href="../ACardEmulator/README.html" title="Next Chapter: Android Smart Card Emulator"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">Android Smart Ca... &raquo;</span>
+    <a href="../ACardEmulator/README.html" title="Next Chapter: Android Smart Card Emulator"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Android Smart... &raquo;</span>
     </a>
   </li>
               
@@ -207,10 +205,10 @@ application, for example <a class="reference external" href="https://github.com/
 <li>Android 3.0 &#8220;Honeycomb&#8221; (or newer) or CyanogenMod 8 (or newer)</li>
 <li>permissions for a data connection (communication with <abbr title="virtual smart card reader">vpcd</abbr>) and for using
 NFC (communication to the card)</li>
-<li><abbr title="virtual smart card reader">vpcd</abbr> <a class="reference internal" href="../virtualsmartcard/README.html#vicc-install"><em>installed on the host computer</em></a></li>
+<li><abbr title="virtual smart card reader">vpcd</abbr> <a class="reference internal" href="../virtualsmartcard/README.html#vicc-install"><span>installed on the host computer</span></a></li>
 </ul>
 <p>For remotely accessing a traditional smart card reader on one computer from an
-other computer, the <a class="reference internal" href="../virtualsmartcard/README.html#vicc"><em>Virtual Smart Card</em></a> in relay mode can be used:</p>
+other computer, the <a class="reference internal" href="../virtualsmartcard/README.html#vicc"><span>Virtual Smart Card</span></a> in relay mode can be used:</p>
 <div class="figure">
 <p><img src="../_images/tikz-b656c61c22449778b2d8a4e7cff12ff17b559524.png" alt="\input{%(wd)s/bilder/tikzstyles.tex}
     \node (pcsc) [klein, aktivbox, inner xsep=.75cm, align=center] {PC/SC\\Framework};
@@ -249,8 +247,8 @@ but it generally concerns <em>all</em> contact-less smart cards.</p>
 </pre></div>
 </div>
 <p>We use <a class="reference external" href="http://developer.android.com/sdk/installing/studio.html">Android Studio</a> <a class="footnote-reference" href="#id3" id="id4">[2]</a> to build and deploy the application. Use
-<em class="menuselection">File ‣ Open</em> to select <tt class="file docutils literal"><span class="pre">vsmartcard/remote-reader</span></tt>.
-Attach your smartphone and choose <em class="menuselection">Run ‣ Run &#8216;app&#8217;</em>.</p>
+<span class="menuselection">File ‣ Open</span> to select <code class="file docutils literal"><span class="pre">vsmartcard/remote-reader</span></code>.
+Attach your smartphone and choose <span class="menuselection">Run ‣ Run &#8216;app&#8217;</span>.</p>
 <p>On the host system, where the smart card at the phone&#8217;s NFC interface is relayed to,
 <abbr title="virtual smart card reader">vpcd</abbr> needs to be installed. It can be installed on Windows and Unix. On the
 host computer, <strong class="command">vpcd-config</strong> prints a QR code to configure the Remote

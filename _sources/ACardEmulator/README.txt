@@ -24,10 +24,11 @@ The emulator uses Android's |HCE| to fetch APDUs from a contact-less reader and
 delegate them to Java Card Applets. The app includes the Java Card simulation
 runtime of jCardSim_ as well as the following Java Card applets:
 
-- `Hello World applet`_ (application identifier ``F000000001``)
-- `OpenPGP applet`_ (application identifier ``D2760001240102000000000000010000``)
-- `OATH applet`_ (application identifier ``A000000527210101``)
-- `ISO applet`_ (application identifier ``F276A288BCFBA69D34F31001``)
+- `Hello World Applet`_ (application identifier ``F000000001``)
+- `OpenPGP Applet`_ (application identifier ``D2760001240102000000000000010000``)
+- `OATH Applet`_ (application identifier ``A000000527210101``)
+- `ISO Applet`_ (application identifier ``F276A288BCFBA69D34F31001``)
+- `MUSCLE Applet`_ (application identifier ``A00000000101``)
 
 .. tikz:: Simulate a contact-less smart card with Android Smart Card Emulator
     :stringsubst:
@@ -52,9 +53,9 @@ For emulating a contact-less smart card with a desktop or notebook, have a look 
 
 Please note that the currently emulated applets are verifying the PIN by
 transmitting it without any protection between card and terminal. You may want
-to have a look at Erik Nellessen's `Virtual Keycard`_. His project patches the
-MUSCLE applet to use the PACE protocol for PIN verification. It also comes with
-a driver for OpenSC (i.e. can be accessed via PKCS#11, Minidriver/CSP or tokend).
+to have a look at `Erik Nellesson's
+<http://sar.informatik.hu-berlin.de/research/publications/SAR-PR-2014-08/SAR-PR-2014-08_.pdf>`_
+`Virtual Keycard`_,which uses the PACE protocol for PIN verification.
 
 
 .. _acardemulator_install:
@@ -62,6 +63,18 @@ a driver for OpenSC (i.e. can be accessed via PKCS#11, Minidriver/CSP or tokend)
 ********************
 Download and Install
 ********************
+
+The Android Smart Card Emulator is available on F-Droid_.
+
+.. qr code generated via http://www.qrcode-monkey.de
+
+.. icon generated via https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html#foreground.type=clipart&foreground.space.trim=0&foreground.space.pad=0.25&foreground.clipart=res%2Fclipart%2Ficons%2Fdevice_nfc.svg&foreColor=fdd017%2C0&crop=0&backgroundShape=hrect&backColor=ffffff%2C100&effects=shadow
+
+.. image:: acardemu-qrcode.png
+    :target: https://f-droid.org/repository/browse/?fdid=com.vsmartcard.acardemulator
+    :alt: Android Smart Card Emulator on F-Droid
+    :width: 265px
+    :height: 265px
 
 To manually compile the app you need to fetch the sources and initialize the
 submodules::
@@ -91,5 +104,7 @@ Notes and References
 .. _OpenPGP Applet: https://developers.yubico.com/ykneo-openpgp/
 .. _OATH Applet: https://developers.yubico.com/ykneo-oath/
 .. _ISO Applet: http://www.pwendland.net/IsoApplet/
+.. _MUSCLE Applet: https://github.com/martinpaljak/MuscleApplet/tree/d005f36209bdd7020bac0d783b228243126fd2f8
 .. _Virtual Keycard: https://github.com/eriknellessen/Virtual-Keycard
+.. _F-Droid: https://f-droid.org/repository/browse/?fdid=com.vsmartcard.remotesmartcardreader.app
 .. _Android Studio: http://developer.android.com/sdk/installing/studio.html

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 
@@ -6,18 +5,18 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Programming with the nPA Library &mdash; vsmartcard 2015-05-11 documentation</title>
+    <title>Programming with the nPA Library &mdash; vsmartcard 2015-09-04 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/breathe.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootswatch-3.1.0/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.2.0/flatly/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2015-05-11',
+        VERSION:     '2015-09-04',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -28,10 +27,10 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/chip.ico"/>
-    <link rel="top" title="vsmartcard 2015-05-11 documentation" href="../index.html" />
+    <link rel="top" title="vsmartcard 2015-09-04 documentation" href="../index.html" />
     <link rel="prev" title="utils Module" href="../virtualsmartcard/api/virtualsmartcard.utils.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -39,7 +38,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 
   </head>
-  <body>
+  <body role="document">
   
   <a href="https://github.com/frankmorgner/vsmartcard"
      class="visible-desktop hidden-xs"><img
@@ -72,7 +71,6 @@
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
-            <li class="divider-vertical"></li>
             
             
               <li class="dropdown globaltoc-container">
@@ -130,7 +128,7 @@
               
                 
   <li>
-    <a href="../virtualsmartcard/api/virtualsmartcard.utils.html" title="Previous Chapter: utils Module"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; utils Module</span>
+    <a href="../virtualsmartcard/api/virtualsmartcard.utils.html" title="Previous Chapter: utils Module"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; utils Module</span>
     </a>
   </li>
               
@@ -188,199 +186,161 @@ used as programmer&#8217;s reference.</p>
 </div>
 <div class="section" id="interface-to-german-identity-card-neuer-personalausweis-npa">
 <h2>Interface to German identity card (neuer Personalausweis, nPA)<a class="headerlink" href="#interface-to-german-identity-card-neuer-personalausweis-npa" title="Permalink to this headline">¶</a></h2>
-<div class="admonition-see-also admonition seealso">
+<div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last"><a class="reference external" href="../_static/doxygen-npa/group__npa.html">Doxygen documentation of the nPA module</a>.</p>
 </div>
 <div class="section" id="functions">
 <h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
-<dl class="docutils">
-<dt id=""><span id="project0group__npa_1gaadfcaf886bcf7bfeaaa79d5fd9547819"></span><div class="line-block">
+<p id=""><span id="project0group__npa_1gaadfcaf886bcf7bfeaaa79d5fd9547819"></span><div class="line-block">
 <div class="line">int <strong>perform_pace</strong>(sc_card_t * card, struct establish_pace_channel_input pace_input, struct establish_pace_channel_output * pace_output, enum eac_tr_version tr_version)</div>
 </div>
-</dt>
-<dd><p class="first">Establish secure messaging using PACE. </p>
-<p class="last"><p>Modifies <em>card</em> to use the ISO SM driver and initializes the data structures to use the established SM channel.</p>
-<p>Prints certificate description and card holder authorization template if given in a human readable form to stdout. If no secret is given, the user is asked for it. Only <em>pace_input.pin_id</em> is mandatory, the other members of <em>pace_input</em> can be set to <tt class="docutils literal"><span class="pre">0</span></tt> or <tt class="docutils literal"><span class="pre">NULL</span></tt> respectively.</p>
-<p>The buffers in <em>pace_output</em> are allocated using <tt class="docutils literal"><span class="pre">realloc()</span></tt> and should be set to NULL, if empty. If an EF.CardAccess is already present, this file is reused and not fetched from the card.</p>
-<p><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="breatheparameterlist first">
-<li><tt class="first docutils literal"><span class="pre">card</span></tt> - <p></p>
+</p>
+<blockquote>
+<div><p>Establish secure messaging using PACE. </p>
+<p><p>Modifies <em>card</em> to use the ISO SM driver and initializes the data structures to use the established SM channel.</p>
+<p>Prints certificate description and card holder authorization template if given in a human readable form to stdout. If no secret is given, the user is asked for it. Only <em>pace_input.pin_id</em> is mandatory, the other members of <em>pace_input</em> can be set to <code class="docutils literal"><span class="pre">0</span></code> or <code class="docutils literal"><span class="pre">NULL</span></code> respectively.</p>
+<p>The buffers in <em>pace_output</em> are allocated using <code class="docutils literal"><span class="pre">realloc()</span></code> and should be set to NULL, if empty. If an EF.CardAccess is already present, this file is reused and not fetched from the card.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd><code class="docutils literal"><span class="pre">SC_SUCCESS</span></code> or error code if an error occurred </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">card</span></code> - <p></p>
 </li>
-<li><tt class="first docutils literal"><span class="pre">pace_input</span></tt> - <p></p>
+<li><code class="first docutils literal"><span class="pre">pace_input</span></code> - <p></p>
 </li>
-<li><tt class="first docutils literal"><span class="pre">pace_output</span></tt> - <p></p>
+<li><code class="first docutils literal"><span class="pre">pace_output</span></code> - <p></p>
 </li>
-<li><tt class="first docutils literal"><span class="pre">tr_version</span></tt> - <p>Version of TR-03110 to use with PACE</p>
+<li><code class="first docutils literal"><span class="pre">tr_version</span></code> - <p>Version of TR-03110 to use with PACE</p>
 </li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><p class="first last"><p><tt class="docutils literal"><span class="pre">SC_SUCCESS</span></tt> or error code if an error occurred </p>
-</p>
-</td>
-</tr>
-</tbody>
-</table>
-</p>
-</p>
 </dd>
 </dl>
-<dl class="docutils">
-<dt id=""><span id="project0group__npa_1ga152ddd07cb17a0a6b6236cb070cb2660"></span><div class="line-block">
+</p>
+</p>
+</div></blockquote>
+<p id=""><span id="project0group__npa_1ga152ddd07cb17a0a6b6236cb070cb2660"></span><div class="line-block">
 <div class="line">int <strong>perform_terminal_authentication</strong>(sc_card_t * card, const unsigned char ** certs, const size_t * certs_lens, const unsigned char * privkey, size_t privkey_len, const unsigned char * auxiliary_data, size_t auxiliary_data_len)</div>
 </div>
-</dt>
-<dd><p class="first">Terminal Authentication version 2. </p>
-<p class="last"><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="breatheparameterlist first">
-<li><tt class="first docutils literal"><span class="pre">card</span></tt> - <p></p>
+</p>
+<blockquote>
+<div><p>Terminal Authentication version 2. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd><code class="docutils literal"><span class="pre">SC_SUCCESS</span></code> or error code if an error occurred </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">card</span></code> - <p></p>
 </li>
-<li><tt class="first docutils literal"><span class="pre">certs</span></tt> - <p>chain of cv certificates, the last certificate is the terminal&#8217;s certificate, array should be terminated with <tt class="docutils literal"><span class="pre">NULL</span></tt></p>
+<li><code class="first docutils literal"><span class="pre">certs</span></code> - <p>chain of cv certificates, the last certificate is the terminal&#8217;s certificate, array should be terminated with <code class="docutils literal"><span class="pre">NULL</span></code> </p>
 </li>
-<li><tt class="first docutils literal"><span class="pre">certs_lens</span></tt> - <p>length of each element in <tt class="docutils literal"><span class="pre">certs</span></tt>, should be terminated with <tt class="docutils literal"><span class="pre">0</span></tt></p>
+<li><code class="first docutils literal"><span class="pre">certs_lens</span></code> - <p>length of each element in <code class="docutils literal"><span class="pre">certs</span></code>, should be terminated with <code class="docutils literal"><span class="pre">0</span></code> </p>
 </li>
-<li><tt class="first docutils literal"><span class="pre">privkey</span></tt> - <p>The terminal&#8217;s private key </p>
+<li><code class="first docutils literal"><span class="pre">privkey</span></code> - <p>The terminal&#8217;s private key </p>
 </li>
-<li><tt class="first docutils literal"><span class="pre">privkey_len</span></tt> - <p>length of <em>privkey</em></p>
+<li><code class="first docutils literal"><span class="pre">privkey_len</span></code> - <p>length of <em>privkey</em> </p>
 </li>
-<li><tt class="first docutils literal"><span class="pre">auxiliary_data</span></tt> - <p>auxiliary data for age/validity/community ID verification. Should be an ASN1 object tagged with <tt class="docutils literal"><span class="pre">0x67</span></tt></p>
+<li><code class="first docutils literal"><span class="pre">auxiliary_data</span></code> - <p>auxiliary data for age/validity/community ID verification. Should be an ASN1 object tagged with <code class="docutils literal"><span class="pre">0x67</span></code> </p>
 </li>
-<li><tt class="first docutils literal"><span class="pre">auxiliary_data_len</span></tt> - <p>length of <em>auxiliary_data</em></p>
+<li><code class="first docutils literal"><span class="pre">auxiliary_data_len</span></code> - <p>length of <em>auxiliary_data</em> </p>
 </li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><p class="first last"><p><tt class="docutils literal"><span class="pre">SC_SUCCESS</span></tt> or error code if an error occurred </p>
-</p>
-</td>
-</tr>
-</tbody>
-</table>
-</p>
 </dd>
 </dl>
-<dl class="docutils">
-<dt id=""><span id="project0group__npa_1ga193e21a171980fcc0d65e86d887652d6"></span><div class="line-block">
+</p>
+</div></blockquote>
+<p id=""><span id="project0group__npa_1ga193e21a171980fcc0d65e86d887652d6"></span><div class="line-block">
 <div class="line">int <strong>perform_chip_authentication</strong>(sc_card_t * card, unsigned char ** ef_cardsecurity, size_t * ef_cardsecurity_len)</div>
 </div>
-</dt>
-<dd><p class="first">Establish secure messaging using Chip Authentication version 2. </p>
-<p class="last"><p>Switches the SM context of <tt class="docutils literal"><span class="pre">card</span></tt> to the new established keys.</p>
-<p><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="breatheparameterlist first">
-<li><tt class="first docutils literal"><span class="pre">card</span></tt> - <p></p>
+</p>
+<blockquote>
+<div><p>Establish secure messaging using Chip Authentication version 2. </p>
+<p><p>Switches the SM context of <code class="docutils literal"><span class="pre">card</span></code> to the new established keys.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd><code class="docutils literal"><span class="pre">SC_SUCCESS</span></code> or error code if an error occurred </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">card</span></code> - <p></p>
 </li>
-<li><tt class="first docutils literal"><span class="pre">ef_cardsecurity</span></tt> - <p></p>
+<li><code class="first docutils literal"><span class="pre">ef_cardsecurity</span></code> - <p></p>
 </li>
-<li><tt class="first docutils literal"><span class="pre">ef_cardsecurity_len</span></tt> - <p></p>
+<li><code class="first docutils literal"><span class="pre">ef_cardsecurity_len</span></code> - <p></p>
 </li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><p class="first last"><p><tt class="docutils literal"><span class="pre">SC_SUCCESS</span></tt> or error code if an error occurred </p>
-</p>
-</td>
-</tr>
-</tbody>
-</table>
-</p>
-</p>
 </dd>
 </dl>
-<dl class="docutils">
-<dt id=""><span id="project0group__npa_1ga4c7507f8f35c39d4d24766d51fb868cb"></span><div class="line-block">
+</p>
+</p>
+</div></blockquote>
+<p id=""><span id="project0group__npa_1ga4c7507f8f35c39d4d24766d51fb868cb"></span><div class="line-block">
 <div class="line">int <strong>npa_reset_retry_counter</strong>(sc_card_t * card, enum s_type pin_id, int ask_for_secret, const char * new, size_t new_len)</div>
 </div>
-</dt>
-<dd><p class="first">Sends a reset retry counter APDU. </p>
-<p class="last"><p>According to TR-03110 the reset retry counter APDU is used to set a new PIN or to reset the retry counter of the PIN. The standard requires this operation to be authorized either by an established PACE channel or by the effective authorization of the terminal&#8217;s certificate.</p>
-<p><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="breatheparameterlist first">
-<li><tt class="first docutils literal"><span class="pre">card</span></tt> - <p></p>
+</p>
+<blockquote>
+<div><p>Sends a reset retry counter APDU. </p>
+<p><p>According to TR-03110 the reset retry counter APDU is used to set a new PIN or to reset the retry counter of the PIN. The standard requires this operation to be authorized either by an established PACE channel or by the effective authorization of the terminal&#8217;s certificate.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd><code class="docutils literal"><span class="pre">SC_SUCCESS</span></code> or error code if an error occurred </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">card</span></code> - <p></p>
 </li>
-<li><tt class="first docutils literal"><span class="pre">pin_id</span></tt> - <p>Type of secret (usually PIN or CAN). You may use <tt class="docutils literal"><span class="pre">enum</span> <span class="pre">s_type</span></tt> from <tt class="docutils literal"><span class="pre">&lt;openssl/pace.h&gt;</span></tt>. </p>
+<li><code class="first docutils literal"><span class="pre">pin_id</span></code> - <p>Type of secret (usually PIN or CAN). You may use <code class="docutils literal"><span class="pre">enum</span> <span class="pre">s_type</span></code> from <code class="docutils literal"><span class="pre">&lt;openssl/pace.h&gt;</span></code>. </p>
 </li>
-<li><tt class="first docutils literal"><span class="pre">ask_for_secret</span></tt> - <p>whether to ask the user for the secret (<tt class="docutils literal"><span class="pre">1</span></tt>) or not (<tt class="docutils literal"><span class="pre">0</span></tt>) </p>
+<li><code class="first docutils literal"><span class="pre">ask_for_secret</span></code> - <p>whether to ask the user for the secret (<code class="docutils literal"><span class="pre">1</span></code>) or not (<code class="docutils literal"><span class="pre">0</span></code>) </p>
 </li>
-<li><tt class="first docutils literal"><span class="pre">new</span></tt> - <p>(optional) new secret </p>
+<li><code class="first docutils literal"><span class="pre">new</span></code> - <p>(optional) new secret </p>
 </li>
-<li><tt class="first docutils literal"><span class="pre">new_len</span></tt> - <p>(optional) length of <em>new</em></p>
+<li><code class="first docutils literal"><span class="pre">new_len</span></code> - <p>(optional) length of <em>new</em> </p>
 </li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><p class="first last"><p><tt class="docutils literal"><span class="pre">SC_SUCCESS</span></tt> or error code if an error occurred </p>
-</p>
-</td>
-</tr>
-</tbody>
-</table>
-</p>
-</p>
 </dd>
 </dl>
+</p>
+</p>
+</div></blockquote>
 </div>
 <div class="section" id="defines">
 <h3>Defines<a class="headerlink" href="#defines" title="Permalink to this headline">¶</a></h3>
-<dl class="docutils">
-<dt id=""><span id="project0group__npa_1gab81a918e060f80ac74c26b15222a092a"></span><strong>npa_change_pin</strong></dt>
-<dd><p class="first">Send APDU to set a new PIN. </p>
-<p class="last"><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="breatheparameterlist first last">
-<li><tt class="first docutils literal"><span class="pre">card</span></tt> - <p></p>
+<p id=""><span id="project0group__npa_1gab81a918e060f80ac74c26b15222a092a"></span><strong>npa_change_pin</strong>(card, newp, newplen)</p>
+<blockquote>
+<div><p>Send APDU to set a new PIN. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">card</span></code> - <p></p>
 </li>
-<li><tt class="first docutils literal"><span class="pre">newp</span></tt> - <p>(optional) new PIN </p>
+<li><code class="first docutils literal"><span class="pre">newp</span></code> - <p>(optional) new PIN </p>
 </li>
-<li><tt class="first docutils literal"><span class="pre">newplen</span></tt> - <p>(optional) length of <em>new</em></p>
+<li><code class="first docutils literal"><span class="pre">newplen</span></code> - <p>(optional) length of <em>new</em> </p>
 </li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-</p>
 </dd>
 </dl>
-<dl class="docutils">
-<dt id=""><span id="project0group__npa_1gac48a5e211dbe2e4129b1b05cc5323aaa"></span><strong>npa_unblock_pin</strong></dt>
-<dd><p class="first">Send APDU to unblock the PIN. </p>
-<p class="last"><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="breatheparameterlist first last">
-<li><tt class="first docutils literal"><span class="pre">card</span></tt> - <p></p>
+</p>
+</div></blockquote>
+<p id=""><span id="project0group__npa_1gac48a5e211dbe2e4129b1b05cc5323aaa"></span><strong>npa_unblock_pin</strong>(card)</p>
+<blockquote>
+<div><p>Send APDU to unblock the PIN. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">card</span></code> - <p></p>
 </li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-</p>
 </dd>
 </dl>
+</p>
+</div></blockquote>
 </div>
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<p>In order to compile and execute this example you need to correctly <a class="reference internal" href="README.html#npa-usage"><em>set up
-your environment</em></a>.</p>
+<p>In order to compile and execute this example you need to correctly <a class="reference internal" href="README.html#npa-usage"><span>set up
+your environment</span></a>.</p>
 <div class="highlight-c"><div class="highlight"><pre><span class="cm">/* This example shows how to use the library functions perform_pace to</span>
 <span class="cm"> * get a secure channel to the nPA. We use the builtin function npa_change_pin</span>
 <span class="cm"> * to modify the PIN using the secure channel. Then we transmit an arbitrary</span>
@@ -505,143 +465,132 @@ your environment</em></a>.</p>
 </div>
 <div class="section" id="generic-iso-7816-secure-messaging-sm">
 <h2>Generic ISO 7816 Secure Messaging (SM)<a class="headerlink" href="#generic-iso-7816-secure-messaging-sm" title="Permalink to this headline">¶</a></h2>
-<div class="admonition-see-also admonition seealso">
+<div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last"><a class="reference external" href="../_static/doxygen-npa/group__sm.html">Doxygen documentation of the SM module</a>.</p>
 </div>
 <div class="section" id="types">
 <h3>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
-<div class="line"><em>struct</em> <strong>iso_sm_ctx</strong></div>
+<div class="line" id=""><span id="project0structiso__sm__ctx"></span><em>struct</em> <strong>iso_sm_ctx</strong></div>
+<div class="line"><em>#include &lt;iso-sm.h&gt;</em></div>
 </div>
 <blockquote>
 <div><p>Secure messaging context. </p>
 <p></p>
 <em>Public Members</em><blockquote>
-<div><dl class="docutils">
-<dt id=""><span id="project0structiso__sm__ctx_1a7e7773a8b35e517c4359062dd665c243"></span>void * <strong>priv_data</strong></dt>
-<dd><p class="first">data of the specific crypto implementation </p>
-<p class="last"></p>
-</dd>
-<dt id=""><span id="project0structiso__sm__ctx_1aaa675246e061c50ad24d7a99a503941b"></span>u8 <strong>padding_indicator</strong></dt>
-<dd><p class="first">Padding-content indicator byte (ISO 7816-4 Table 30) </p>
-<p class="last"></p>
-</dd>
-<dt id=""><span id="project0structiso__sm__ctx_1a1b684475c08789633e0aefc7701ba0ef"></span>size_t <strong>block_length</strong></dt>
-<dd><p class="first">Pad to this block length. </p>
-<p class="last"></p>
-</dd>
-<dt id=""><span id="project0structiso__sm__ctx_1a712978750dc0ea420b7a1686c3d0b39d"></span>int(* <strong>authenticate</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, const u8 *data, size_t datalen, u8 **outdata)</dt>
-<dd><p class="first">Call back function for authentication of data. </p>
-<p class="last"></p>
-</dd>
-<dt id=""><span id="project0structiso__sm__ctx_1a71c511da1521f411b0719f14652fa2ee"></span>int(* <strong>verify_authentication</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, const u8 *mac, size_t maclen, const u8 *macdata, size_t macdatalen)</dt>
-<dd><p class="first">Call back function for verifying authentication data. </p>
-<p class="last"></p>
-</dd>
-<dt id=""><span id="project0structiso__sm__ctx_1a251ab404091a0a4c247f704c9068c4b2"></span>int(* <strong>encrypt</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, const u8 *data, size_t datalen, u8 **enc)</dt>
-<dd><p class="first">Call back function for encryption of data. </p>
-<p class="last"></p>
-</dd>
-<dt id=""><span id="project0structiso__sm__ctx_1a8d3fdd3601b2d054d12b4f9842fb54c9"></span>int(* <strong>decrypt</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, const u8 *enc, size_t enclen, u8 **data)</dt>
-<dd><p class="first">Call back function for decryption of data. </p>
-<p class="last"></p>
-</dd>
-<dt id=""><span id="project0structiso__sm__ctx_1add0c53457458407d88215af921ff1480"></span>int(* <strong>pre_transmit</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, sc_apdu_t *apdu)</dt>
-<dd><p class="first">Call back function for actions before encoding and encryption of <em>apdu</em>. </p>
-<p class="last"></p>
-</dd>
-<dt id=""><span id="project0structiso__sm__ctx_1a77fde30fd949760a354be7e14f693f1e"></span>int(* <strong>post_transmit</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, sc_apdu_t *sm_apdu)</dt>
-<dd><p class="first">Call back function for actions before decryption and decoding of <em>sm_apdu</em>. </p>
-<p class="last"></p>
-</dd>
-<dt id=""><span id="project0structiso__sm__ctx_1a04c9f8b955d9d6039e91c962d47977ee"></span>int(* <strong>finish</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, sc_apdu_t *apdu)</dt>
-<dd><p class="first">Call back function for actions after decrypting SM protected APDU. </p>
-<p class="last"></p>
-</dd>
-<dt id=""><span id="project0structiso__sm__ctx_1aeb19697eb55ab4cf3cb1ae0c66691dc1"></span>void(* <strong>clear_free</strong>)(const struct iso_sm_ctx *ctx)</dt>
-<dd><p class="first">Clears and frees private data. </p>
-<p class="last"></p>
-</dd>
-</dl>
+<div><p id=""><span id="project0structiso__sm__ctx_1a7e7773a8b35e517c4359062dd665c243"></span>void * <strong>priv_data</strong></p>
+<blockquote>
+<div><p>data of the specific crypto implementation </p>
+<p></p>
+</div></blockquote>
+<p id=""><span id="project0structiso__sm__ctx_1aaa675246e061c50ad24d7a99a503941b"></span>u8 <strong>padding_indicator</strong></p>
+<blockquote>
+<div><p>Padding-content indicator byte (ISO 7816-4 Table 30) </p>
+<p></p>
+</div></blockquote>
+<p id=""><span id="project0structiso__sm__ctx_1a1b684475c08789633e0aefc7701ba0ef"></span>size_t <strong>block_length</strong></p>
+<blockquote>
+<div><p>Pad to this block length. </p>
+<p></p>
+</div></blockquote>
+<p id=""><span id="project0structiso__sm__ctx_1a712978750dc0ea420b7a1686c3d0b39d"></span>int(* <strong>authenticate</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, const u8 *data, size_t datalen, u8 **outdata)</p>
+<blockquote>
+<div><p>Call back function for authentication of data. </p>
+<p></p>
+</div></blockquote>
+<p id=""><span id="project0structiso__sm__ctx_1a71c511da1521f411b0719f14652fa2ee"></span>int(* <strong>verify_authentication</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, const u8 *mac, size_t maclen, const u8 *macdata, size_t macdatalen)</p>
+<blockquote>
+<div><p>Call back function for verifying authentication data. </p>
+<p></p>
+</div></blockquote>
+<p id=""><span id="project0structiso__sm__ctx_1a251ab404091a0a4c247f704c9068c4b2"></span>int(* <strong>encrypt</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, const u8 *data, size_t datalen, u8 **enc)</p>
+<blockquote>
+<div><p>Call back function for encryption of data. </p>
+<p></p>
+</div></blockquote>
+<p id=""><span id="project0structiso__sm__ctx_1a8d3fdd3601b2d054d12b4f9842fb54c9"></span>int(* <strong>decrypt</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, const u8 *enc, size_t enclen, u8 **data)</p>
+<blockquote>
+<div><p>Call back function for decryption of data. </p>
+<p></p>
+</div></blockquote>
+<p id=""><span id="project0structiso__sm__ctx_1add0c53457458407d88215af921ff1480"></span>int(* <strong>pre_transmit</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, sc_apdu_t *apdu)</p>
+<blockquote>
+<div><p>Call back function for actions before encoding and encryption of <em>apdu</em>. </p>
+<p></p>
+</div></blockquote>
+<p id=""><span id="project0structiso__sm__ctx_1a77fde30fd949760a354be7e14f693f1e"></span>int(* <strong>post_transmit</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, sc_apdu_t *sm_apdu)</p>
+<blockquote>
+<div><p>Call back function for actions before decryption and decoding of <em>sm_apdu</em>. </p>
+<p></p>
+</div></blockquote>
+<p id=""><span id="project0structiso__sm__ctx_1a04c9f8b955d9d6039e91c962d47977ee"></span>int(* <strong>finish</strong>)(sc_card_t *card, const struct iso_sm_ctx *ctx, sc_apdu_t *apdu)</p>
+<blockquote>
+<div><p>Call back function for actions after decrypting SM protected APDU. </p>
+<p></p>
+</div></blockquote>
+<p id=""><span id="project0structiso__sm__ctx_1aeb19697eb55ab4cf3cb1ae0c66691dc1"></span>void(* <strong>clear_free</strong>)(const struct iso_sm_ctx *ctx)</p>
+<blockquote>
+<div><p>Clears and frees private data. </p>
+<p></p>
+</div></blockquote>
 </div></blockquote>
 </div></blockquote>
 </div>
 <div class="section" id="id1">
 <h3>Functions<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<dl class="docutils">
-<dt id=""><span id="project0group__sm_1ga4adeb0bb2adcadf9847e578abff4d245"></span><div class="line-block">
-<div class="line">struct  <a class="reference internal" href="#project0structiso__sm__ctx"><em>iso_sm_ctx</em></a>  * <strong>iso_sm_ctx_create</strong>(void)</div>
+<p id=""><span id="project0group__sm_1ga4adeb0bb2adcadf9847e578abff4d245"></span><div class="line-block">
+<div class="line">struct  <a class="reference internal" href="#project0structiso__sm__ctx"><span>iso_sm_ctx</span></a>  * <strong>iso_sm_ctx_create</strong>(void)</div>
 </div>
-</dt>
-<dd><p class="first">Creates a SM context. </p>
-<p class="last"><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return:</th><td class="field-body">SM context or NULL if an error occurred </td>
-</tr>
-</tbody>
-</table>
 </p>
-</dd>
+<blockquote>
+<div><p>Creates a SM context. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>SM context or NULL if an error occurred </dd>
 </dl>
-<dl class="docutils">
-<dt id=""><span id="project0group__sm_1gaf4fcb7951774725d8cd074fcbe177dcd"></span><div class="line-block">
-<div class="line">void <strong>iso_sm_ctx_clear_free</strong>(struct  <a class="reference internal" href="#project0structiso__sm__ctx"><em>iso_sm_ctx</em></a>  * sctx)</div>
+</p>
+</div></blockquote>
+<p id=""><span id="project0group__sm_1gaf4fcb7951774725d8cd074fcbe177dcd"></span><div class="line-block">
+<div class="line">void <strong>iso_sm_ctx_clear_free</strong>(struct  <a class="reference internal" href="#project0structiso__sm__ctx"><span>iso_sm_ctx</span></a>  * sctx)</div>
 </div>
-</dt>
-<dd><p class="first">Clears and frees the SM context including private data. </p>
-<p class="last"><p>Calls <em>sctx-&gt;clear_free()</em> if available</p>
-<p><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="breatheparameterlist first last">
-<li><tt class="first docutils literal"><span class="pre">sctx</span></tt> - <p>(optional) </p>
+</p>
+<blockquote>
+<div><p>Clears and frees the SM context including private data. </p>
+<p><p>Calls <em>sctx-&gt;clear_free()</em> if available</p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">sctx</span></code> - <p>(optional) </p>
 </li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-</p>
-</p>
 </dd>
 </dl>
-<dl class="docutils">
-<dt id=""><span id="project0group__sm_1ga7b8d897ead1ce15c321e6e3957f8ac72"></span><div class="line-block">
-<div class="line">int <strong>iso_sm_start</strong>(struct sc_card * card, struct  <a class="reference internal" href="#project0structiso__sm__ctx"><em>iso_sm_ctx</em></a>  * sctx)</div>
+</p>
+</p>
+</div></blockquote>
+<p id=""><span id="project0group__sm_1ga7b8d897ead1ce15c321e6e3957f8ac72"></span><div class="line-block">
+<div class="line">int <strong>iso_sm_start</strong>(struct sc_card * card, struct  <a class="reference internal" href="#project0structiso__sm__ctx"><span>iso_sm_ctx</span></a>  * sctx)</div>
 </div>
-</dt>
-<dd><p class="first">Initializes a card for usage of the ISO SM driver. </p>
-<p class="last"><p>If a SM module has been assigned previously to the card, it will be cleaned up.</p>
-<p><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="breatheparameterlist first">
-<li><tt class="first docutils literal"><span class="pre">card</span></tt> - <p></p>
+</p>
+<blockquote>
+<div><p>Initializes a card for usage of the ISO SM driver. </p>
+<p><p>If a SM module has been assigned previously to the card, it will be cleaned up.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd><code class="docutils literal"><span class="pre">SC_SUCCESS</span></code> or error code if an error occurred </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">card</span></code> - <p></p>
 </li>
-<li><tt class="first docutils literal"><span class="pre">sctx</span></tt> - <p>will NOT be freed automatically. <em>sctx</em> should be present for the time of the SM session.</p>
+<li><code class="first docutils literal"><span class="pre">sctx</span></code> - <p>will NOT be freed automatically. <em>sctx</em> should be present for the time of the SM session.</p>
 </li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><p class="first last"><p><tt class="docutils literal"><span class="pre">SC_SUCCESS</span></tt> or error code if an error occurred </p>
-</p>
-</td>
-</tr>
-</tbody>
-</table>
-</p>
-</p>
 </dd>
 </dl>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">doxygenfunction: Cannot find function &#8220;sm_stop&#8221; in doxygen xml output for project &#8220;project0&#8221; from directory: npa/xml</p>
-</div>
+</p>
+</p>
+</div></blockquote>
 </div>
 </div>
 </div>

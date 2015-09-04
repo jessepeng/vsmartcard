@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 
@@ -6,18 +5,18 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>TLVutils Module &mdash; vsmartcard 2015-05-11 documentation</title>
+    <title>TLVutils Module &mdash; vsmartcard 2015-09-04 documentation</title>
     
     <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/breathe.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/bootswatch-3.1.0/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootswatch-3.2.0/flatly/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2015-05-11',
+        VERSION:     '2015-09-04',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -28,10 +27,10 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../../_static/chip.ico"/>
-    <link rel="top" title="vsmartcard 2015-05-11 documentation" href="../../index.html" />
+    <link rel="top" title="vsmartcard 2015-09-04 documentation" href="../../index.html" />
     <link rel="up" title="virtualsmartcard Package" href="virtualsmartcard.html" />
     <link rel="next" title="VirtualSmartcard Module" href="virtualsmartcard.VirtualSmartcard.html" />
     <link rel="prev" title="SmartcardSAM Module" href="virtualsmartcard.SmartcardSAM.html" />
@@ -41,7 +40,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 
   </head>
-  <body>
+  <body role="document">
   
   <a href="https://github.com/frankmorgner/vsmartcard"
      class="visible-desktop hidden-xs"><img
@@ -74,7 +73,6 @@
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
-            <li class="divider-vertical"></li>
             
             
               <li class="dropdown globaltoc-container">
@@ -93,8 +91,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../ccid/README.html">USB CCID Emulator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../npa/README.html">nPA Smart Card Library</a></li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">Creating a Virtual Smart Card</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">Creating a Virtual Smart Card</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../npa/api.html">Programming with the nPA Library</a></li>
 </ul>
 </ul>
@@ -119,11 +117,11 @@
               
                 
   <li>
-    <a href="virtualsmartcard.SmartcardSAM.html" title="Previous Chapter: SmartcardSAM Module"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; SmartcardSAM Mod...</span>
+    <a href="virtualsmartcard.SmartcardSAM.html" title="Previous Chapter: SmartcardSAM Module"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; SmartcardSAM ...</span>
     </a>
   </li>
   <li>
-    <a href="virtualsmartcard.VirtualSmartcard.html" title="Next Chapter: VirtualSmartcard Module"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">VirtualSmartcard... &raquo;</span>
+    <a href="virtualsmartcard.VirtualSmartcard.html" title="Next Chapter: VirtualSmartcard Module"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">VirtualSmartc... &raquo;</span>
     </a>
   </li>
               
@@ -157,84 +155,84 @@
 <h1>TLVutils Module<a class="headerlink" href="#tlvutils-module" title="Permalink to this headline">¶</a></h1>
 <span class="target" id="module-virtualsmartcard.TLVutils"></span><dl class="function">
 <dt id="virtualsmartcard.TLVutils.bertlv_pack">
-<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">bertlv_pack</tt><big>(</big><em>data</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.bertlv_pack" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">virtualsmartcard.TLVutils.</code><code class="descname">bertlv_pack</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.TLVutils.bertlv_pack" title="Permalink to this definition">¶</a></dt>
 <dd><p>Packs a bertlv list of 3-tuples (tag, length, newvalue) into a string</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="virtualsmartcard.TLVutils.bertlv_unpack">
-<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">bertlv_unpack</tt><big>(</big><em>data</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.bertlv_unpack" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">virtualsmartcard.TLVutils.</code><code class="descname">bertlv_unpack</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.TLVutils.bertlv_unpack" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unpacks a bertlv coded string into a list of 3-tuples (tag, length,
 newvalue).</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="virtualsmartcard.TLVutils.decodeDiscretionaryDataObjects">
-<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">decodeDiscretionaryDataObjects</tt><big>(</big><em>tlv_data</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.decodeDiscretionaryDataObjects" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">virtualsmartcard.TLVutils.</code><code class="descname">decodeDiscretionaryDataObjects</code><span class="sig-paren">(</span><em>tlv_data</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.TLVutils.decodeDiscretionaryDataObjects" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="virtualsmartcard.TLVutils.decodeExtendedHeaderList">
-<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">decodeExtendedHeaderList</tt><big>(</big><em>tlv_data</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.decodeExtendedHeaderList" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">virtualsmartcard.TLVutils.</code><code class="descname">decodeExtendedHeaderList</code><span class="sig-paren">(</span><em>tlv_data</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.TLVutils.decodeExtendedHeaderList" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="virtualsmartcard.TLVutils.decodeHeaderList">
-<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">decodeHeaderList</tt><big>(</big><em>tlv_data</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.decodeHeaderList" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">virtualsmartcard.TLVutils.</code><code class="descname">decodeHeaderList</code><span class="sig-paren">(</span><em>tlv_data</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.TLVutils.decodeHeaderList" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="virtualsmartcard.TLVutils.decodeOffsetDataObjects">
-<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">decodeOffsetDataObjects</tt><big>(</big><em>tlv_data</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.decodeOffsetDataObjects" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">virtualsmartcard.TLVutils.</code><code class="descname">decodeOffsetDataObjects</code><span class="sig-paren">(</span><em>tlv_data</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.TLVutils.decodeOffsetDataObjects" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="virtualsmartcard.TLVutils.decodeTagList">
-<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">decodeTagList</tt><big>(</big><em>tlv_data</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.decodeTagList" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">virtualsmartcard.TLVutils.</code><code class="descname">decodeTagList</code><span class="sig-paren">(</span><em>tlv_data</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.TLVutils.decodeTagList" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="virtualsmartcard.TLVutils.encodeDataOffsetObjects">
-<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">encodeDataOffsetObjects</tt><big>(</big><em>datalist</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.encodeDataOffsetObjects" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">virtualsmartcard.TLVutils.</code><code class="descname">encodeDataOffsetObjects</code><span class="sig-paren">(</span><em>datalist</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.TLVutils.encodeDataOffsetObjects" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="virtualsmartcard.TLVutils.encodeDiscretionaryDataObjects">
-<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">encodeDiscretionaryDataObjects</tt><big>(</big><em>datalist</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.encodeDiscretionaryDataObjects" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">virtualsmartcard.TLVutils.</code><code class="descname">encodeDiscretionaryDataObjects</code><span class="sig-paren">(</span><em>datalist</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.TLVutils.encodeDiscretionaryDataObjects" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="virtualsmartcard.TLVutils.encodebertlvDatalist">
-<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">encodebertlvDatalist</tt><big>(</big><em>tag</em>, <em>datalist</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.encodebertlvDatalist" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">virtualsmartcard.TLVutils.</code><code class="descname">encodebertlvDatalist</code><span class="sig-paren">(</span><em>tag</em>, <em>datalist</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.TLVutils.encodebertlvDatalist" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="virtualsmartcard.TLVutils.pack">
-<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">pack</tt><big>(</big><em>tlv_data</em>, <em>recalculate_length=False</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.pack" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">virtualsmartcard.TLVutils.</code><code class="descname">pack</code><span class="sig-paren">(</span><em>tlv_data</em>, <em>recalculate_length=False</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.TLVutils.pack" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="virtualsmartcard.TLVutils.simpletlv_pack">
-<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">simpletlv_pack</tt><big>(</big><em>tlv_data</em>, <em>recalculate_length=False</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.simpletlv_pack" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">virtualsmartcard.TLVutils.</code><code class="descname">simpletlv_pack</code><span class="sig-paren">(</span><em>tlv_data</em>, <em>recalculate_length=False</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.TLVutils.simpletlv_pack" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="virtualsmartcard.TLVutils.simpletlv_unpack">
-<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">simpletlv_unpack</tt><big>(</big><em>data</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.simpletlv_unpack" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">virtualsmartcard.TLVutils.</code><code class="descname">simpletlv_unpack</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.TLVutils.simpletlv_unpack" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unpacks a simpletlv coded string into a list of 3-tuples (tag, length,
 newvalue).</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="virtualsmartcard.TLVutils.tlv_find_tag">
-<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">tlv_find_tag</tt><big>(</big><em>tlv_data</em>, <em>tag</em>, <em>num_results=None</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.tlv_find_tag" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">virtualsmartcard.TLVutils.</code><code class="descname">tlv_find_tag</code><span class="sig-paren">(</span><em>tlv_data</em>, <em>tag</em>, <em>num_results=None</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.TLVutils.tlv_find_tag" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find (and return) all instances of tag in the given tlv structure (as returned by unpack).
 If num_results is specified then at most that many results will be returned.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="virtualsmartcard.TLVutils.tlv_find_tags">
-<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">tlv_find_tags</tt><big>(</big><em>tlv_data</em>, <em>tags</em>, <em>num_results=None</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.tlv_find_tags" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">virtualsmartcard.TLVutils.</code><code class="descname">tlv_find_tags</code><span class="sig-paren">(</span><em>tlv_data</em>, <em>tags</em>, <em>num_results=None</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.TLVutils.tlv_find_tags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find (and return) all instances of tags in the given tlv structure (as
 returned by unpack).  If num_results is specified then at most that many
 results will be returned.</p>
@@ -242,12 +240,12 @@ results will be returned.</p>
 
 <dl class="function">
 <dt id="virtualsmartcard.TLVutils.tlv_unpack">
-<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">tlv_unpack</tt><big>(</big><em>data</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.tlv_unpack" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">virtualsmartcard.TLVutils.</code><code class="descname">tlv_unpack</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.TLVutils.tlv_unpack" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="virtualsmartcard.TLVutils.unpack">
-<tt class="descclassname">virtualsmartcard.TLVutils.</tt><tt class="descname">unpack</tt><big>(</big><em>data</em>, <em>with_marks=None</em>, <em>offset=0</em>, <em>include_filler=False</em><big>)</big><a class="headerlink" href="#virtualsmartcard.TLVutils.unpack" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">virtualsmartcard.TLVutils.</code><code class="descname">unpack</code><span class="sig-paren">(</span><em>data</em>, <em>with_marks=None</em>, <em>offset=0</em>, <em>include_filler=False</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.TLVutils.unpack" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
