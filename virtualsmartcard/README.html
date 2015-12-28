@@ -5,18 +5,17 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Virtual Smart Card &mdash; vsmartcard 2015-09-04 documentation</title>
+    <title>Virtual Smart Card &mdash; vsmartcard 2015-12-28 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/breathe.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootswatch-3.2.0/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/flatly/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2015-09-04',
+        VERSION:     '2015-12-28',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,10 +26,10 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/chip.ico"/>
-    <link rel="top" title="vsmartcard 2015-09-04 documentation" href="../index.html" />
+    <link rel="top" title="vsmartcard 2015-12-28 documentation" href="../index.html" />
     <link rel="next" title="Remote Smart Card Reader" href="../remote-reader/README.html" />
     <link rel="prev" title="Welcome to the Virtual Smart Card Architecture documentation!" href="../index.html" />
 <meta charset='utf-8'>
@@ -134,11 +133,11 @@
               
                 
   <li>
-    <a href="../index.html" title="Previous Chapter: Welcome to the Virtual Smart Card Architecture documentation!"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Welcome to th...</span>
+    <a href="../index.html" title="Previous Chapter: Welcome to the Virtual Smart Card Architecture documentation!"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Welcome to the V...</span>
     </a>
   </li>
   <li>
-    <a href="../remote-reader/README.html" title="Next Chapter: Remote Smart Card Reader"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Remote Smart ... &raquo;</span>
+    <a href="../remote-reader/README.html" title="Next Chapter: Remote Smart Card Reader"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Remote Smart Car... &raquo;</span>
     </a>
   </li>
               
@@ -166,7 +165,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 content">
       
   <div class="section" id="virtual-smart-card">
 <span id="vicc"></span><h1>Virtual Smart Card<a class="headerlink" href="#virtual-smart-card" title="Permalink to this headline">¶</a></h1>
@@ -179,7 +178,7 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Authors:</th><td class="field-body"><ul class="first simple">
-<li><a class="reference external" href="mailto:morgner&#37;&#52;&#48;informatik&#46;hu-berlin&#46;de">Frank Morgner</a></li>
+<li><a class="reference external" href="mailto:frankmorgner&#37;&#52;&#48;gmail&#46;com">Frank Morgner</a></li>
 <li><a class="reference external" href="mailto:oepen&#37;&#52;&#48;informatik&#46;hu-berlin&#46;de">Dominik Oepen</a></li>
 </ul>
 </td>
@@ -326,7 +325,7 @@ PC/SC.</p>
 <p>For the Windows integration we extended <a class="reference external" href="http://www.codeproject.com/Articles/134010/An-UMDF-Driver-for-a-Virtual-Smart-Card-Reader">Fabio Ottavi&#8217;s UMDF Driver for a
 Virtual Smart Card Reader</a> <a class="footnote-reference" href="#id25" id="id26">[14]</a> with a <abbr title="virtual smart card reader">vpcd</abbr> interface. To build <abbr title="virtual smart card reader">vpcd</abbr> for
 Windows we use <a class="reference external" href="http://msdn.microsoft.com/en-us/windows/hardware/hh852365.aspx">Windows Driver Kit 8.1 and Visual Studio 2013</a> <a class="footnote-reference" href="#id28" id="id29">[15]</a>. If you choose
-to download the <a class="reference external" href="https://github.com/frankmorgner/vsmartcard/releases/download/virtualsmartcard-0.7/virtualsmartcard-0.7_win32.zip">Windows binaries</a> <a class="footnote-reference" href="#id32" id="id33">[17]</a>, you may directly jump to step 3.</p>
+to download the <a class="reference external" href="https://github.com/frankmorgner/vsmartcard/releases/download/virtualsmartcard-0.7/virtualsmartcard-0.7_win32.zip">Windows binaries</a> <a class="footnote-reference" href="#id34" id="id35">[18]</a>, you may directly jump to step 3.</p>
 <ol class="arabic">
 <li><p class="first">In Visual Studio select <span class="menuselection">File ‣ Open ‣ Convert
 Sources/Dirs...</span> and choose the vpcd&#8217;s <code class="file docutils literal"><span class="pre">sources</span></code> either in the
@@ -349,7 +348,8 @@ install the driver:</p>
 </div>
 <p>You can adjust the path to <code class="docutils literal"><span class="pre">devcon.exe</span></code> with your version of the WDK and
 your target architecture (e.g., use <code class="docutils literal"><span class="pre">...\x64\devcon.exe</span></code> for a 64 bit
-driver).</p>
+driver). You can also download <a class="reference external" href="https://github.com/Microsoft/Windows-driver-samples/tree/master/setup/devcon">DevCon&#8217;s source code</a> <a class="footnote-reference" href="#id30" id="id31">[16]</a> and compile it
+yourself.</p>
 <p>For Win7 and older, code signing is optional and will yield a warning during
 installation when missing. Simply click continue to install the driver anyway.</p>
 <p>To activate the WDK test signing, use VS build-in Driver Signing settings.
@@ -357,13 +357,14 @@ Right click <span class="guilabel">BixVReader-package</span> <span class="menuse
 Driver Signing ‣ Sign Mode ‣ Test Sign</span>.  Import the WDKTestCert
 certificate <code class="file docutils literal"><span class="pre">BixVReader-package.cer</span></code> into your windows keystore (e.g.
 on local computer) and then install the driver. See
-<a class="reference external" href="http://msdn.microsoft.com/en-us/library/windows/hardware/dn653569%28v=vs.85%29.aspx">Microsoft&#8217;s Kernel-Mode Code Signing Walkthrough</a> <a class="footnote-reference" href="#id30" id="id31">[16]</a> for
+<a class="reference external" href="http://msdn.microsoft.com/en-us/library/windows/hardware/dn653569%28v=vs.85%29.aspx">Microsoft&#8217;s Kernel-Mode Code Signing Walkthrough</a> <a class="footnote-reference" href="#id32" id="id33">[17]</a> for
 details.</p>
 </li>
 </ol>
 <p>For debugging <abbr title="virtual smart card reader">vpcd</abbr> and building the driver with an older version of Visual
 Studio or WDK please see <a class="reference external" href="http://www.codeproject.com/Articles/134010/An-UMDF-Driver-for-a-Virtual-Smart-Card-Reader">Fabio Ottavi&#8217;s UMDF Driver for a Virtual Smart Card
-Reader</a> <a class="footnote-reference" href="#id25" id="id27">[14]</a> for details.</p>
+Reader</a> <a class="footnote-reference" href="#id25" id="id27">[14]</a> for details. All of Fabio&#8217;s card connectors (pipe reader/TCP/IP
+reader) are still active by default.</p>
 </div>
 </div>
 <div class="section" id="using-the-virtual-smart-card">
@@ -486,14 +487,26 @@ list the <span class="guilabel">Bix Virtual Smart Card Reader</span>.</p>
 <p><abbr title="virtual smart card reader">vpcd</abbr> opens a socket for <abbr title="virtual smart card">vpicc</abbr> and waits for incoming
 connections. The port to open should be specified in <code class="docutils literal"><span class="pre">TCP_PORT</span></code>:</p>
 <div class="highlight-sh"><div class="highlight"><pre><span class="o">[</span>Driver<span class="o">]</span>
-<span class="nv">NumReaders</span><span class="o">=</span>1
+<span class="nv">NumReaders</span><span class="o">=</span>3
 
 <span class="o">[</span>Reader0<span class="o">]</span>
+<span class="nv">RPC_TYPE</span><span class="o">=</span>0
+<span class="nv">VENDOR_NAME</span><span class="o">=</span>Fabio Ottavi
+<span class="nv">VENDOR_IFD_TYPE</span><span class="o">=</span>Pipe Reader
+<span class="hll"><span class="nv">DECIVE_UNIT</span><span class="o">=</span>0
+</span>
+<span class="o">[</span>Reader1<span class="o">]</span>
+<span class="nv">RPC_TYPE</span><span class="o">=</span>1
+<span class="nv">VENDOR_NAME</span><span class="o">=</span>Fabio Ottavi
+<span class="nv">VENDOR_IFD_TYPE</span><span class="o">=</span>TCP/IP Reader
+<span class="nv">DECIVE_UNIT</span><span class="o">=</span>1
+
+<span class="o">[</span>Reader2<span class="o">]</span>
 <span class="nv">RPC_TYPE</span><span class="o">=</span>2
 <span class="nv">VENDOR_NAME</span><span class="o">=</span>Virtual Smart Card Architecture
 <span class="nv">VENDOR_IFD_TYPE</span><span class="o">=</span>Virtual PCD
-<span class="hll"><span class="nv">TCP_PORT</span><span class="o">=</span>35963
-</span><span class="nv">DECIVE_UNIT</span><span class="o">=</span>0
+<span class="nv">TCP_PORT</span><span class="o">=</span>35963
+<span class="nv">DECIVE_UNIT</span><span class="o">=</span>2
 </pre></div>
 </div>
 <p>Currently it is not possible to configure the Windows driver to connect to an
@@ -501,7 +514,7 @@ connections. The port to open should be specified in <code class="docutils liter
 </div>
 <div class="section" id="running-vpicc">
 <h3>Running <abbr title="virtual smart card">vpicc</abbr><a class="headerlink" href="#running-vpicc" title="Permalink to this headline">¶</a></h3>
-<p>The compiled <a class="reference external" href="https://github.com/frankmorgner/vsmartcard/releases/download/virtualsmartcard-0.7/virtualsmartcard-0.7_win32.zip">Windows binaries</a> <a class="footnote-reference" href="#id32" id="id34">[17]</a> of <abbr title="virtual smart card">vpicc</abbr> include OpenPACE. The other
+<p>The compiled <a class="reference external" href="https://github.com/frankmorgner/vsmartcard/releases/download/virtualsmartcard-0.7/virtualsmartcard-0.7_win32.zip">Windows binaries</a> <a class="footnote-reference" href="#id34" id="id36">[18]</a> of <abbr title="virtual smart card">vpicc</abbr> include OpenPACE. The other
 dependencies listed above need to be installed seperately. You can start the
 <abbr title="virtual smart card">vpicc</abbr> via <strong class="command">python.exe vicc.py</strong>. On all other systems an executable
 script <strong class="command">vicc</strong> is installed using the autotools.</p>
@@ -675,13 +688,19 @@ more than welcome! Please use our <a class="reference external" href="https://gi
 <table class="docutils footnote" frame="void" id="id30" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id31">[16]</a></td><td><a class="reference external" href="http://msdn.microsoft.com/en-us/library/windows/hardware/dn653569%28v=vs.85%29.aspx">http://msdn.microsoft.com/en-us/library/windows/hardware/dn653569%28v=vs.85%29.aspx</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id31">[16]</a></td><td><a class="reference external" href="https://github.com/Microsoft/Windows-driver-samples/tree/master/setup/devcon">https://github.com/Microsoft/Windows-driver-samples/tree/master/setup/devcon</a></td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id32" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[17]</td><td><em>(<a class="fn-backref" href="#id33">1</a>, <a class="fn-backref" href="#id34">2</a>)</em> <a class="reference external" href="https://github.com/frankmorgner/vsmartcard/releases/download/virtualsmartcard-0.7/virtualsmartcard-0.7_win32.zip">https://github.com/frankmorgner/vsmartcard/releases/download/virtualsmartcard-0.7/virtualsmartcard-0.7_win32.zip</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id33">[17]</a></td><td><a class="reference external" href="http://msdn.microsoft.com/en-us/library/windows/hardware/dn653569%28v=vs.85%29.aspx">http://msdn.microsoft.com/en-us/library/windows/hardware/dn653569%28v=vs.85%29.aspx</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id34" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[18]</td><td><em>(<a class="fn-backref" href="#id35">1</a>, <a class="fn-backref" href="#id36">2</a>)</em> <a class="reference external" href="https://github.com/frankmorgner/vsmartcard/releases/download/virtualsmartcard-0.7/virtualsmartcard-0.7_win32.zip">https://github.com/frankmorgner/vsmartcard/releases/download/virtualsmartcard-0.7/virtualsmartcard-0.7_win32.zip</a></td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="footnote1" rules="none">
