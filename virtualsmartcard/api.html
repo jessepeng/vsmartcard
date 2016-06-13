@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Creating a Virtual Smart Card &mdash; vsmartcard 2015-12-28 documentation</title>
+    <title>Creating a Virtual Smart Card &mdash; vsmartcard 2016-06-13 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -15,7 +15,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2015-12-28',
+        VERSION:     '2016-06-13',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -29,7 +29,7 @@
     <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/chip.ico"/>
-    <link rel="top" title="vsmartcard 2015-12-28 documentation" href="../index.html" />
+    <link rel="top" title="vsmartcard 2016-06-13 documentation" href="../index.html" />
     <link rel="next" title="virtualsmartcard Package" href="api/virtualsmartcard.html" />
     <link rel="prev" title="nPA Smart Card Library" href="../npa/README.html" />
 <meta charset='utf-8'>
@@ -266,57 +266,55 @@ is only a buffer that is forwarded to the smart card OS. First we modify
 <a class="reference internal" href="api/virtualsmartcard.cards.cryptoflex.html#virtualsmartcard.cards.cryptoflex.CryptoflexOS" title="virtualsmartcard.cards.cryptoflex.CryptoflexOS"><code class="xref py py-class docutils literal"><span class="pre">CryptoflexOS</span></code></a>. The
 <a class="reference internal" href="api/virtualsmartcard.CardGenerator.html#module-virtualsmartcard.CardGenerator" title="virtualsmartcard.CardGenerator"><code class="xref py py-class docutils literal"><span class="pre">CardGenerator</span></code></a> is used to create a file system and a
 <abbr title="Secure Access Module">SAM</abbr> specific to the cryptoflex (we come back to this later).</p>
-<div class="highlight-python"><div class="highlight"><pre>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">datasetfile</span><span class="p">,</span> <span class="n">card_type</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">readernum</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ef_cardsecurity</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ef_cardaccess</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ca_key</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">cvca</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">disable_checks</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">esign_key</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">esign_ca_cert</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">esign_cert</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">logginglevel</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datasetfile</span><span class="p">,</span> <span class="n">card_type</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span>
+                 <span class="n">readernum</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ef_cardsecurity</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ef_cardaccess</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">ca_key</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">cvca</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">disable_checks</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">esign_key</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">esign_ca_cert</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">esign_cert</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">logginglevel</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">):</span>
         <span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">exists</span>
-        
-        <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span> <span class="o">=</span> <span class="n">logginglevel</span><span class="p">,</span> 
-                            <span class="n">format</span> <span class="o">=</span> <span class="s">&quot;</span><span class="si">%(asctime)s</span><span class="s">  [</span><span class="si">%(levelname)s</span><span class="s">] </span><span class="si">%(message)s</span><span class="s">&quot;</span><span class="p">,</span> 
-                            <span class="n">datefmt</span> <span class="o">=</span> <span class="s">&quot;</span><span class="si">%d</span><span class="s">.%m.%Y %H:%M:%S&quot;</span><span class="p">)</span> 
-        
-        <span class="bp">self</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="bp">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cardGenerator</span> <span class="o">=</span> <span class="n">CardGenerator</span><span class="p">(</span><span class="n">card_type</span><span class="p">)</span>
-        
-        <span class="c">#If a filename is specified, try to load the card from disk      </span>
-        <span class="k">if</span> <span class="n">filename</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="n">filename</span>
-            <span class="k">if</span> <span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">cardGenerator</span><span class="o">.</span><span class="n">loadCard</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Creating new card which will be saved in </span><span class="si">%s</span><span class="s">.&quot;</span><span class="p">,</span>
-                              <span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
 
-        <span class="c">#If a dataset file is specified, read the card&#39;s data groups from disk</span>
-        <span class="k">if</span> <span class="n">datasetfile</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logginglevel</span><span class="p">,</span>
+                            <span class="n">format</span><span class="o">=</span><span class="s">&quot;</span><span class="si">%(asctime)s</span><span class="s">  [</span><span class="si">%(levelname)s</span><span class="s">] </span><span class="si">%(message)s</span><span class="s">&quot;</span><span class="p">,</span>
+                            <span class="n">datefmt</span><span class="o">=</span><span class="s">&quot;</span><span class="si">%d</span><span class="s">.%m.%Y %H:%M:%S&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cardGenerator</span> <span class="o">=</span> <span class="n">CardGenerator</span><span class="p">(</span><span class="n">card_type</span><span class="p">)</span>
+
+        <span class="c"># If a dataset file is specified, read the card&#39;s data groups from disk</span>
+        <span class="k">if</span> <span class="n">datasetfile</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">exists</span><span class="p">(</span><span class="n">datasetfile</span><span class="p">):</span>
                 <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Reading Data Groups from file </span><span class="si">%s</span><span class="s">.&quot;</span><span class="p">,</span>
-                        <span class="n">datasetfile</span><span class="p">)</span>
+                             <span class="n">datasetfile</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">cardGenerator</span><span class="o">.</span><span class="n">readDatagroups</span><span class="p">(</span><span class="n">datasetfile</span><span class="p">)</span>
 
         <span class="n">MF</span><span class="p">,</span> <span class="n">SAM</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cardGenerator</span><span class="o">.</span><span class="n">getCard</span><span class="p">()</span>
-        
-        <span class="c">#Generate an OS object of the correct card_type</span>
+
+        <span class="c"># Generate an OS object of the correct card_type</span>
         <span class="k">if</span> <span class="n">card_type</span> <span class="o">==</span> <span class="s">&quot;iso7816&quot;</span> <span class="ow">or</span> <span class="n">card_type</span> <span class="o">==</span> <span class="s">&quot;ePass&quot;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">os</span> <span class="o">=</span> <span class="n">Iso7816OS</span><span class="p">(</span><span class="n">MF</span><span class="p">,</span> <span class="n">SAM</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">card_type</span> <span class="o">==</span> <span class="s">&quot;nPA&quot;</span><span class="p">:</span>
             <span class="kn">from</span> <span class="nn">virtualsmartcard.cards.nPA</span> <span class="kn">import</span> <span class="n">NPAOS</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">os</span> <span class="o">=</span> <span class="n">NPAOS</span><span class="p">(</span><span class="n">MF</span><span class="p">,</span> <span class="n">SAM</span><span class="p">,</span> <span class="n">ef_cardsecurity</span><span class="o">=</span><span class="n">ef_cardsecurity</span><span class="p">,</span> <span class="n">ef_cardaccess</span><span class="o">=</span><span class="n">ef_cardaccess</span><span class="p">,</span> <span class="n">ca_key</span><span class="o">=</span><span class="n">ca_key</span><span class="p">,</span> <span class="n">cvca</span><span class="o">=</span><span class="n">cvca</span><span class="p">,</span> <span class="n">disable_checks</span><span class="o">=</span><span class="n">disable_checks</span><span class="p">,</span> <span class="n">esign_key</span><span class="o">=</span><span class="n">esign_key</span><span class="p">,</span> <span class="n">esign_ca_cert</span><span class="o">=</span><span class="n">esign_ca_cert</span><span class="p">,</span> <span class="n">esign_cert</span><span class="o">=</span><span class="n">esign_cert</span><span class="p">)</span>
-<span class="hll">        <span class="k">elif</span> <span class="n">card_type</span> <span class="o">==</span> <span class="s">&quot;cryptoflex&quot;</span><span class="p">:</span>
-</span><span class="hll">            <span class="kn">from</span> <span class="nn">virtualsmartcard.cards.cryptoflex</span> <span class="kn">import</span> <span class="n">CryptoflexOS</span>
-</span><span class="hll">            <span class="bp">self</span><span class="o">.</span><span class="n">os</span> <span class="o">=</span> <span class="n">CryptoflexOS</span><span class="p">(</span><span class="n">MF</span><span class="p">,</span> <span class="n">SAM</span><span class="p">)</span>
-</span>        <span class="k">elif</span> <span class="n">card_type</span> <span class="o">==</span> <span class="s">&quot;relay&quot;</span><span class="p">:</span>
-            <span class="kn">from</span> <span class="nn">virtualsmartcard.cards.Relay</span> <span class="kn">import</span> <span class="n">RelayOS</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">os</span> <span class="o">=</span> <span class="n">RelayOS</span><span class="p">(</span><span class="n">readernum</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">os</span> <span class="o">=</span> <span class="n">NPAOS</span><span class="p">(</span><span class="n">MF</span><span class="p">,</span> <span class="n">SAM</span><span class="p">,</span> <span class="n">ef_cardsecurity</span><span class="o">=</span><span class="n">ef_cardsecurity</span><span class="p">,</span>
+                            <span class="n">ef_cardaccess</span><span class="o">=</span><span class="n">ef_cardaccess</span><span class="p">,</span> <span class="n">ca_key</span><span class="o">=</span><span class="n">ca_key</span><span class="p">,</span>
+                            <span class="n">cvca</span><span class="o">=</span><span class="n">cvca</span><span class="p">,</span> <span class="n">disable_checks</span><span class="o">=</span><span class="n">disable_checks</span><span class="p">,</span>
+                            <span class="n">esign_key</span><span class="o">=</span><span class="n">esign_key</span><span class="p">,</span> <span class="n">esign_ca_cert</span><span class="o">=</span><span class="n">esign_ca_cert</span><span class="p">,</span>
+                            <span class="n">esign_cert</span><span class="o">=</span><span class="n">esign_cert</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">card_type</span> <span class="o">==</span> <span class="s">&quot;cryptoflex&quot;</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">virtualsmartcard.cards.cryptoflex</span> <span class="kn">import</span> <span class="n">CryptoflexOS</span>
+<span class="hll">            <span class="bp">self</span><span class="o">.</span><span class="n">os</span> <span class="o">=</span> <span class="n">CryptoflexOS</span><span class="p">(</span><span class="n">MF</span><span class="p">,</span> <span class="n">SAM</span><span class="p">)</span>
+</span><span class="hll">        <span class="k">elif</span> <span class="n">card_type</span> <span class="o">==</span> <span class="s">&quot;relay&quot;</span><span class="p">:</span>
+</span><span class="hll">            <span class="kn">from</span> <span class="nn">virtualsmartcard.cards.Relay</span> <span class="kn">import</span> <span class="n">RelayOS</span>
+</span>            <span class="bp">self</span><span class="o">.</span><span class="n">os</span> <span class="o">=</span> <span class="n">RelayOS</span><span class="p">(</span><span class="n">readernum</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">card_type</span> <span class="o">==</span> <span class="s">&quot;handler_test&quot;</span><span class="p">:</span>
             <span class="kn">from</span> <span class="nn">virtualsmartcard.cards.HandlerTest</span> <span class="kn">import</span> <span class="n">HandlerTestOS</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">os</span> <span class="o">=</span> <span class="n">HandlerTestOS</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&quot;Unknown cardtype </span><span class="si">%s</span><span class="s">. Will use standard card_type (ISO 7816)&quot;</span><span class="p">,</span>
-                            <span class="n">card_type</span><span class="p">)</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&quot;Unknown cardtype </span><span class="si">%s</span><span class="s">. Will use standard card_type </span><span class="se">\</span>
+<span class="s">                            (ISO 7816)&quot;</span><span class="p">,</span> <span class="n">card_type</span><span class="p">)</span>
             <span class="n">card_type</span> <span class="o">=</span> <span class="s">&quot;iso7816&quot;</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">os</span> <span class="o">=</span> <span class="n">Iso7816OS</span><span class="p">(</span><span class="n">MF</span><span class="p">,</span> <span class="n">SAM</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">card_type</span>
-            
-        <span class="c">#Connect to the VPCD</span>
+
+        <span class="c"># Connect to the VPCD</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="n">host</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="n">port</span>
         <span class="k">if</span> <span class="n">host</span><span class="p">:</span>
@@ -327,18 +325,31 @@ is only a buffer that is forwarded to the smart card OS. First we modify
                 <span class="bp">self</span><span class="o">.</span><span class="n">server_sock</span> <span class="o">=</span> <span class="bp">None</span>
             <span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
                 <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;Failed to open socket: </span><span class="si">%s</span><span class="s">&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
-                <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;Is pcscd running at </span><span class="si">%s</span><span class="s">? Is vpcd loaded? Is a firewall blocking port </span><span class="si">%u</span><span class="s">?&quot;</span><span class="p">,</span>
-                              <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;Is pcscd running at </span><span class="si">%s</span><span class="s">? Is vpcd loaded? Is a </span><span class="se">\</span>
+<span class="s">                              firewall blocking port </span><span class="si">%u</span><span class="s">?&quot;</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span>
                 <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="c"># use reversed connection mode</span>
             <span class="k">try</span><span class="p">:</span>
+                <span class="n">local_ip</span> <span class="o">=</span> <span class="p">[(</span><span class="n">s</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="s">&#39;8.8.8.8&#39;</span><span class="p">,</span> <span class="mi">53</span><span class="p">)),</span> <span class="n">s</span><span class="o">.</span><span class="n">getsockname</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">s</span><span class="o">.</span><span class="n">close</span><span class="p">())</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="p">[</span><span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_DGRAM</span><span class="p">)]][</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">custom_url</span> <span class="o">=</span> <span class="s">&#39;vicc://</span><span class="si">%s</span><span class="s">:</span><span class="si">%d</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">local_ip</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&#39;VICC hostname:  </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">local_ip</span><span class="p">);</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&#39;VICC port:      </span><span class="si">%d</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">port</span><span class="p">)</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&#39;On your NFC phone with the Android Smart Card Emulator app scan this code:&#39;</span><span class="p">)</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="kn">import</span> <span class="nn">qrcode</span>
+                    <span class="n">qr</span> <span class="o">=</span> <span class="n">qrcode</span><span class="o">.</span><span class="n">QRCode</span><span class="p">()</span>
+                    <span class="n">qr</span><span class="o">.</span><span class="n">add_data</span><span class="p">(</span><span class="n">custom_url</span><span class="p">)</span>
+                    <span class="n">qr</span><span class="o">.</span><span class="n">print_ascii</span><span class="p">()</span>
+                <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s">&#39;https://api.qrserver.com/v1/create-qr-code/?data=</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">custom_url</span><span class="p">)</span>
                 <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sock</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">server_sock</span><span class="p">,</span> <span class="n">host</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">openPort</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">sock</span><span class="o">.</span><span class="n">settimeout</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
             <span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
                 <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;Failed to open socket: </span><span class="si">%s</span><span class="s">&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
-                <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;Is pcscd running? Is vpcd loaded and in reversed connection mode? Is a firewall blocking port </span><span class="si">%u</span><span class="s">?&quot;</span><span class="p">,</span>
-                              <span class="n">port</span><span class="p">)</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;Is pcscd running? Is vpcd loaded and in </span><span class="se">\</span>
+<span class="s">                              reversed connection mode? Is a firewall </span><span class="se">\</span>
+<span class="s">                              blocking port </span><span class="si">%u</span><span class="s">?&quot;</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span>
                 <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 
         <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Connected to virtual PCD at </span><span class="si">%s</span><span class="s">:</span><span class="si">%u</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span>
@@ -357,17 +368,18 @@ called to encode the <abbr title="status bytes SW 1 and SW 2">SWs</abbr> and the
             <span class="c"># cryptoflex does not inpterpret le==0 as maxle</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">lastCommandSW</span> <span class="o">=</span> <span class="n">sw</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">lastCommandOffcut</span> <span class="o">=</span> <span class="n">data</span>
-            <span class="n">r</span> <span class="o">=</span> <span class="n">R_APDU</span><span class="p">(</span><span class="n">inttostring</span><span class="p">(</span><span class="n">SW</span><span class="p">[</span><span class="s">&quot;ERR_WRONGLENGTH&quot;</span><span class="p">]</span> <span class="o">+</span>\
-                    <span class="nb">min</span><span class="p">(</span><span class="mh">0xff</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))))</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">R_APDU</span><span class="p">(</span><span class="n">inttostring</span><span class="p">(</span><span class="n">SW</span><span class="p">[</span><span class="s">&quot;ERR_WRONGLENGTH&quot;</span><span class="p">]</span> <span class="o">+</span>
+                       <span class="nb">min</span><span class="p">(</span><span class="mh">0xff</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))))</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">ins</span> <span class="o">==</span> <span class="mh">0xa4</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
                 <span class="c"># get response should be followed by select file</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">lastCommandSW</span> <span class="o">=</span> <span class="n">sw</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">lastCommandOffcut</span> <span class="o">=</span> <span class="n">data</span>
-                <span class="n">r</span> <span class="o">=</span> <span class="n">R_APDU</span><span class="p">(</span><span class="n">inttostring</span><span class="p">(</span><span class="n">SW</span><span class="p">[</span><span class="s">&quot;NORMAL_REST&quot;</span><span class="p">]</span> <span class="o">+</span>\
-                    <span class="nb">min</span><span class="p">(</span><span class="mh">0xff</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))))</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="n">R_APDU</span><span class="p">(</span><span class="n">inttostring</span><span class="p">(</span><span class="n">SW</span><span class="p">[</span><span class="s">&quot;NORMAL_REST&quot;</span><span class="p">]</span> <span class="o">+</span>
+                           <span class="nb">min</span><span class="p">(</span><span class="mh">0xff</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))))</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">r</span> <span class="o">=</span> <span class="n">Iso7816OS</span><span class="o">.</span><span class="n">formatResult</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Iso7816OS</span><span class="o">.</span><span class="n">seekable</span><span class="p">(</span><span class="n">ins</span><span class="p">),</span> <span class="n">le</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">sw</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="n">Iso7816OS</span><span class="o">.</span><span class="n">formatResult</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Iso7816OS</span><span class="o">.</span><span class="n">seekable</span><span class="p">(</span><span class="n">ins</span><span class="p">),</span> <span class="n">le</span><span class="p">,</span>
+                                           <span class="n">data</span><span class="p">,</span> <span class="n">sw</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">r</span>
 </pre></div>
@@ -410,7 +422,8 @@ forward, but see yourself...</p>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">readernum</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Initialize the connection to the (physical) smart card via a given reader</span>
+<span class="sd">        Initialize the connection to the (physical) smart card via a given</span>
+<span class="sd">        reader</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="c"># See which readers are available</span>
@@ -460,7 +473,7 @@ forward, but see yourself...</p>
                 <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 
         <span class="k">return</span> <span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">chr</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">atr</span><span class="p">])</span>
-        
+
     <span class="k">def</span> <span class="nf">powerUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c"># When powerUp is called multiple times the session is valid (and the</span>
         <span class="c"># card is implicitly powered) we can check for an ATR. But when</span>
@@ -526,7 +539,7 @@ forward, but see yourself...</p>
       
     </p>
     <p>
-        &copy; Copyright 2009-2015 by Dominik Oepen and Frank Morgner.<br/>
+        &copy; Copyright 2009-2016 by Dominik Oepen and Frank Morgner.<br/>
     </p>
   </div>
 </footer>

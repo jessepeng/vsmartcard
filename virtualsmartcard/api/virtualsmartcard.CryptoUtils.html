@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>CryptoUtils Module &mdash; vsmartcard 2015-12-28 documentation</title>
+    <title>CryptoUtils Module &mdash; vsmartcard 2016-06-13 documentation</title>
     
     <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -15,7 +15,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2015-12-28',
+        VERSION:     '2016-06-13',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -29,7 +29,7 @@
     <script type="text/javascript" src="../../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../../_static/chip.ico"/>
-    <link rel="top" title="vsmartcard 2015-12-28 documentation" href="../../index.html" />
+    <link rel="top" title="vsmartcard 2016-06-13 documentation" href="../../index.html" />
     <link rel="up" title="virtualsmartcard Package" href="virtualsmartcard.html" />
     <link rel="next" title="SEutils Module" href="virtualsmartcard.SEutils.html" />
     <link rel="prev" title="ConstantDefinitions Module" href="virtualsmartcard.ConstantDefinitions.html" />
@@ -152,66 +152,7 @@
       
   <div class="section" id="cryptoutils-module">
 <h1>CryptoUtils Module<a class="headerlink" href="#cryptoutils-module" title="Permalink to this headline">¶</a></h1>
-<p class="graphviz">
-<img src="../../_images/inheritance-850b9df6ba2f82efe5a38813e31311cd08352ebf.png" alt="Inheritance diagram of virtualsmartcard.CryptoUtils" usemap="#inheritance98c12266d9" class="inheritance"/>
-<map id="inheritance98c12266d9" name="inheritance98c12266d9">
-<area shape="rect" id="node1" href="#virtualsmartcard.CryptoUtils.PBKDF2" title="PBKDF2.py : PKCS#5 v2.0 Password&#45;Based Key Derivation" alt="" coords="5,5,260,31"/>
-</map>
-</p>
-<span class="target" id="module-virtualsmartcard.CryptoUtils"></span><dl class="class">
-<dt id="virtualsmartcard.CryptoUtils.PBKDF2">
-<em class="property">class </em><code class="descclassname">virtualsmartcard.CryptoUtils.</code><code class="descname">PBKDF2</code><span class="sig-paren">(</span><em>passphrase</em>, <em>salt</em>, <em>iterations=1000</em>, <em>digestmodule=&lt;module 'Crypto.Hash.SHA' from '/usr/lib/python2.7/dist-packages/Crypto/Hash/SHA.pyc'&gt;</em>, <em>macmodule=&lt;module 'Crypto.Hash.HMAC' from '/usr/lib/python2.7/dist-packages/Crypto/Hash/HMAC.pyc'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.CryptoUtils.PBKDF2" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
-<p>PBKDF2.py : PKCS#5 v2.0 Password-Based Key Derivation</p>
-<p>This implementation takes a passphrase and a salt (and optionally an
-iteration count, a digest module, and a MAC module) and provides a
-file-like object from which an arbitrarily-sized key can be read.</p>
-<p>If the passphrase and/or salt are unicode objects, they are encoded as
-UTF-8 before they are processed.</p>
-<p>The idea behind PBKDF2 is to derive a cryptographic key from a
-passphrase and a salt.</p>
-<p>PBKDF2 may also be used as a strong salted password hash.  The
-&#8216;crypt&#8217; function is provided for that purpose.</p>
-<p>Remember: Keys generated using PBKDF2 are only as strong as the
-passphrases they are derived from.</p>
-<dl class="method">
-<dt id="virtualsmartcard.CryptoUtils.PBKDF2._PBKDF2__f">
-<code class="descname">_PBKDF2__f</code><span class="sig-paren">(</span><em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.CryptoUtils.PBKDF2._PBKDF2__f" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="virtualsmartcard.CryptoUtils.PBKDF2._pseudorandom">
-<code class="descname">_pseudorandom</code><span class="sig-paren">(</span><em>key</em>, <em>msg</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.CryptoUtils.PBKDF2._pseudorandom" title="Permalink to this definition">¶</a></dt>
-<dd><p>Pseudorandom function.  e.g. HMAC-SHA1</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="virtualsmartcard.CryptoUtils.PBKDF2._setup">
-<code class="descname">_setup</code><span class="sig-paren">(</span><em>passphrase</em>, <em>salt</em>, <em>iterations</em>, <em>prf</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.CryptoUtils.PBKDF2._setup" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="virtualsmartcard.CryptoUtils.PBKDF2.close">
-<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.CryptoUtils.PBKDF2.close" title="Permalink to this definition">¶</a></dt>
-<dd><p>Close the stream.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="virtualsmartcard.CryptoUtils.PBKDF2.hexread">
-<code class="descname">hexread</code><span class="sig-paren">(</span><em>octets</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.CryptoUtils.PBKDF2.hexread" title="Permalink to this definition">¶</a></dt>
-<dd><p>Read the specified number of octets. Return them as hexadecimal.</p>
-<p>Note that len(obj.hexread(n)) == 2*n.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="virtualsmartcard.CryptoUtils.PBKDF2.read">
-<code class="descname">read</code><span class="sig-paren">(</span><em>bytes</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.CryptoUtils.PBKDF2.read" title="Permalink to this definition">¶</a></dt>
-<dd><p>Read the specified number of key bytes.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="function">
+<span class="target" id="module-virtualsmartcard.CryptoUtils"></span><dl class="function">
 <dt id="virtualsmartcard.CryptoUtils._makesalt">
 <code class="descclassname">virtualsmartcard.CryptoUtils.</code><code class="descname">_makesalt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.CryptoUtils._makesalt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a 48-bit pseudorandom salt for crypt().</p>
@@ -221,16 +162,11 @@ passphrases they are derived from.</p>
 <dl class="function">
 <dt id="virtualsmartcard.CryptoUtils.append_padding">
 <code class="descclassname">virtualsmartcard.CryptoUtils.</code><code class="descname">append_padding</code><span class="sig-paren">(</span><em>blocklen</em>, <em>data</em>, <em>padding_class=1</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.CryptoUtils.append_padding" title="Permalink to this definition">¶</a></dt>
-<dd><p>Append padding to the data. 
+<dd><p>Append padding to the data.
 Length of padding depends on length of data and the block size of the
 specified encryption algorithm.
 Different types of padding may be selected via the padding_class parameter</p>
 </dd></dl>
-
-<dl class="function">
-<dt id="virtualsmartcard.CryptoUtils.b64encode">
-<code class="descclassname">virtualsmartcard.CryptoUtils.</code><code class="descname">b64encode</code><span class="sig-paren">(</span><em>data</em>, <em>chars='+/'</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.CryptoUtils.b64encode" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 <dl class="function">
 <dt id="virtualsmartcard.CryptoUtils.calculate_MAC">
@@ -244,15 +180,6 @@ Different types of padding may be selected via the padding_class parameter</p>
 <dd><p>Do a cryptographic operation.
 operation = do_encrypt ? encrypt : decrypt,
 cipherspec must be of the form &#8220;cipher-mode&#8221;, or &#8220;cipher&#8221;</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="virtualsmartcard.CryptoUtils.crypt">
-<code class="descclassname">virtualsmartcard.CryptoUtils.</code><code class="descname">crypt</code><span class="sig-paren">(</span><em>word</em>, <em>salt=None</em>, <em>iterations=None</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.CryptoUtils.crypt" title="Permalink to this definition">¶</a></dt>
-<dd><p>PBKDF2-based unix crypt(3) replacement.</p>
-<p>The number of iterations specified in the salt overrides the &#8216;iterations&#8217;
-parameter.</p>
-<p>The effective hash length is 192 bits.</p>
 </dd></dl>
 
 <dl class="function">
@@ -315,27 +242,10 @@ Only used by the &#8220;CC&#8221; algorithm</li>
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="virtualsmartcard.CryptoUtils.protect_string">
-<code class="descclassname">virtualsmartcard.CryptoUtils.</code><code class="descname">protect_string</code><span class="sig-paren">(</span><em>string</em>, <em>password</em>, <em>cipherspec=None</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.CryptoUtils.protect_string" title="Permalink to this definition">¶</a></dt>
-<dd><p>Encrypt and authenticate a string</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="virtualsmartcard.CryptoUtils.read_protected_string">
-<code class="descclassname">virtualsmartcard.CryptoUtils.</code><code class="descname">read_protected_string</code><span class="sig-paren">(</span><em>string</em>, <em>password</em>, <em>cipherspec=None</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.CryptoUtils.read_protected_string" title="Permalink to this definition">¶</a></dt>
-<dd><p>Decrypt a protected string and verify the authentication data</p>
-</dd></dl>
-
-<dl class="function">
 <dt id="virtualsmartcard.CryptoUtils.strip_padding">
 <code class="descclassname">virtualsmartcard.CryptoUtils.</code><code class="descname">strip_padding</code><span class="sig-paren">(</span><em>blocklen</em>, <em>data</em>, <em>padding_class=1</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.CryptoUtils.strip_padding" title="Permalink to this definition">¶</a></dt>
 <dd><p>Strip the padding of decrypted data. Returns data without padding</p>
 </dd></dl>
-
-<dl class="function">
-<dt id="virtualsmartcard.CryptoUtils.strxor">
-<code class="descclassname">virtualsmartcard.CryptoUtils.</code><code class="descname">strxor</code><span class="sig-paren">(</span><em>a</em>, <em>b</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.CryptoUtils.strxor" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 </div>
 
@@ -351,7 +261,7 @@ Only used by the &#8220;CC&#8221; algorithm</li>
       
     </p>
     <p>
-        &copy; Copyright 2009-2015 by Dominik Oepen and Frank Morgner.<br/>
+        &copy; Copyright 2009-2016 by Dominik Oepen and Frank Morgner.<br/>
     </p>
   </div>
 </footer>

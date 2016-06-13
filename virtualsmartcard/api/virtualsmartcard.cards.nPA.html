@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>nPA Module &mdash; vsmartcard 2015-12-28 documentation</title>
+    <title>nPA Module &mdash; vsmartcard 2016-06-13 documentation</title>
     
     <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -15,7 +15,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2015-12-28',
+        VERSION:     '2016-06-13',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -29,7 +29,7 @@
     <script type="text/javascript" src="../../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../../_static/chip.ico"/>
-    <link rel="top" title="vsmartcard 2015-12-28 documentation" href="../../index.html" />
+    <link rel="top" title="vsmartcard 2016-06-13 documentation" href="../../index.html" />
     <link rel="up" title="cards Package" href="virtualsmartcard.cards.html" />
     <link rel="next" title="tests Package" href="virtualsmartcard.tests.html" />
     <link rel="prev" title="ePass Module" href="virtualsmartcard.cards.ePass.html" />
@@ -153,9 +153,9 @@
   <div class="section" id="npa-module">
 <h1>nPA Module<a class="headerlink" href="#npa-module" title="Permalink to this headline">¶</a></h1>
 <p class="graphviz">
-<img src="../../_images/inheritance-ef5270cc880bf3573a476df28f038a775c8d11ca.png" alt="Inheritance diagram of virtualsmartcard.cards.nPA" usemap="#inheritance6f1df1879c" class="inheritance"/>
+<img src="../../_images/inheritance-bdd1c7794f65b715aa64065713cf57e55a7f9ece.png" alt="Inheritance diagram of virtualsmartcard.cards.nPA" usemap="#inheritance6f1df1879c" class="inheritance"/>
 <map id="inheritance6f1df1879c" name="inheritance6f1df1879c">
-<area shape="rect" id="node1" href="virtualsmartcard.SEutils.html#virtualsmartcard.SEutils.ControlReferenceTemplate" title="Control Reference Templates are used to configure the Security Environments." alt="" coords="4,117,269,136"/>
+<area shape="rect" id="node1" href="virtualsmartcard.SEutils.html#virtualsmartcard.SEutils.ControlReferenceTemplate" title="Control Reference Templates are used to configure the Security" alt="" coords="4,117,269,136"/>
 <area shape="rect" id="node7" href="#virtualsmartcard.cards.nPA.nPA_AT_CRT" title="virtualsmartcard.cards.nPA.nPA_AT_CRT" alt="" coords="318,117,530,136"/>
 <area shape="rect" id="node2" href="virtualsmartcard.SEutils.html#virtualsmartcard.SEutils.Security_Environment" title="virtualsmartcard.SEutils.Security_Environment" alt="" coords="15,79,258,98"/>
 <area shape="rect" id="node9" href="#virtualsmartcard.cards.nPA.nPA_SE" title="virtualsmartcard.cards.nPA.nPA_SE" alt="" coords="330,79,518,98"/>
@@ -203,7 +203,7 @@
 <blockquote>
 <div><ul>
 <li><dl class="first docutils">
-<dt>directConvention (bool): Whether to use direct convention or </dt>
+<dt>directConvention (bool): Whether to use direct convention or</dt>
 <dd><p class="first last">inverse convention.</p>
 </dd>
 </dl>
@@ -211,23 +211,23 @@
 <li><dl class="first docutils">
 <dt>TAi, TBi, TCi (optional): Value between 0 and 0xff. Interface</dt>
 <dd><p class="first last">Characters (for meaning see ISO 7816-3). Note that
-if no transmission protocol is given, it is 
-automatically selected with T=max{j-1|TAj in args 
+if no transmission protocol is given, it is
+automatically selected with T=max{j-1|TAj in args
 OR TBj in args OR TCj in args}.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>T (optional): Value between 0 and 15. Transmission Protocol. </dt>
-<dd><p class="first last">Note that if T is set, TAi/TBi/TCi for i&gt;T are 
+<dt>T (optional): Value between 0 and 15. Transmission Protocol.</dt>
+<dd><p class="first last">Note that if T is set, TAi/TBi/TCi for i&gt;T are
 omitted.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>histChars (optional): Bitstring with 0 &lt;= len(histChars) &lt;= 15.</dt>
-<dd><p class="first last">Historical Characters T1 to T15 (for meaning 
-see ISO 7816-4).</p>
+<dd><p class="first last">Historical Characters T1 to T15 (for
+meaning see ISO 7816-4).</p>
 </dd>
 </dl>
 </li>
@@ -301,7 +301,8 @@ historical bytes of the card capabilities.</p>
 <code class="descname">_ControlReferenceTemplate__replace_tag</code><span class="sig-paren">(</span><em>tag</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.cards.nPA.nPA_AT_CRT._ControlReferenceTemplate__replace_tag" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adjust the config string using a given tag, value combination. If the
 config string already contains a tag, value pair for the given tag,
-replace it. Otherwise append tag, length and value to the config string.</p>
+replace it. Otherwise append tag, length and value to the config
+string.</p>
 </dd></dl>
 
 <dl class="method">
@@ -393,8 +394,8 @@ be stored on the cards filesystem.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>p1</strong> &#8211; Specifies the algorithm to use. Needed to know the keylength.</li>
-<li><strong>p2</strong> &#8211; <p>Specifies a reference to the key to be used for encryption</p>
+<li><strong>p1</strong> &#8211; Specifies the algorithm to use.</li>
+<li><strong>p2</strong> &#8211; <p>Specifies a reference to the key to be used for encryption.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="3%" />
@@ -405,7 +406,7 @@ be stored on the cards filesystem.</p>
 <col width="3%" />
 <col width="3%" />
 <col width="3%" />
-<col width="74%" />
+<col width="73%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">b8</th>
@@ -490,7 +491,8 @@ be stored on the cards filesystem.</p>
 <li></li>
 </ul>
 </td>
-<td>Specific reference data(e.g. DF specific key)</td>
+<td>Specific reference data(e.g. DF specific
+key)</td>
 </tr>
 <tr class="row-odd"><td><ul class="first last">
 <li></li>
@@ -574,7 +576,7 @@ to prove key posession</p>
 <dl class="method">
 <dt id="virtualsmartcard.cards.nPA.nPA_SAM.mutual_authenticate">
 <code class="descname">mutual_authenticate</code><span class="sig-paren">(</span><em>p1</em>, <em>p2</em>, <em>mutual_challenge</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.cards.nPA.nPA_SAM.mutual_authenticate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Takes an encrypted challenge in the form 
+<dd><p>Takes an encrypted challenge in the form
 &#8216;Terminal Challenge | Card Challenge | Card number&#8217;
 and checks it for validity. If the challenge is successful
 the card encrypts &#8216;Card Challenge | Terminal challenge&#8217; and
@@ -604,8 +606,8 @@ returns this value</p>
 <dl class="method">
 <dt id="virtualsmartcard.cards.nPA.nPA_SAM.restore_SE">
 <code class="descname">restore_SE</code><span class="sig-paren">(</span><em>SEID</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.cards.nPA.nPA_SAM.restore_SE" title="Permalink to this definition">¶</a></dt>
-<dd><p>Restores a Security Environment from the SAM and replaces the current SE
-with it</p>
+<dd><p>Restores a Security Environment from the SAM and replaces the current
+SE with it.</p>
 </dd></dl>
 
 <dl class="method">
@@ -635,8 +637,8 @@ needs a reference to the filesystem in order to store/retrieve keys.</p>
 <dl class="method">
 <dt id="virtualsmartcard.cards.nPA.nPA_SAM.store_SE">
 <code class="descname">store_SE</code><span class="sig-paren">(</span><em>SEID</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.cards.nPA.nPA_SAM.store_SE" title="Permalink to this definition">¶</a></dt>
-<dd><p>Stores the current Security environment in the secure access module. The
-SEID is used as a reference to identify the SE.</p>
+<dd><p>Stores the current Security environment in the secure access module.
+The SEID is used as a reference to identify the SE.</p>
 </dd></dl>
 
 <dl class="method">
@@ -731,7 +733,7 @@ encrypted the given challenge or not</p>
 <dl class="method">
 <dt id="virtualsmartcard.cards.nPA.nPA_SE.generate_public_key_pair">
 <code class="descname">generate_public_key_pair</code><span class="sig-paren">(</span><em>p1</em>, <em>p2</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.cards.nPA.nPA_SE.generate_public_key_pair" title="Permalink to this definition">¶</a></dt>
-<dd><p>The GENERATE PUBLIC-KEY PAIR command either initiates the generation 
+<dd><p>The GENERATE PUBLIC-KEY PAIR command either initiates the generation
 and storing of a key pair, i.e., a public key and a private key, in the
 card, or accesses a key pair previously generated in the card.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -740,8 +742,10 @@ card, or accesses a key pair previously generated in the card.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>p1</strong> &#8211; should be 0x00 (generate new key)</li>
-<li><strong>p2</strong> &#8211; &#8216;00&#8217; (no information provided) or reference of the key to be generated</li>
-<li><strong>data</strong> &#8211; One or more CRTs associated to the key generation if P1-P2 different from &#8216;0000&#8217;</li>
+<li><strong>p2</strong> &#8211; &#8216;00&#8217; (no information provided) or reference of the key to
+be generated</li>
+<li><strong>data</strong> &#8211; One or more CRTs associated to the key generation if
+P1-P2 different from &#8216;0000&#8217;</li>
 </ul>
 </td>
 </tr>
@@ -752,7 +756,7 @@ card, or accesses a key pair previously generated in the card.</p>
 <dl class="method">
 <dt id="virtualsmartcard.cards.nPA.nPA_SE.hash">
 <code class="descname">hash</code><span class="sig-paren">(</span><em>p1</em>, <em>p2</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.cards.nPA.nPA_SE.hash" title="Permalink to this definition">¶</a></dt>
-<dd><p>Hash the given data using the algorithm specified by the current 
+<dd><p>Hash the given data using the algorithm specified by the current
 Security environment.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -991,7 +995,7 @@ authentication and key agreement</td>
 <dt id="virtualsmartcard.cards.nPA.nPA_SE.parse_SM_CAPDU">
 <code class="descname">parse_SM_CAPDU</code><span class="sig-paren">(</span><em>CAPDU</em>, <em>authenticate_header</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.cards.nPA.nPA_SE.parse_SM_CAPDU" title="Permalink to this definition">¶</a></dt>
 <dd><p>This methods parses a data field including Secure Messaging objects.
-SM_header indicates whether or not the header of the message shall be 
+SM_header indicates whether or not the header of the message shall be
 authenticated. It returns an unprotected command APDU</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1070,7 +1074,7 @@ contain a data to sign (tag 0x9A, 0xAC or 0xBC) and a digital signature
       
     </p>
     <p>
-        &copy; Copyright 2009-2015 by Dominik Oepen and Frank Morgner.<br/>
+        &copy; Copyright 2009-2016 by Dominik Oepen and Frank Morgner.<br/>
     </p>
   </div>
 </footer>

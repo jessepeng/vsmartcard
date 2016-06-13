@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>VirtualSmartcard Module &mdash; vsmartcard 2015-12-28 documentation</title>
+    <title>VirtualSmartcard Module &mdash; vsmartcard 2016-06-13 documentation</title>
     
     <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -15,7 +15,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2015-12-28',
+        VERSION:     '2016-06-13',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -29,7 +29,7 @@
     <script type="text/javascript" src="../../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../../_static/chip.ico"/>
-    <link rel="top" title="vsmartcard 2015-12-28 documentation" href="../../index.html" />
+    <link rel="top" title="vsmartcard 2016-06-13 documentation" href="../../index.html" />
     <link rel="up" title="virtualsmartcard Package" href="virtualsmartcard.html" />
     <link rel="next" title="utils Module" href="virtualsmartcard.utils.html" />
     <link rel="prev" title="TLVutils Module" href="virtualsmartcard.TLVutils.html" />
@@ -197,7 +197,7 @@
 <blockquote>
 <div><ul>
 <li><dl class="first docutils">
-<dt>directConvention (bool): Whether to use direct convention or </dt>
+<dt>directConvention (bool): Whether to use direct convention or</dt>
 <dd><p class="first last">inverse convention.</p>
 </dd>
 </dl>
@@ -205,23 +205,23 @@
 <li><dl class="first docutils">
 <dt>TAi, TBi, TCi (optional): Value between 0 and 0xff. Interface</dt>
 <dd><p class="first last">Characters (for meaning see ISO 7816-3). Note that
-if no transmission protocol is given, it is 
-automatically selected with T=max{j-1|TAj in args 
+if no transmission protocol is given, it is
+automatically selected with T=max{j-1|TAj in args
 OR TBj in args OR TCj in args}.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>T (optional): Value between 0 and 15. Transmission Protocol. </dt>
-<dd><p class="first last">Note that if T is set, TAi/TBi/TCi for i&gt;T are 
+<dt>T (optional): Value between 0 and 15. Transmission Protocol.</dt>
+<dd><p class="first last">Note that if T is set, TAi/TBi/TCi for i&gt;T are
 omitted.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>histChars (optional): Bitstring with 0 &lt;= len(histChars) &lt;= 15.</dt>
-<dd><p class="first last">Historical Characters T1 to T15 (for meaning 
-see ISO 7816-4).</p>
+<dd><p class="first last">Historical Characters T1 to T15 (for
+meaning see ISO 7816-4).</p>
 </dd>
 </dl>
 </li>
@@ -313,7 +313,7 @@ historical bytes of the card capabilities.</p>
 
 <dl class="class">
 <dt id="virtualsmartcard.VirtualSmartcard.VirtualICC">
-<em class="property">class </em><code class="descclassname">virtualsmartcard.VirtualSmartcard.</code><code class="descname">VirtualICC</code><span class="sig-paren">(</span><em>filename</em>, <em>datasetfile</em>, <em>card_type</em>, <em>host</em>, <em>port</em>, <em>readernum=None</em>, <em>ef_cardsecurity=None</em>, <em>ef_cardaccess=None</em>, <em>ca_key=None</em>, <em>cvca=None</em>, <em>disable_checks=False</em>, <em>esign_key=None</em>, <em>esign_ca_cert=None</em>, <em>esign_cert=None</em>, <em>logginglevel=20</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.VirtualSmartcard.VirtualICC" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">virtualsmartcard.VirtualSmartcard.</code><code class="descname">VirtualICC</code><span class="sig-paren">(</span><em>datasetfile</em>, <em>card_type</em>, <em>host</em>, <em>port</em>, <em>readernum=None</em>, <em>ef_cardsecurity=None</em>, <em>ef_cardaccess=None</em>, <em>ca_key=None</em>, <em>cvca=None</em>, <em>disable_checks=False</em>, <em>esign_key=None</em>, <em>esign_ca_cert=None</em>, <em>esign_cert=None</em>, <em>logginglevel=20</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.VirtualSmartcard.VirtualICC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>This class is responsible for maintaining the communication of the virtual
 PCD and the emulated smartcard. vpicc and vpcd communicate via a socket.
@@ -380,7 +380,7 @@ printed when the user presses crtl-c</p>
       
     </p>
     <p>
-        &copy; Copyright 2009-2015 by Dominik Oepen and Frank Morgner.<br/>
+        &copy; Copyright 2009-2016 by Dominik Oepen and Frank Morgner.<br/>
     </p>
   </div>
 </footer>

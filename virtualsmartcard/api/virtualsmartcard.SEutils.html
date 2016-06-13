@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>SEutils Module &mdash; vsmartcard 2015-12-28 documentation</title>
+    <title>SEutils Module &mdash; vsmartcard 2016-06-13 documentation</title>
     
     <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -15,7 +15,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2015-12-28',
+        VERSION:     '2016-06-13',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -29,7 +29,7 @@
     <script type="text/javascript" src="../../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../../_static/chip.ico"/>
-    <link rel="top" title="vsmartcard 2015-12-28 documentation" href="../../index.html" />
+    <link rel="top" title="vsmartcard 2016-06-13 documentation" href="../../index.html" />
     <link rel="up" title="virtualsmartcard Package" href="virtualsmartcard.html" />
     <link rel="next" title="SWutils Module" href="virtualsmartcard.SWutils.html" />
     <link rel="prev" title="CryptoUtils Module" href="virtualsmartcard.CryptoUtils.html" />
@@ -153,25 +153,27 @@
   <div class="section" id="seutils-module">
 <h1>SEutils Module<a class="headerlink" href="#seutils-module" title="Permalink to this headline">¶</a></h1>
 <p class="graphviz">
-<img src="../../_images/inheritance-8669517e033c864e987de2e259c7011d419fe6f7.png" alt="Inheritance diagram of virtualsmartcard.SEutils" usemap="#inheritance7064aeb8f6" class="inheritance"/>
+<img src="../../_images/inheritance-9f3c7bc88811fee87e07a30133f7586cb9c7a2ee.png" alt="Inheritance diagram of virtualsmartcard.SEutils" usemap="#inheritance7064aeb8f6" class="inheritance"/>
 <map id="inheritance7064aeb8f6" name="inheritance7064aeb8f6">
-<area shape="rect" id="node1" href="#virtualsmartcard.SEutils.ControlReferenceTemplate" title="Control Reference Templates are used to configure the Security Environments." alt="" coords="5,55,353,80"/>
+<area shape="rect" id="node1" href="#virtualsmartcard.SEutils.ControlReferenceTemplate" title="Control Reference Templates are used to configure the Security" alt="" coords="5,55,353,80"/>
 <area shape="rect" id="node2" href="#virtualsmartcard.SEutils.Security_Environment" title="virtualsmartcard.SEutils.Security_Environment" alt="" coords="20,5,339,31"/>
 </map>
 </p>
 <span class="target" id="module-virtualsmartcard.SEutils"></span><dl class="class">
 <dt id="virtualsmartcard.SEutils.ControlReferenceTemplate">
 <em class="property">class </em><code class="descclassname">virtualsmartcard.SEutils.</code><code class="descname">ControlReferenceTemplate</code><span class="sig-paren">(</span><em>tag</em>, <em>config=''</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.SEutils.ControlReferenceTemplate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Control Reference Templates are used to configure the Security Environments.
-They specifiy which algorithms to use in which mode of operation and with
-which keys. There are six different types of Control Reference Template:
+<dd><p>Control Reference Templates are used to configure the Security
+Environments. They specify which algorithms to use in which mode of
+operation and with which keys. There are six different types of Control
+Reference Template:
 HT, AT, KT, CCT, DST, CT-sym, CT-asym.</p>
 <dl class="method">
 <dt id="virtualsmartcard.SEutils.ControlReferenceTemplate._ControlReferenceTemplate__replace_tag">
 <code class="descname">_ControlReferenceTemplate__replace_tag</code><span class="sig-paren">(</span><em>tag</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.SEutils.ControlReferenceTemplate._ControlReferenceTemplate__replace_tag" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adjust the config string using a given tag, value combination. If the
 config string already contains a tag, value pair for the given tag,
-replace it. Otherwise append tag, length and value to the config string.</p>
+replace it. Otherwise append tag, length and value to the config
+string.</p>
 </dd></dl>
 
 <dl class="method">
@@ -293,7 +295,7 @@ by the current Security environment.</p>
 <dl class="method">
 <dt id="virtualsmartcard.SEutils.Security_Environment.generate_public_key_pair">
 <code class="descname">generate_public_key_pair</code><span class="sig-paren">(</span><em>p1</em>, <em>p2</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.SEutils.Security_Environment.generate_public_key_pair" title="Permalink to this definition">¶</a></dt>
-<dd><p>The GENERATE PUBLIC-KEY PAIR command either initiates the generation 
+<dd><p>The GENERATE PUBLIC-KEY PAIR command either initiates the generation
 and storing of a key pair, i.e., a public key and a private key, in the
 card, or accesses a key pair previously generated in the card.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -302,8 +304,10 @@ card, or accesses a key pair previously generated in the card.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>p1</strong> &#8211; should be 0x00 (generate new key)</li>
-<li><strong>p2</strong> &#8211; &#8216;00&#8217; (no information provided) or reference of the key to be generated</li>
-<li><strong>data</strong> &#8211; One or more CRTs associated to the key generation if P1-P2 different from &#8216;0000&#8217;</li>
+<li><strong>p2</strong> &#8211; &#8216;00&#8217; (no information provided) or reference of the key to
+be generated</li>
+<li><strong>data</strong> &#8211; One or more CRTs associated to the key generation if
+P1-P2 different from &#8216;0000&#8217;</li>
 </ul>
 </td>
 </tr>
@@ -314,7 +318,7 @@ card, or accesses a key pair previously generated in the card.</p>
 <dl class="method">
 <dt id="virtualsmartcard.SEutils.Security_Environment.hash">
 <code class="descname">hash</code><span class="sig-paren">(</span><em>p1</em>, <em>p2</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.SEutils.Security_Environment.hash" title="Permalink to this definition">¶</a></dt>
-<dd><p>Hash the given data using the algorithm specified by the current 
+<dd><p>Hash the given data using the algorithm specified by the current
 Security environment.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -553,7 +557,7 @@ authentication and key agreement</td>
 <dt id="virtualsmartcard.SEutils.Security_Environment.parse_SM_CAPDU">
 <code class="descname">parse_SM_CAPDU</code><span class="sig-paren">(</span><em>CAPDU</em>, <em>authenticate_header</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.SEutils.Security_Environment.parse_SM_CAPDU" title="Permalink to this definition">¶</a></dt>
 <dd><p>This methods parses a data field including Secure Messaging objects.
-SM_header indicates whether or not the header of the message shall be 
+SM_header indicates whether or not the header of the message shall be
 authenticated. It returns an unprotected command APDU</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -635,7 +639,7 @@ contain a data to sign (tag 0x9A, 0xAC or 0xBC) and a digital signature
       
     </p>
     <p>
-        &copy; Copyright 2009-2015 by Dominik Oepen and Frank Morgner.<br/>
+        &copy; Copyright 2009-2016 by Dominik Oepen and Frank Morgner.<br/>
     </p>
   </div>
 </footer>

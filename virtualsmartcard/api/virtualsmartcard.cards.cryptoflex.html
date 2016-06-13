@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>cryptoflex Module &mdash; vsmartcard 2015-12-28 documentation</title>
+    <title>cryptoflex Module &mdash; vsmartcard 2016-06-13 documentation</title>
     
     <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -15,7 +15,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2015-12-28',
+        VERSION:     '2016-06-13',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -29,7 +29,7 @@
     <script type="text/javascript" src="../../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../../_static/chip.ico"/>
-    <link rel="top" title="vsmartcard 2015-12-28 documentation" href="../../index.html" />
+    <link rel="top" title="vsmartcard 2016-06-13 documentation" href="../../index.html" />
     <link rel="up" title="cards Package" href="virtualsmartcard.cards.html" />
     <link rel="next" title="ePass Module" href="virtualsmartcard.cards.ePass.html" />
     <link rel="prev" title="Relay Module" href="virtualsmartcard.cards.Relay.html" />
@@ -273,7 +273,7 @@ e. get/put data) with <em>odd</em> instruction code.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the specified file, True if the following list regards 
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the specified file, True if the following list regards
 SIMPLE-TLV data objects False otherwise and a list of
 (tag, length, value)-tuples.</td>
 </tr>
@@ -338,7 +338,7 @@ data as binary string.</td>
 <dl class="attribute">
 <dt id="virtualsmartcard.cards.cryptoflex.CryptoflexMF.dfname">
 <code class="descname">dfname</code><a class="headerlink" href="#virtualsmartcard.cards.cryptoflex.CryptoflexMF.dfname" title="Permalink to this definition">¶</a></dt>
-<dd><p>string with up to 16 bytes. DF name, which can also be used as application identifier.</p>
+<dd><p>string with up to 16 bytes. DF name,which can also be used as applicationidentifier.</p>
 </dd></dl>
 
 <dl class="method">
@@ -379,7 +379,8 @@ integers and &#8216;data&#8217; as binary string.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the status bytes as two byte long integer and the response data as binary string.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the status bytes as two byte long integer and the response
+data as binary string.</td>
 </tr>
 </tbody>
 </table>
@@ -422,7 +423,7 @@ data as binary string.</td>
 <dl class="attribute">
 <dt id="virtualsmartcard.cards.cryptoflex.CryptoflexMF.firstSFT">
 <code class="descname">firstSFT</code><a class="headerlink" href="#virtualsmartcard.cards.cryptoflex.CryptoflexMF.firstSFT" title="Permalink to this definition">¶</a></dt>
-<dd><p>string of length 1. The first software function table from the historical bytes.</p>
+<dd><p>string of length 1. The firstsoftware function table from thehistorical bytes.</p>
 </dd></dl>
 
 <dl class="method">
@@ -638,7 +639,7 @@ data as binary string.</td>
 <dl class="attribute">
 <dt id="virtualsmartcard.cards.cryptoflex.CryptoflexMF.secondSFT">
 <code class="descname">secondSFT</code><a class="headerlink" href="#virtualsmartcard.cards.cryptoflex.CryptoflexMF.secondSFT" title="Permalink to this definition">¶</a></dt>
-<dd><p>string of length 1. The second software function table from the historical bytes.</p>
+<dd><p>string of length 1. The secondsoftware function table from thehistorical bytes.</p>
 </dd></dl>
 
 <dl class="method">
@@ -831,7 +832,7 @@ data as binary string.</td>
 <blockquote>
 <div><ul>
 <li><dl class="first docutils">
-<dt>directConvention (bool): Whether to use direct convention or </dt>
+<dt>directConvention (bool): Whether to use direct convention or</dt>
 <dd><p class="first last">inverse convention.</p>
 </dd>
 </dl>
@@ -839,23 +840,23 @@ data as binary string.</td>
 <li><dl class="first docutils">
 <dt>TAi, TBi, TCi (optional): Value between 0 and 0xff. Interface</dt>
 <dd><p class="first last">Characters (for meaning see ISO 7816-3). Note that
-if no transmission protocol is given, it is 
-automatically selected with T=max{j-1|TAj in args 
+if no transmission protocol is given, it is
+automatically selected with T=max{j-1|TAj in args
 OR TBj in args OR TCj in args}.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>T (optional): Value between 0 and 15. Transmission Protocol. </dt>
-<dd><p class="first last">Note that if T is set, TAi/TBi/TCi for i&gt;T are 
+<dt>T (optional): Value between 0 and 15. Transmission Protocol.</dt>
+<dd><p class="first last">Note that if T is set, TAi/TBi/TCi for i&gt;T are
 omitted.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>histChars (optional): Bitstring with 0 &lt;= len(histChars) &lt;= 15.</dt>
-<dd><p class="first last">Historical Characters T1 to T15 (for meaning 
-see ISO 7816-4).</p>
+<dd><p class="first last">Historical Characters T1 to T15 (for
+meaning see ISO 7816-4).</p>
 </dd>
 </dl>
 </li>
@@ -930,8 +931,8 @@ be stored on the cards filesystem.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>p1</strong> &#8211; Specifies the algorithm to use. Needed to know the keylength.</li>
-<li><strong>p2</strong> &#8211; <p>Specifies a reference to the key to be used for encryption</p>
+<li><strong>p1</strong> &#8211; Specifies the algorithm to use.</li>
+<li><strong>p2</strong> &#8211; <p>Specifies a reference to the key to be used for encryption.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="3%" />
@@ -942,7 +943,7 @@ be stored on the cards filesystem.</p>
 <col width="3%" />
 <col width="3%" />
 <col width="3%" />
-<col width="74%" />
+<col width="73%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">b8</th>
@@ -1027,7 +1028,8 @@ be stored on the cards filesystem.</p>
 <li></li>
 </ul>
 </td>
-<td>Specific reference data(e.g. DF specific key)</td>
+<td>Specific reference data(e.g. DF specific
+key)</td>
 </tr>
 <tr class="row-odd"><td><ul class="first last">
 <li></li>
@@ -1107,7 +1109,7 @@ encrypted the given challenge or not</p>
 <dl class="method">
 <dt id="virtualsmartcard.cards.cryptoflex.CryptoflexSAM.mutual_authenticate">
 <code class="descname">mutual_authenticate</code><span class="sig-paren">(</span><em>p1</em>, <em>p2</em>, <em>mutual_challenge</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.cards.cryptoflex.CryptoflexSAM.mutual_authenticate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Takes an encrypted challenge in the form 
+<dd><p>Takes an encrypted challenge in the form
 &#8216;Terminal Challenge | Card Challenge | Card number&#8217;
 and checks it for validity. If the challenge is successful
 the card encrypts &#8216;Card Challenge | Terminal challenge&#8217; and
@@ -1124,6 +1126,11 @@ unprotected command APDU</p>
 <dl class="method">
 <dt id="virtualsmartcard.cards.cryptoflex.CryptoflexSAM.perform_security_operation">
 <code class="descname">perform_security_operation</code><span class="sig-paren">(</span><em>p1</em>, <em>p2</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.cards.cryptoflex.CryptoflexSAM.perform_security_operation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="virtualsmartcard.cards.cryptoflex.CryptoflexSAM.pezorform_security_operation">
+<code class="descname">pezorform_security_operation</code><span class="sig-paren">(</span><em>p1</em>, <em>p2</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.cards.cryptoflex.CryptoflexSAM.pezorform_security_operation" title="Permalink to this definition">¶</a></dt>
 <dd><p>In the cryptoflex card, this is the verify key command. A key is send
 to the card in plain text and compared to a key stored in the card.
 This is used for authentication</p>
@@ -1148,8 +1155,8 @@ This is used for authentication</p>
 <dl class="method">
 <dt id="virtualsmartcard.cards.cryptoflex.CryptoflexSAM.restore_SE">
 <code class="descname">restore_SE</code><span class="sig-paren">(</span><em>SEID</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.cards.cryptoflex.CryptoflexSAM.restore_SE" title="Permalink to this definition">¶</a></dt>
-<dd><p>Restores a Security Environment from the SAM and replaces the current SE
-with it</p>
+<dd><p>Restores a Security Environment from the SAM and replaces the current
+SE with it.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1179,15 +1186,15 @@ needs a reference to the filesystem in order to store/retrieve keys.</p>
 <dl class="method">
 <dt id="virtualsmartcard.cards.cryptoflex.CryptoflexSAM.store_SE">
 <code class="descname">store_SE</code><span class="sig-paren">(</span><em>SEID</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.cards.cryptoflex.CryptoflexSAM.store_SE" title="Permalink to this definition">¶</a></dt>
-<dd><p>Stores the current Security environment in the secure access module. The
-SEID is used as a reference to identify the SE.</p>
+<dd><p>Stores the current Security environment in the secure access module.
+The SEID is used as a reference to identify the SE.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="virtualsmartcard.cards.cryptoflex.CryptoflexSAM.verify">
 <code class="descname">verify</code><span class="sig-paren">(</span><em>p1</em>, <em>p2</em>, <em>PIN</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.cards.cryptoflex.CryptoflexSAM.verify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Authenticate the card user. Check if he entered a valid PIN.
-If the PIN is invalid decrement retry counter. If retry counter 
+If the PIN is invalid decrement retry counter. If retry counter
 equals zero, block the card until reset with correct PUK</p>
 </dd></dl>
 
@@ -1284,7 +1291,7 @@ by the current Security environment.</p>
 <dl class="method">
 <dt id="virtualsmartcard.cards.cryptoflex.CryptoflexSE.hash">
 <code class="descname">hash</code><span class="sig-paren">(</span><em>p1</em>, <em>p2</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.cards.cryptoflex.CryptoflexSE.hash" title="Permalink to this definition">¶</a></dt>
-<dd><p>Hash the given data using the algorithm specified by the current 
+<dd><p>Hash the given data using the algorithm specified by the current
 Security environment.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1523,7 +1530,7 @@ authentication and key agreement</td>
 <dt id="virtualsmartcard.cards.cryptoflex.CryptoflexSE.parse_SM_CAPDU">
 <code class="descname">parse_SM_CAPDU</code><span class="sig-paren">(</span><em>CAPDU</em>, <em>authenticate_header</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.cards.cryptoflex.CryptoflexSE.parse_SM_CAPDU" title="Permalink to this definition">¶</a></dt>
 <dd><p>This methods parses a data field including Secure Messaging objects.
-SM_header indicates whether or not the header of the message shall be 
+SM_header indicates whether or not the header of the message shall be
 authenticated. It returns an unprotected command APDU</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1605,7 +1612,7 @@ contain a data to sign (tag 0x9A, 0xAC or 0xBC) and a digital signature
       
     </p>
     <p>
-        &copy; Copyright 2009-2015 by Dominik Oepen and Frank Morgner.<br/>
+        &copy; Copyright 2009-2016 by Dominik Oepen and Frank Morgner.<br/>
     </p>
   </div>
 </footer>

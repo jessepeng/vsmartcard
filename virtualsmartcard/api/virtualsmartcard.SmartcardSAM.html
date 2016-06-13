@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>SmartcardSAM Module &mdash; vsmartcard 2015-12-28 documentation</title>
+    <title>SmartcardSAM Module &mdash; vsmartcard 2016-06-13 documentation</title>
     
     <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -15,7 +15,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2015-12-28',
+        VERSION:     '2016-06-13',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -29,7 +29,7 @@
     <script type="text/javascript" src="../../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../../_static/chip.ico"/>
-    <link rel="top" title="vsmartcard 2015-12-28 documentation" href="../../index.html" />
+    <link rel="top" title="vsmartcard 2016-06-13 documentation" href="../../index.html" />
     <link rel="up" title="virtualsmartcard Package" href="virtualsmartcard.html" />
     <link rel="next" title="TLVutils Module" href="virtualsmartcard.TLVutils.html" />
     <link rel="prev" title="SmartcardFilesystem Module" href="virtualsmartcard.SmartcardFilesystem.html" />
@@ -163,7 +163,7 @@
 <em class="property">class </em><code class="descclassname">virtualsmartcard.SmartcardSAM.</code><code class="descname">SAM</code><span class="sig-paren">(</span><em>PIN</em>, <em>cardNumber</em>, <em>mf=None</em>, <em>cardSecret=None</em>, <em>default_se=&lt;class 'virtualsmartcard.SEutils.Security_Environment'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.SmartcardSAM.SAM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>This class is used to store the data needed by the SAM.
-It includes the PIN, the master key of the SAM and a hashmap containing all 
+It includes the PIN, the master key of the SAM and a hashmap containing all
 the keys used by the file encryption system. The keys in the hashmap are
 indexed via the path to the corresponding container.</p>
 <dl class="method">
@@ -192,8 +192,8 @@ be stored on the cards filesystem.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>p1</strong> &#8211; Specifies the algorithm to use. Needed to know the keylength.</li>
-<li><strong>p2</strong> &#8211; <p>Specifies a reference to the key to be used for encryption</p>
+<li><strong>p1</strong> &#8211; Specifies the algorithm to use.</li>
+<li><strong>p2</strong> &#8211; <p>Specifies a reference to the key to be used for encryption.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="3%" />
@@ -204,7 +204,7 @@ be stored on the cards filesystem.</p>
 <col width="3%" />
 <col width="3%" />
 <col width="3%" />
-<col width="74%" />
+<col width="73%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">b8</th>
@@ -289,7 +289,8 @@ be stored on the cards filesystem.</p>
 <li></li>
 </ul>
 </td>
-<td>Specific reference data(e.g. DF specific key)</td>
+<td>Specific reference data(e.g. DF specific
+key)</td>
 </tr>
 <tr class="row-odd"><td><ul class="first last">
 <li></li>
@@ -371,7 +372,7 @@ to prove key posession</p>
 <dl class="method">
 <dt id="virtualsmartcard.SmartcardSAM.SAM.mutual_authenticate">
 <code class="descname">mutual_authenticate</code><span class="sig-paren">(</span><em>p1</em>, <em>p2</em>, <em>mutual_challenge</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.SmartcardSAM.SAM.mutual_authenticate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Takes an encrypted challenge in the form 
+<dd><p>Takes an encrypted challenge in the form
 &#8216;Terminal Challenge | Card Challenge | Card number&#8217;
 and checks it for validity. If the challenge is successful
 the card encrypts &#8216;Card Challenge | Terminal challenge&#8217; and
@@ -399,8 +400,8 @@ unprotected command APDU</p>
 <dl class="method">
 <dt id="virtualsmartcard.SmartcardSAM.SAM.restore_SE">
 <code class="descname">restore_SE</code><span class="sig-paren">(</span><em>SEID</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.SmartcardSAM.SAM.restore_SE" title="Permalink to this definition">¶</a></dt>
-<dd><p>Restores a Security Environment from the SAM and replaces the current SE
-with it</p>
+<dd><p>Restores a Security Environment from the SAM and replaces the current
+SE with it.</p>
 </dd></dl>
 
 <dl class="method">
@@ -430,15 +431,15 @@ needs a reference to the filesystem in order to store/retrieve keys.</p>
 <dl class="method">
 <dt id="virtualsmartcard.SmartcardSAM.SAM.store_SE">
 <code class="descname">store_SE</code><span class="sig-paren">(</span><em>SEID</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.SmartcardSAM.SAM.store_SE" title="Permalink to this definition">¶</a></dt>
-<dd><p>Stores the current Security environment in the secure access module. The
-SEID is used as a reference to identify the SE.</p>
+<dd><p>Stores the current Security environment in the secure access module.
+The SEID is used as a reference to identify the SE.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="virtualsmartcard.SmartcardSAM.SAM.verify">
 <code class="descname">verify</code><span class="sig-paren">(</span><em>p1</em>, <em>p2</em>, <em>PIN</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.SmartcardSAM.SAM.verify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Authenticate the card user. Check if he entered a valid PIN.
-If the PIN is invalid decrement retry counter. If retry counter 
+If the PIN is invalid decrement retry counter. If retry counter
 equals zero, block the card until reset with correct PUK</p>
 </dd></dl>
 
@@ -465,7 +466,7 @@ string that is understood by CryptoUtils.py functions</p>
       
     </p>
     <p>
-        &copy; Copyright 2009-2015 by Dominik Oepen and Frank Morgner.<br/>
+        &copy; Copyright 2009-2016 by Dominik Oepen and Frank Morgner.<br/>
     </p>
   </div>
 </footer>

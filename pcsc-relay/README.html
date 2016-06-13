@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>PC/SC Relay &mdash; vsmartcard 2015-12-28 documentation</title>
+    <title>PC/SC Relay &mdash; vsmartcard 2016-06-13 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -15,7 +15,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2015-12-28',
+        VERSION:     '2016-06-13',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -29,7 +29,7 @@
     <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/chip.ico"/>
-    <link rel="top" title="vsmartcard 2015-12-28 documentation" href="../index.html" />
+    <link rel="top" title="vsmartcard 2016-06-13 documentation" href="../index.html" />
     <link rel="next" title="USB CCID Emulator" href="../ccid/README.html" />
     <link rel="prev" title="Android Smart Card Emulator" href="../ACardEmulator/README.html" />
 <meta charset='utf-8'>
@@ -423,8 +423,10 @@ for the following AIDs (<code class="file docutils literal"><span class="pre">AC
 </span>        <span class="nt">&lt;aid-filter</span> <span class="na">android:name=</span><span class="s">&quot;@string/aid_isoapplet&quot;</span><span class="nt">/&gt;</span>
     <span class="nt">&lt;/aid-group&gt;</span>
 
-    <span class="nt">&lt;aid-group</span> <span class="na">android:description=</span><span class="s">&quot;@string/applet_muscle&quot;</span> <span class="na">android:category=</span><span class="s">&quot;other&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;aid-filter</span> <span class="na">android:name=</span><span class="s">&quot;@string/aid_muscle&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;aid-group</span> <span class="na">android:description=</span><span class="s">&quot;@string/applet_gidsapplet&quot;</span> <span class="na">android:category=</span><span class="s">&quot;other&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;aid-filter</span> <span class="na">android:name=</span><span class="s">&quot;@string/aid_gidsapplet&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;aid-filter</span> <span class="na">android:name=</span><span class="s">&quot;@string/aid_gidsapplet_truncated1&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;aid-filter</span> <span class="na">android:name=</span><span class="s">&quot;@string/aid_gidsapplet_truncated2&quot;</span><span class="nt">/&gt;</span>
     <span class="nt">&lt;/aid-group&gt;</span>
 
 <span class="nt">&lt;/host-apdu-service&gt;</span>
@@ -437,12 +439,6 @@ when it should relay command APDUs to PC/SC Relay.</p>
 want to activate <cite>useVPCD</cite> and change <cite>hostname</cite> and <cite>port</cite> to configure the
 connection to PC/SC Relay
 (<code class="file docutils literal"><span class="pre">ACardEmulator/app/src/main/java/com/vsmartcard/acardemulator/SimulatorService.java</span></code>):</p>
-<div class="highlight-java"><div class="highlight"><pre>    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">boolean</span> <span class="n">useVPCD</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">DEFAULT_PORT</span> <span class="o">=</span> <span class="mi">35963</span><span class="o">;</span>
-<span class="hll">    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">hostname</span> <span class="o">=</span> <span class="s">&quot;192.168.42.158&quot;</span><span class="o">;</span>
-</span>    <span class="kd">private</span> <span class="kt">int</span> <span class="n">port</span> <span class="o">=</span> <span class="n">DEFAULT_PORT</span><span class="o">;</span>
-</pre></div>
-</div>
 <p>Compiling and installing Android Smart Card Emulator is covered in its <a class="reference internal" href="../ACardEmulator/README.html#acardemulator-install"><span>Download and Install</span></a> section.</p>
 </div>
 <div class="section" id="hints-on-pc-sc-middleware">
@@ -602,7 +598,7 @@ more than welcome! Please use our <a class="reference external" href="https://gi
       
     </p>
     <p>
-        &copy; Copyright 2009-2015 by Dominik Oepen and Frank Morgner.<br/>
+        &copy; Copyright 2009-2016 by Dominik Oepen and Frank Morgner.<br/>
     </p>
   </div>
 </footer>

@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>ePass Module &mdash; vsmartcard 2015-12-28 documentation</title>
+    <title>ePass Module &mdash; vsmartcard 2016-06-13 documentation</title>
     
     <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -15,7 +15,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2015-12-28',
+        VERSION:     '2016-06-13',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -29,7 +29,7 @@
     <script type="text/javascript" src="../../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../../_static/chip.ico"/>
-    <link rel="top" title="vsmartcard 2015-12-28 documentation" href="../../index.html" />
+    <link rel="top" title="vsmartcard 2016-06-13 documentation" href="../../index.html" />
     <link rel="up" title="cards Package" href="virtualsmartcard.cards.html" />
     <link rel="next" title="nPA Module" href="virtualsmartcard.cards.nPA.html" />
     <link rel="prev" title="cryptoflex Module" href="virtualsmartcard.cards.cryptoflex.html" />
@@ -186,8 +186,8 @@ might not be added in a future version.</p>
 <dl class="method">
 <dt id="virtualsmartcard.cards.ePass.PassportSAM._PassportSAM__computeKeys">
 <code class="descname">_PassportSAM__computeKeys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.cards.ePass.PassportSAM._PassportSAM__computeKeys" title="Permalink to this definition">¶</a></dt>
-<dd><p>Computes the keys depending on the machine readable 
-zone of the passport according to TR-PKI mrtds ICC read-only 
+<dd><p>Computes the keys depending on the machine readable
+zone of the passport according to TR-PKI mrtds ICC read-only
 access v1.1 annex E.1.</p>
 </dd></dl>
 
@@ -201,8 +201,8 @@ be stored on the cards filesystem.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>p1</strong> &#8211; Specifies the algorithm to use. Needed to know the keylength.</li>
-<li><strong>p2</strong> &#8211; <p>Specifies a reference to the key to be used for encryption</p>
+<li><strong>p1</strong> &#8211; Specifies the algorithm to use.</li>
+<li><strong>p2</strong> &#8211; <p>Specifies a reference to the key to be used for encryption.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="3%" />
@@ -213,7 +213,7 @@ be stored on the cards filesystem.</p>
 <col width="3%" />
 <col width="3%" />
 <col width="3%" />
-<col width="74%" />
+<col width="73%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">b8</th>
@@ -298,7 +298,8 @@ be stored on the cards filesystem.</p>
 <li></li>
 </ul>
 </td>
-<td>Specific reference data(e.g. DF specific key)</td>
+<td>Specific reference data(e.g. DF specific
+key)</td>
 </tr>
 <tr class="row-odd"><td><ul class="first last">
 <li></li>
@@ -390,7 +391,7 @@ to prove key posession</p>
 <dl class="method">
 <dt id="virtualsmartcard.cards.ePass.PassportSAM.mutual_authenticate">
 <code class="descname">mutual_authenticate</code><span class="sig-paren">(</span><em>p1</em>, <em>p2</em>, <em>mutual_challenge</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.cards.ePass.PassportSAM.mutual_authenticate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Takes an encrypted challenge in the form 
+<dd><p>Takes an encrypted challenge in the form
 &#8216;Terminal Challenge | Card Challenge | Card number&#8217;
 and checks it for validity. If the challenge is successful
 the card encrypts &#8216;Card Challenge | Terminal challenge&#8217; and
@@ -418,8 +419,8 @@ unprotected command APDU</p>
 <dl class="method">
 <dt id="virtualsmartcard.cards.ePass.PassportSAM.restore_SE">
 <code class="descname">restore_SE</code><span class="sig-paren">(</span><em>SEID</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.cards.ePass.PassportSAM.restore_SE" title="Permalink to this definition">¶</a></dt>
-<dd><p>Restores a Security Environment from the SAM and replaces the current SE
-with it</p>
+<dd><p>Restores a Security Environment from the SAM and replaces the current
+SE with it.</p>
 </dd></dl>
 
 <dl class="method">
@@ -449,15 +450,15 @@ needs a reference to the filesystem in order to store/retrieve keys.</p>
 <dl class="method">
 <dt id="virtualsmartcard.cards.ePass.PassportSAM.store_SE">
 <code class="descname">store_SE</code><span class="sig-paren">(</span><em>SEID</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.cards.ePass.PassportSAM.store_SE" title="Permalink to this definition">¶</a></dt>
-<dd><p>Stores the current Security environment in the secure access module. The
-SEID is used as a reference to identify the SE.</p>
+<dd><p>Stores the current Security environment in the secure access module.
+The SEID is used as a reference to identify the SE.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="virtualsmartcard.cards.ePass.PassportSAM.verify">
 <code class="descname">verify</code><span class="sig-paren">(</span><em>p1</em>, <em>p2</em>, <em>PIN</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.cards.ePass.PassportSAM.verify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Authenticate the card user. Check if he entered a valid PIN.
-If the PIN is invalid decrement retry counter. If retry counter 
+If the PIN is invalid decrement retry counter. If retry counter
 equals zero, block the card until reset with correct PUK</p>
 </dd></dl>
 
@@ -536,7 +537,7 @@ by the current Security environment.</p>
 <dl class="method">
 <dt id="virtualsmartcard.cards.ePass.ePass_SE.generate_public_key_pair">
 <code class="descname">generate_public_key_pair</code><span class="sig-paren">(</span><em>p1</em>, <em>p2</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.cards.ePass.ePass_SE.generate_public_key_pair" title="Permalink to this definition">¶</a></dt>
-<dd><p>The GENERATE PUBLIC-KEY PAIR command either initiates the generation 
+<dd><p>The GENERATE PUBLIC-KEY PAIR command either initiates the generation
 and storing of a key pair, i.e., a public key and a private key, in the
 card, or accesses a key pair previously generated in the card.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -545,8 +546,10 @@ card, or accesses a key pair previously generated in the card.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>p1</strong> &#8211; should be 0x00 (generate new key)</li>
-<li><strong>p2</strong> &#8211; &#8216;00&#8217; (no information provided) or reference of the key to be generated</li>
-<li><strong>data</strong> &#8211; One or more CRTs associated to the key generation if P1-P2 different from &#8216;0000&#8217;</li>
+<li><strong>p2</strong> &#8211; &#8216;00&#8217; (no information provided) or reference of the key to
+be generated</li>
+<li><strong>data</strong> &#8211; One or more CRTs associated to the key generation if
+P1-P2 different from &#8216;0000&#8217;</li>
 </ul>
 </td>
 </tr>
@@ -557,7 +560,7 @@ card, or accesses a key pair previously generated in the card.</p>
 <dl class="method">
 <dt id="virtualsmartcard.cards.ePass.ePass_SE.hash">
 <code class="descname">hash</code><span class="sig-paren">(</span><em>p1</em>, <em>p2</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.cards.ePass.ePass_SE.hash" title="Permalink to this definition">¶</a></dt>
-<dd><p>Hash the given data using the algorithm specified by the current 
+<dd><p>Hash the given data using the algorithm specified by the current
 Security environment.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -796,7 +799,7 @@ authentication and key agreement</td>
 <dt id="virtualsmartcard.cards.ePass.ePass_SE.parse_SM_CAPDU">
 <code class="descname">parse_SM_CAPDU</code><span class="sig-paren">(</span><em>CAPDU</em>, <em>authenticate_header</em><span class="sig-paren">)</span><a class="headerlink" href="#virtualsmartcard.cards.ePass.ePass_SE.parse_SM_CAPDU" title="Permalink to this definition">¶</a></dt>
 <dd><p>This methods parses a data field including Secure Messaging objects.
-SM_header indicates whether or not the header of the message shall be 
+SM_header indicates whether or not the header of the message shall be
 authenticated. It returns an unprotected command APDU</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -878,7 +881,7 @@ contain a data to sign (tag 0x9A, 0xAC or 0xBC) and a digital signature
       
     </p>
     <p>
-        &copy; Copyright 2009-2015 by Dominik Oepen and Frank Morgner.<br/>
+        &copy; Copyright 2009-2016 by Dominik Oepen and Frank Morgner.<br/>
     </p>
   </div>
 </footer>
