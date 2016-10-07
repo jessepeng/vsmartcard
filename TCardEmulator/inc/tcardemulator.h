@@ -14,7 +14,7 @@ extern unsigned char *rapdu;
 extern size_t rapdu_length;
 extern gboolean rapdu_received;
 
-#define HELLO_ACC_ASPID "/sample/hello"
+#define HELLO_ACC_ASPID "/com/vsmcartcard"
 #define HELLO_ACC_CHANNELID 104
 
 void     initialize_sap();
