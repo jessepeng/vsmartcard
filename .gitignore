@@ -79,3 +79,9 @@ remote-reader/build/*
 .idea
 .gradle
 local.properties
+
+build/
+crash-info/
+.sign/
+.sdk_delta.info
+.rds_delta
