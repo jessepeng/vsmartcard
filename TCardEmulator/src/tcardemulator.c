@@ -114,7 +114,7 @@ service_app_create(void *data)
 
 	find_peers();
 
-	//install_aids();
+	install_aids();
 
 	r = true;
 
