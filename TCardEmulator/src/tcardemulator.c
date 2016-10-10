@@ -10,9 +10,9 @@ typedef struct appdata {
 
 } appdata_s;
 
-//unsigned char *rapdu = NULL;
-//size_t rapdu_length = 0;
-//gboolean rapdu_received = FALSE;
+unsigned char *rapdu = NULL;
+size_t rapdu_length = 0;
+gboolean rapdu_received = FALSE;
 
 	static void
 hce_event_cb(nfc_se_h handle, nfc_hce_event_type_e event,
@@ -34,17 +34,17 @@ hce_event_cb(nfc_se_h handle, nfc_hce_event_type_e event,
 			break;
 
 		case NFC_HCE_EVENT_APDU_RECEIVED:
-//			rapdu_received = FALSE;
+			rapdu_received = FALSE;
 			dlog_print(DLOG_DEBUG, LOG_TAG, "received NFC_HCE_EVENT_APDU_RECEIVED event on NFC handle %d", handle);
 			send_data(handle, apdu, apdu_len);
-//			size_t count_apdu = 0;
-//			while (!rapdu_received && count_apdu < 10) {
-//				dlog_print(DLOG_INFO, LOG_TAG, "waiting for response");
-//				usleep(100);
-//				count_apdu++;
-//			}
-//			nfc_hce_send_apdu_response(handle, rapdu, rapdu_length);
-//			rapdu_received = FALSE;
+			size_t count_apdu = 0;
+			while (!rapdu_received && count_apdu < 10) {
+				dlog_print(DLOG_INFO, LOG_TAG, "waiting for response");
+				usleep(100);
+				count_apdu++;
+			}
+			nfc_hce_send_apdu_response(handle, rapdu, rapdu_length);
+			rapdu_received = FALSE;
 			break;
 
 		default:
