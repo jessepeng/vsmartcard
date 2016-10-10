@@ -1,0 +1,65 @@
+10-10 17:00:13.325 : DEBUG / tcardemulator ( 1404 : 1404 ) : nfc_manager_set_hce_event_cb succeeded
+10-10 17:00:13.325 : INFO / tcardemulator ( 1404 : 1404 ) : SUCCESSFULLY create sap agent
+10-10 17:00:13.325 : INFO / tcardemulator ( 1404 : 1404 ) : connectivity type(1): bt
+10-10 17:00:13.500 : INFO / tcardemulator ( 1404 : 1404 ) : agent is initialized
+10-10 17:00:13.500 : DEBUG / tcardemulator ( 1404 : 1404 ) : sap_agent_initialize >>> 0
+10-10 17:00:45.635 : DEBUG / tcardemulator ( 1404 : 1404 ) : received NFC_HCE_EVENT_ACTIVATED event on NFC handle 770
+10-10 17:00:45.640 : DEBUG / tcardemulator ( 1404 : 1404 ) : find peer called
+10-10 17:00:45.640 : DEBUG / tcardemulator ( 1404 : 1404 ) : received NFC_HCE_EVENT_APDU_RECEIVED event on NFC handle 770
+10-10 17:00:45.650 : DEBUG / tcardemulator ( 1404 : 1404 ) : find peer call succeeded
+10-10 17:00:45.650 : INFO / tcardemulator ( 1404 : 1404 ) : Find Peer Success!!
+10-10 17:00:45.665 : DEBUG / tcardemulator ( 1404 : 1404 ) : request_service_connection call over
+10-10 17:00:45.680 : DEBUG / tcardemulator ( 1404 : 1404 ) : req service conn call succeeded
+10-10 17:00:46.125 : DEBUG / tcardemulator ( 1404 : 1404 ) : received NFC_HCE_EVENT_DEACTIVATED event on NFC handle 770
+10-10 17:00:46.430 : INFO / tcardemulator ( 1404 : 1404 ) : peer agent connection is successful, pa :704808048
+10-10 17:01:05.660 : INFO / tcardemulator ( 1404 : 1404 ) : received data: 0x43000f50, len:22
+10-10 17:01:05.660 : DEBUG / tcardemulator ( 1404 : 1404 ) : sending data to nfc handle: 0
+10-10 17:01:28.315 : DEBUG / tcardemulator ( 1404 : 1404 ) : received NFC_HCE_EVENT_ACTIVATED event on NFC handle 770
+10-10 17:01:28.320 : DEBUG / tcardemulator ( 1404 : 1404 ) : find peer called
+10-10 17:01:28.335 : DEBUG / tcardemulator ( 1404 : 1404 ) : received NFC_HCE_EVENT_APDU_RECEIVED event on NFC handle 770
+10-10 17:01:28.485 : DEBUG / tcardemulator ( 1404 : 1404 ) : find peer call succeeded
+10-10 17:01:28.515 : INFO / tcardemulator ( 1404 : 1404 ) : Find Peer Success!!
+10-10 17:01:28.515 : DEBUG / tcardemulator ( 1404 : 1404 ) : request_service_connection call over
+10-10 17:01:28.530 : DEBUG / tcardemulator ( 1404 : 1404 ) : req service conn call succeeded
+10-10 17:01:28.545 : INFO / tcardemulator ( 1404 : 1404 ) : connection is already exist
+10-10 17:01:29.060 : INFO / tcardemulator ( 1404 : 1404 ) : received data: 0x43003fa0, len:22
+10-10 17:01:29.060 : DEBUG / tcardemulator ( 1404 : 1404 ) : sending data to nfc handle: 770
+10-10 17:01:29.115 : DEBUG / tcardemulator ( 1404 : 1404 ) : received NFC_HCE_EVENT_DEACTIVATED event on NFC handle 1
+10-10 17:01:29.120 : DEBUG / tcardemulator ( 1404 : 1404 ) : received NFC_HCE_EVENT_DEACTIVATED event on NFC handle 770
+10-10 17:01:29.175 : DEBUG / tcardemulator ( 1404 : 1404 ) : terminate service conn call succeeded
+10-10 17:01:39.880 : DEBUG / tcardemulator ( 1404 : 1404 ) : received NFC_HCE_EVENT_ACTIVATED event on NFC handle 770
+10-10 17:01:39.885 : DEBUG / tcardemulator ( 1404 : 1404 ) : find peer called
+10-10 17:01:39.890 : DEBUG / tcardemulator ( 1404 : 1404 ) : received NFC_HCE_EVENT_APDU_RECEIVED event on NFC handle 770
+10-10 17:01:39.985 : DEBUG / tcardemulator ( 1404 : 1404 ) : find peer call succeeded
+10-10 17:01:39.990 : INFO / tcardemulator ( 1404 : 1404 ) : Find Peer Success!!
+10-10 17:01:39.995 : DEBUG / tcardemulator ( 1404 : 1404 ) : request_service_connection call over
+10-10 17:01:40.010 : DEBUG / tcardemulator ( 1404 : 1404 ) : req service conn call succeeded
+10-10 17:01:40.080 : DEBUG / tcardemulator ( 1404 : 1404 ) : received NFC_HCE_EVENT_DEACTIVATED event on NFC handle 1
+10-10 17:01:40.105 : DEBUG / tcardemulator ( 1404 : 1404 ) : received NFC_HCE_EVENT_DEACTIVATED event on NFC handle 770
+10-10 17:01:40.680 : DEBUG / tcardemulator ( 1404 : 1404 ) : received NFC_HCE_EVENT_ACTIVATED event on NFC handle 770
+10-10 17:01:40.685 : DEBUG / tcardemulator ( 1404 : 1404 ) : find peer called
+10-10 17:01:40.690 : DEBUG / tcardemulator ( 1404 : 1404 ) : received NFC_HCE_EVENT_APDU_RECEIVED event on NFC handle 770
+10-10 17:01:40.705 : DEBUG / tcardemulator ( 1404 : 1404 ) : find peer call succeeded
+10-10 17:01:40.775 : INFO / tcardemulator ( 1404 : 1404 ) : peer agent connection is successful, pa :704808048
+10-10 17:01:40.850 : INFO / tcardemulator ( 1404 : 1404 ) : Find Peer Success!!
+10-10 17:01:40.850 : DEBUG / tcardemulator ( 1404 : 1404 ) : request_service_connection call over
+10-10 17:01:40.850 : DEBUG / tcardemulator ( 1404 : 1404 ) : req service conn call succeeded
+10-10 17:01:40.870 : INFO / tcardemulator ( 1404 : 1404 ) : connection is already exist
+10-10 17:01:40.970 : INFO / tcardemulator ( 1404 : 1404 ) : received data: 0x43001590, len:22
+10-10 17:01:40.970 : DEBUG / tcardemulator ( 1404 : 1404 ) : sending data to nfc handle: 770
+10-10 17:01:41.020 : DEBUG / tcardemulator ( 1404 : 1404 ) : received NFC_HCE_EVENT_DEACTIVATED event on NFC handle 1
+10-10 17:01:41.020 : DEBUG / tcardemulator ( 1404 : 1404 ) : received NFC_HCE_EVENT_DEACTIVATED event on NFC handle 770
+10-10 17:01:41.100 : DEBUG / tcardemulator ( 1404 : 1404 ) : terminate service conn call succeeded
+10-10 17:01:42.830 : DEBUG / tcardemulator ( 1404 : 1404 ) : received NFC_HCE_EVENT_ACTIVATED event on NFC handle 770
+10-10 17:01:42.835 : DEBUG / tcardemulator ( 1404 : 1404 ) : find peer called
+10-10 17:01:42.840 : DEBUG / tcardemulator ( 1404 : 1404 ) : received NFC_HCE_EVENT_APDU_RECEIVED event on NFC handle 770
+10-10 17:01:42.925 : DEBUG / tcardemulator ( 1404 : 1404 ) : find peer call succeeded
+10-10 17:01:42.935 : INFO / tcardemulator ( 1404 : 1404 ) : Find Peer Success!!
+10-10 17:01:42.935 : DEBUG / tcardemulator ( 1404 : 1404 ) : request_service_connection call over
+10-10 17:01:43.015 : DEBUG / tcardemulator ( 1404 : 1404 ) : req service conn call succeeded
+10-10 17:01:43.255 : INFO / tcardemulator ( 1404 : 1404 ) : peer agent connection is successful, pa :704808048
+10-10 17:01:43.445 : INFO / tcardemulator ( 1404 : 1404 ) : received data: 0x43003270, len:22
+10-10 17:01:43.445 : DEBUG / tcardemulator ( 1404 : 1404 ) : sending data to nfc handle: 770
+10-10 17:01:43.470 : DEBUG / tcardemulator ( 1404 : 1404 ) : received NFC_HCE_EVENT_DEACTIVATED event on NFC handle 1
+10-10 17:01:43.510 : DEBUG / tcardemulator ( 1404 : 1404 ) : terminate service conn call succeeded
+10-10 17:01:43.515 : DEBUG / tcardemulator ( 1404 : 1404 ) : received NFC_HCE_EVENT_DEACTIVATED event on NFC handle 770
