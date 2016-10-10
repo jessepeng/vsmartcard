@@ -12,9 +12,9 @@
 #include <nfc.h>
 #include <glib.h>
 
-extern unsigned char *rapdu;
-extern size_t rapdu_length;
-extern gboolean rapdu_received;
+//extern unsigned char *rapdu;
+//extern size_t rapdu_length;
+//extern gboolean rapdu_received;
 
 #define HELLO_ACC_ASPID "/com/vsmcartcard"
 #define HELLO_ACC_CHANNELID 104

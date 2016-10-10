@@ -99,28 +99,28 @@ static void on_data_recieved(sap_socket_h socket,
 		void *user_data)
 {
 	dlog_print(DLOG_INFO, LOG_TAG, "received data: %p, len:%d", buffer, payload_length);
-	unsigned char *p = realloc(rapdu, payload_length);
-	if (p) {
-		rapdu = p;
-		rapdu_length = payload_length;
-	} else {
-		dlog_print(DLOG_ERROR, LOG_TAG, "not enough for storing data");
-		if (rapdu && rapdu_length >= 2) {
-			dlog_print(DLOG_ERROR, LOG_TAG,
-				   "not enough memory, returning 0x6D00 as R-APDU");
-			rapdu[0] = 0x6D;
-			rapdu[1] = 0x00;
-			rapdu_length = 2;
-		} else {
-			dlog_print(DLOG_ERROR, LOG_TAG,
-				   	"not enough memory, setting R-APDU to nothing");
-			rapdu_length = 0;
-		}
-	}
+	//unsigned char *p = realloc(rapdu, payload_length);
+//	if (p) {
+//		rapdu = p;
+//		rapdu_length = payload_length;
+//	} else {
+//		dlog_print(DLOG_ERROR, LOG_TAG, "not enough for storing data");
+//		if (rapdu && rapdu_length >= 2) {
+//			dlog_print(DLOG_ERROR, LOG_TAG,
+//				   "not enough memory, returning 0x6D00 as R-APDU");
+//			rapdu[0] = 0x6D;
+//			rapdu[1] = 0x00;
+//			rapdu_length = 2;
+//		} else {
+//			dlog_print(DLOG_ERROR, LOG_TAG,
+//				   	"not enough memory, setting R-APDU to nothing");
+//			rapdu_length = 0;
+//		}
+//	}
 
-	rapdu_received = TRUE;
+//	rapdu_received = TRUE;
 
-//	send_apdu_response(priv_data.nfc_handle, buffer, payload_length);
+	send_apdu_response(priv_data.nfc_handle, buffer, payload_length);
 }
 
 message_queue_s *read_message() {
