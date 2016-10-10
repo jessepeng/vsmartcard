@@ -1,8 +1,10 @@
 #include "tcardemulator.h"
-#include <sap.h>
+#include "sap_app.h"
 #include <dlog.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <nfc.h>
+#include <sap.h>
 
 #define HELLO_ACCESSORY_PROFILE_ID "/com/vsmcartcard"
 #define HELLO_ACCESSORY_CHANNELID 104
@@ -11,6 +13,7 @@ typedef struct priv {
 	sap_agent_h agent;
 	sap_socket_h socket;
 	sap_peer_agent_h peer_agent;
+	nfc_se_h nfc_handle;
 } priv_s;
 
 typedef struct message_queue {
@@ -95,26 +98,28 @@ static void on_data_recieved(sap_socket_h socket,
 		void *user_data)
 {
 	dlog_print(DLOG_INFO, LOG_TAG, "received data: %p, len:%d", buffer, payload_length);
-	unsigned char *p = realloc(rapdu, payload_length);
-	if (p) {
-		rapdu = p;
-		rapdu_length = payload_length;
-	} else {
-		dlog_print(DLOG_ERROR, LOG_TAG, "not enough for storing data");
-		if (rapdu && rapdu_length >= 2) {
-			dlog_print(DLOG_ERROR, LOG_TAG,
-				   "not enough memory, returning 0x6D00 as R-APDU");
-			rapdu[0] = 0x6D;
-			rapdu[1] = 0x00;
-			rapdu_length = 2;
-		} else {
-			dlog_print(DLOG_ERROR, LOG_TAG,
-				   	"not enough memory, setting R-APDU to nothing");
-			rapdu_length = 0;
-		}
-	}
+	//unsigned char *p = realloc(rapdu, payload_length);
+//	if (p) {
+//		rapdu = p;
+//		rapdu_length = payload_length;
+//	} else {
+//		dlog_print(DLOG_ERROR, LOG_TAG, "not enough for storing data");
+//		if (rapdu && rapdu_length >= 2) {
+//			dlog_print(DLOG_ERROR, LOG_TAG,
+//				   "not enough memory, returning 0x6D00 as R-APDU");
+//			rapdu[0] = 0x6D;
+//			rapdu[1] = 0x00;
+//			rapdu_length = 2;
+//		} else {
+//			dlog_print(DLOG_ERROR, LOG_TAG,
+//				   	"not enough memory, setting R-APDU to nothing");
+//			rapdu_length = 0;
+//		}
+//	}
 
-	rapdu_received = TRUE;
+//	rapdu_received = TRUE;
+
+	send_apdu_response(priv_data.nfc_handle, buffer, payload_length);
 }
 
 message_queue_s *read_message() {
@@ -149,11 +154,16 @@ gboolean add_message(void *message, unsigned int message_len) {
 	return FALSE;
 }
 
-gboolean send_data(void *message, unsigned int message_len) {
+gboolean send_data(nfc_se_h nfc_handle, void *message, unsigned int message_len) {
 	gboolean result;
 	if (agent_connected) {
+		priv_data.nfc_handle = nfc_handle;
 		result = sap_socket_send_data(priv_data.socket,
 				HELLO_ACCESSORY_CHANNELID, message_len, message);
+
+		if (result != SAP_RESULT_SUCCESS) {
+
+		}
 	} else {
 		result = add_message(message, message_len);
 	}
@@ -175,9 +185,10 @@ static void on_service_connection_created(sap_peer_agent_h peer_agent,
 			sap_socket_set_data_received_cb(socket, on_data_recieved, peer_agent);
 			priv_data.socket = socket;
 			agent_connected = TRUE;
+			// read messages in queue and send them
 			message_queue_s *message_queue = read_message();
 			while (message_queue != NULL) {
-				send_data(message_queue->message, message_queue->message_len);
+				send_data(priv_data.nfc_handle, message_queue->message, message_queue->message_len);
 				message_queue = read_message();
 			}
 			break;
@@ -255,9 +266,12 @@ static gboolean _terminate_service_connection(gpointer user_data)
 	}
 
 	if (result == SAP_RESULT_SUCCESS) {
-		dlog_print(DLOG_DEBUG, LOG_TAG, "req service conn call succeeded");
+		dlog_print(DLOG_DEBUG, LOG_TAG, "terminate service conn call succeeded");
+
+		priv->socket = NULL;
+		agent_connected = FALSE;
 	} else {
-		dlog_print(DLOG_ERROR, LOG_TAG, "req service conn call is failed (%d)", result);
+		dlog_print(DLOG_ERROR, LOG_TAG, "terminate service conn call is failed (%d)", result);
 	}
 
 	return FALSE;
@@ -292,7 +306,6 @@ gboolean find_peers()
 {
 	g_idle_add(_find_peer_agent, &priv_data);
 	dlog_print(DLOG_DEBUG, LOG_TAG, "find peer called");
-//	return _find_peer_agent(&priv_data);
 	return TRUE;
 }
 
