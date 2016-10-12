@@ -110,9 +110,7 @@ public class SmartcardProviderService extends SAAgent {
     @Override
     protected void onServiceConnectionRequested(SAPeerAgent peerAgent) {
         if (peerAgent != null) {
-            //TODO: Check for keys and everything
             authenticatePeerAgent(peerAgent);
-            //acceptServiceConnectionRequest(peerAgent);
         }
     }
 
@@ -232,6 +230,7 @@ public class SmartcardProviderService extends SAAgent {
                 public void run() {
                 try {
                     mConnectionHandler.secureSend(ACCESSORY_CHANNEL_ID, sendResponse);
+                    //mConnectionHandler.send(ACCESSORY_CHANNEL_ID, sendResponse);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
