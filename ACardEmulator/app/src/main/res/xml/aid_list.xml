@@ -27,4 +27,9 @@
         <aid-filter android:name="@string/aid_gidsapplet_truncated2"/>
     </aid-group>
 
+    <aid-group android:description="@string/applet_notfound" android:category="other">
+        <aid-filter android:name="@string/aid_notfound1" />
+        <aid-filter android:name="@string/aid_notfound2" />
+    </aid-group>
+
 </host-apdu-service>

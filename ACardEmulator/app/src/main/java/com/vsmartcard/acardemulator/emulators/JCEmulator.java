@@ -14,6 +14,7 @@ import com.vsmartcard.acardemulator.Util;
 
 import net.pwendland.javacard.pki.isoapplet.IsoApplet;
 
+import de.jessepeng.aidnotfound.applet.AidNotFoundApplet;
 import openpgpcard.OpenPGPApplet;
 import pkgYkneoOath.YkneoOath;
 
@@ -97,6 +98,18 @@ public class JCEmulator implements Emulator {
                 e.printStackTrace();
                 extra_error += "\n" + "Could not install " + name + " (AID: " + aid + ")";
             }
+        }
+
+        name = context.getResources().getString(R.string.applet_notfound);
+        aid = context.getResources().getString(R.string.aid_notfound1);
+        String aid2 = context.getResources().getString(R.string.aid_notfound2);
+        try {
+            simulator.installApplet(AIDUtil.create(aid), AidNotFoundApplet.class);
+            simulator.installApplet(AIDUtil.create(aid2), AidNotFoundApplet.class);
+            extra_install += "\n" + name + " (AIDs: " + aid + ", " + aid2 + ")";
+        } catch (Exception e) {
+            e.printStackTrace();
+            extra_error += "\n" + "Could not install " + name + " (AIDs: " + aid + ", " + aid2 + ")";
         }
 
         Intent i = new Intent(EmulatorSingleton.TAG);
